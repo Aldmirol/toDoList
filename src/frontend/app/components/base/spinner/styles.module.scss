@@ -1,0 +1,12 @@
+.spinner {
+    z-index: 1;
+    color: #ffffff;
+}
+
+.loading-spinner {
+   position: fixed;
+   left: calc(50% - 32px);
+   top: calc(50% - 32px);
+   z-index: 1;
+   color: #0d6efd;
+}

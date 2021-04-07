@@ -12,15 +12,15 @@ async function getTasks(req, res) {
         q
     } = req.query;
     const tasks = (await database).collection('tasks');
-    
+  
     tasks.find({}).toArray((err, result) => {
         if (err) {
             return res.status(400);
         } else if (q) {
             return res.status(200).json(result.filter(task => task.title.toLowerCase().includes(q.toLowerCase())));
         }
-
-        return res.status(200).json(result);
+        
+            return res.status(200).json(result);
     });
 }
 
