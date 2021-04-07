@@ -1,5 +1,6 @@
 import styles from './styles.module.scss';
-import {Heading, Description, Row} from './helpers';
+import {Heading, Description, Row, HeadingRow} from './helpers';
+import { Modal } from '../../../base/modal';
 
 export function Table() {
     const table = document.createElement('table');
@@ -9,13 +10,12 @@ export function Table() {
     
     table.classList.add('table', 'table-dark', 'table-hover',styles.table);
 
-    head.append(Row({
+    head.append(HeadingRow({
         headings: [
             Heading('Title', 'col'), 
             Heading('Description', 'col'), 
             Heading('Status', 'col'), 
             Heading('Action', 'col'), 
-            Heading('', 'col')
         ]
     }));
 
@@ -36,5 +36,30 @@ export function Table() {
 
     table.append(head, body);
 
+    table.addEventListener("click", openTask);
+
     return table;
+}
+
+function openTask(e) {
+    const target = e.target;
+    const taskId = e.target.dataset.id;
+
+    if (target.tagName !== 'TD') {
+        return;
+    }
+
+    fetch(`http://localhost:3000/tasks/${taskId}`)
+        .then(res => res.json())
+        .then(task => {
+            console.log(task);
+            if (task) {
+                console.log(task.title);
+                document.body.append(Modal({
+                    title: task[0].title,
+                    body: task[0].description,
+                    hasFooterCloseButton: true,
+                }));
+            }
+        });
 }

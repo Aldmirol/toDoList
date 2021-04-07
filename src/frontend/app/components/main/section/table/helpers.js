@@ -54,11 +54,6 @@ export function Row({
 
     row.classList.add(styles.row);
 
-    if (headings) {
-        headings.forEach(element => {
-            row.append(element)
-        });
-    } else {
         row.append(
             Description({
                 data: title,
@@ -73,11 +68,23 @@ export function Row({
                 dataId: id
             }),
             Description({
-                data: [Button("danger", "Delete")],
+                data: [Button({
+                    classList: "danger",
+                    content: "Delete",
+                })],
                 dataId: id
             }),
             );
-    }
 
 return row;
+}
+
+export function HeadingRow({headings}) {
+    const headingRow = document.createElement('tr');
+    
+    headingRow.classList.add(styles.headingRow);
+
+    headings.forEach(heading => headingRow.append(heading));
+
+    return headingRow;
 }

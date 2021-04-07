@@ -15,7 +15,10 @@ export function SearchPanel() {
     input.type = 'text';
     input.placeholder = 'search';
 
-    searchPanel.append(input, select, Button('info', 'Add task'));
+    searchPanel.append(input, select, Button({
+        classList: "info",
+        content: "Add task"
+    }));
 
     return searchPanel;
 }
