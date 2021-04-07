@@ -28,14 +28,14 @@
   "homepage": "https://github.com/Aldmirol/toDoList#readme",
   "dependencies": {
     "body-parser": "1.19.0",
-    "cors": "^2.8.5",
+    "cors": "2.8.5",
     "express": "4.17.1",
     "mongodb": "3.6.5",
     "normalize.css": "8.0.1"
   },
   "devDependencies": {
     "@types/express": "4.11.1",
-    "concurrently": "^6.0.0",
+    "concurrently": "6.0.0",
     "copyfiles": "2.4.1",
     "css-loader": "5.2.0",
     "html-webpack-plugin": "5.3.1",
