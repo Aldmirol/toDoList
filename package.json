@@ -1,0 +1,56 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "To Do List",
+  "main": "index.js",
+  "scripts": {
+    "copy:img": "copyfiles -u 3 ./src/frontend/app/img/*.* ./dist",
+    "build:frontend": "webpack && npm run copy:img",
+    "start:dev:backend": "nodemon ./src/backend/index",
+    "start:dev:frontend": "webpack serve",
+    "start:dev": "concurrently \"npm run start:dev:frontend\" \"npm run start:dev:backend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aldmirol/toDoList.git"
+  },
+  "keywords": [
+    "SPA",
+    "Node",
+    "Express",
+    "JS"
+  ],
+  "author": "Aliaksei Prykhodzka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aldmirol/toDoList/issues"
+  },
+  "homepage": "https://github.com/Aldmirol/toDoList#readme",
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "cors": "^2.8.5",
+    "express": "4.17.1",
+    "font-awesome": "4.7.0",
+    "mongodb": "3.6.5",
+    "normalize.css": "8.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "4.11.1",
+    "concurrently": "^6.0.0",
+    "copyfiles": "2.4.1",
+    "css-loader": "5.2.0",
+    "html-webpack-plugin": "5.3.1",
+    "http-server": "0.12.3",
+    "mini-css-extract-plugin": "1.3.9",
+    "nodemon": "2.0.7",
+    "rimraf": "3.0.2",
+    "sass": "1.32.8",
+    "sass-loader": "11.0.1",
+    "webpack": "5.28.0",
+    "webpack-bundle-analyzer": "4.4.0",
+    "webpack-cli": "4.5.0",
+    "webpack-dev-server": "3.11.2",
+    "webpack-node-externals": "2.5.2",
+    "yarn": "1.22.10"
+  }
+}

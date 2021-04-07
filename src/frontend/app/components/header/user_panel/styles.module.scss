@@ -1,0 +1,19 @@
+.userPanel {
+    width: 85%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #232323;
+}
+
+.userInfo {
+    font-size: 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+    color: #ffffff;
+}
+
+.userInfo, 
+.button {
+    margin-right: 20px;
+}
