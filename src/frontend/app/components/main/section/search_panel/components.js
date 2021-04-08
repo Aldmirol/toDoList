@@ -28,6 +28,7 @@ export function SearchPanel() {
 
 function openModalToAddTask() {
     document.body.append(Modal({
+        title: "New Task",
         body: OpenTaskModal()
     }));
 }

@@ -1,16 +1,15 @@
 export function Button({
     classList = 'primary',
     content = '',
-    clickHandler,
+    clickHandler = function() {},
+    type = "button"
 }) {
     const button = document.createElement('button');
 
     button.classList.add('btn');
     button.classList.add(`btn-${classList}`);
-
-    button.setAttribute('type', 'button');
+    button.setAttribute('type', type);
     button.addEventListener('click', clickHandler);
-
     button.textContent = content;
 
     return button;
