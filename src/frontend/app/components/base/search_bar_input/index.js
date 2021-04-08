@@ -1,1 +1,0 @@
-export {SearchBarInput} from './components';

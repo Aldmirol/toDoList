@@ -13,10 +13,13 @@ export function OpenTaskModal() {
         clickHandler: addTask,
     });
 
+    titleInput.setAttribute("required", "");
+    statusInput.setAttribute("required", "");
+
     form.classList.add(formAddTaskClassName, styles.form);
-    titleInput.classList.add('form-control', 'title-input');
-    statusInput.classList.add('form-control', 'status-input');
-    descriptionTextarea.classList.add('form-control', 'description-textarea');
+    titleInput.classList.add('form-control', 'title-input', 'm-3', styles.title);
+    statusInput.classList.add('form-control', 'status-input', 'm-3', styles.status);
+    descriptionTextarea.classList.add('form-control', 'description-textarea', 'm-3', styles.description);
 
     titleInput.placeholder = 'Enter task title';
     statusInput.placeholder = 'Enter task status';

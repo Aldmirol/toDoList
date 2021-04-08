@@ -1,7 +1,4 @@
 import { Badge } from '../../../base/badge';
-import {
-    Button
-} from '../../../base/button/components';
 import styles from './styles.module.scss';
 
 export function Heading(data, scope) {
@@ -41,42 +38,6 @@ export function Description({
     }
 
     return description;
-}
-
-export function Row({
-    title,
-    description,
-    status,
-    id,
-    headings
-}) {
-    const row = document.createElement('tr');
-
-    row.classList.add(styles.row);
-
-        row.append(
-            Description({
-                data: title,
-                dataId: id
-            }),
-            Description({
-                data: description,
-                dataId: id
-            }),
-            Description({
-                status: status,
-                dataId: id
-            }),
-            Description({
-                data: [Button({
-                    classList: "danger",
-                    content: "Delete",
-                })],
-                dataId: id
-            }),
-            );
-
-return row;
 }
 
 export function HeadingRow({headings}) {

@@ -1,3 +1,8 @@
 .form {
     cursor: default;
+    .title,
+    .status,
+    .description {
+        width: 90%;
+    }
 }

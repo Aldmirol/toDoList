@@ -1,4 +1,5 @@
-import { Row } from "../../table/helpers";
+import { removeModal } from "../../../../base/helpers";
+import { Row } from "../../table/row";
 import {
     formAddTaskSelector
 } from "./constants";
@@ -37,8 +38,8 @@ export function addTask(e) {
             });
 
             document.querySelector('tbody').prepend(taskRow);
-            
-            document.querySelector('.modal')?.remove();
+
+            removeModal();
         });
 }
 

@@ -1,7 +1,7 @@
 import styles from './styles.module.scss';
 import {Button} from '../../../base/button';
 import {SelectMenu} from '../../../base/select_menu';
-import {SearchBarInput} from "../../../base/search_bar_input";
+import {SearchBarInput} from "./search_bar_input";
 import { Modal } from '../../../base/modal/components';
 import { OpenTaskModal } from './add_task_modal';
 

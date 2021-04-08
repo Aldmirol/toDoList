@@ -66,7 +66,7 @@ function ModalContent({
 function ModalHeader(title) {
     const modalHeader = document.createElement('div');
 
-    modalHeader.classList.add('modal-header');
+    modalHeader.classList.add('modal-header', styles.header);
 
     modalHeader.append(ModalTitle(title), ModalCloseHeaderButton());
 
@@ -76,15 +76,13 @@ function ModalHeader(title) {
 function ModalBody(body) {
     const modalBody = document.createElement('div');
 
-    modalBody.classList.add('modal-body');
+    modalBody.classList.add('modal-body', styles.body);
 
     if (typeof body === "string") {
         modalBody.innerHTML = body;
     } else {
         modalBody.append(body);
     }
-
-
 
     return modalBody;
 }
@@ -95,7 +93,7 @@ function ModalFooter({
 }) {
     const modalFooter = document.createElement('div');
 
-    modalFooter.classList.add('modal-footer');
+    modalFooter.classList.add('modal-footer', styles.footer);
 
     if (hasFooterCloseButton) {
         modalFooter.append(ModalCloseFooterButton());
@@ -118,10 +116,9 @@ function ModalTitle(title) {
 
 function ModalCloseHeaderButton() {
     const modalCloseButton = Button({
-        classList: 'close'
+        classList: 'close',
+        clickHandler: closeModal,
     });
-
-    modalCloseButton.addEventListener('click', closeModal);
 
     return modalCloseButton;
 }
@@ -129,10 +126,9 @@ function ModalCloseHeaderButton() {
 function ModalCloseFooterButton() {
     const modalCloseButton = Button({
         classList: 'secondary',
-        content: 'Close'
+        content: 'Close',
+        clickHandler: closeModal,
     });
-
-    modalCloseButton.addEventListener('click', closeModal);
 
     return modalCloseButton;
 }

@@ -1,12 +1,12 @@
-import { Row } from "../../main/section/table/helpers";
-import { debounce } from "../helpers";
+import { debounce } from "../../../../base/helpers";
+import { Row } from "../../table/row";
+
 
 export function SearchBarInput() {
     const searchBarInput = document.createElement('input');
     const debounceSearch = debounce(search, 500);
 
     searchBarInput.classList.add('form-control');
-
     searchBarInput.addEventListener('keyup', debounceSearch);
 
     return searchBarInput;
@@ -18,7 +18,7 @@ function search(e) {
     fetch(`http://localhost:3000/tasks?q=${q}`)
         .then(res => res.json())
         .then(tasks => {
-            const body = document.querySelector('tbody')
+            const body = document.querySelector('tbody');
             const fr = document.createDocumentFragment();
 
             tasks.forEach(task => {

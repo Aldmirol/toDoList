@@ -1,12 +1,12 @@
 import styles from './styles.module.scss';
 import {
     Heading,
-    Row,
     HeadingRow
 } from './helpers';
 import {
     Modal
 } from '../../../base/modal';
+import { Row } from './row';
 
 export function Table() {
     const table = document.createElement('table');

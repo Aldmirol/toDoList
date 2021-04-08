@@ -11,3 +11,7 @@ export function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
+
+export function removeModal() {
+    document.querySelector('.modal')?.remove();
+}
