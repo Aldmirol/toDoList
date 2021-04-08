@@ -3,7 +3,8 @@ import {Button} from '../../../base/button';
 import {SelectMenu} from '../../../base/select_menu';
 import {SearchBarInput} from "./search_bar_input";
 import { Modal } from '../../../base/modal/components';
-import { OpenTaskModal } from './add_task_modal';
+import { OpenTaskModal } from './open_task_modal/components';
+
 
 export function SearchPanel() {
     const searchPanel = document.createElement('div');
