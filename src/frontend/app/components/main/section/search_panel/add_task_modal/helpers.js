@@ -36,9 +36,9 @@ export function addTask(e) {
                 status: task.status
             });
 
-            document.querySelector('modal')?.remove();
-
             document.querySelector('tbody').prepend(taskRow);
+            
+            document.querySelector('.modal')?.remove();
         });
 }
 
