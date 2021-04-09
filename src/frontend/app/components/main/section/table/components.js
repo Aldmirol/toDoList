@@ -4,7 +4,7 @@ import {
     HeadingRow
 } from './helpers';
 import {
-    Modal
+    openModal, closeModal
 } from '../../../base/modal';
 import { Row } from './row';
 
@@ -63,11 +63,11 @@ function openTask(e) {
             console.log(task);
             if (task) {
                 console.log(task.title);
-                document.body.append(Modal({
+                openModal({
                     title: task[0].title,
                     body: task[0].description,
                     hasFooterCloseButton: true,
-                }));
+                });
             }
         });
 }

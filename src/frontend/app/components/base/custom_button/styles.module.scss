@@ -1,4 +1,4 @@
-.sort-elem {
+.custom-button{
     width: 100%;
     display: flex;
     justify-content: center;
@@ -9,7 +9,7 @@
     
 }
 
-.sort-elem:hover {
+.custom-button:hover {
     background-color: #434343;
     cursor: pointer;
 }
@@ -19,6 +19,6 @@
     font-size: 1.2rem;
 }
 
-.sort-elem:active {
+.custom-button:active {
     transform: scale(0.95, 0.95);
 }

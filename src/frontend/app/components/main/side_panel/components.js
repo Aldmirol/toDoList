@@ -1,5 +1,7 @@
 import styles from './styles.module.scss';
-import {SortElem} from '../../base/sort_elem';
+import {
+    CustomButton
+} from '../../base/custom_button';
 
 export function SidePanel() {
     const sidePanel = document.createElement('aside');
@@ -11,7 +13,7 @@ export function SidePanel() {
     importance.classList.add(styles.importance);
 
     importance.append();
-    period.append(SortElem('Today', styles.sortElem), SortElem('Week', styles.sortElem), SortElem('Month', styles.sortElem), SortElem('Year', styles.sortElem));
+    period.append(CustomButton('Today', styles.customButton), CustomButton('Week', styles.customButton), CustomButton('Month', styles.customButton), CustomButton('Year', styles.customButton));
     sidePanel.append(period, importance);
 
     return sidePanel;

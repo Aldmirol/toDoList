@@ -1,5 +1,9 @@
 import styles from "./styles.module.scss";
 
+export function ButtonSpinner() {
+    return `<i class="fas fa-spinner fa-spin"></i>`;
+}
+
 export function Spinner() {
     const spinner = document.createElement("i");
 

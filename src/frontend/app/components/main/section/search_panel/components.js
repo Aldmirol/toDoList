@@ -1,9 +1,9 @@
 import styles from './styles.module.scss';
 import {Button} from '../../../base/button';
 import {SelectMenu} from '../../../base/select_menu';
-import {SearchBarInput} from "./search_bar_input";
-import { Modal } from '../../../base/modal/components';
-import { OpenTaskModal } from './open_task_modal/components';
+import {SearchBarInput} from "./keyword_search_bar";
+import { OpenTaskModal } from './add_task_form/components';
+import { openModal } from '../../../base/modal';
 
 
 export function SearchPanel() {
@@ -28,8 +28,8 @@ export function SearchPanel() {
 }
 
 function openModalToAddTask() {
-    document.body.append(Modal({
+    openModal({
         title: "New Task",
         body: OpenTaskModal()
-    }));
+    });
 }

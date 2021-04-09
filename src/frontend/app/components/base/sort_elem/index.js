@@ -1,1 +1,0 @@
-export {SortElem} from './components';

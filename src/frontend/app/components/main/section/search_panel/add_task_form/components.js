@@ -20,6 +20,7 @@ export function OpenTaskModal() {
     titleInput.classList.add('form-control', 'title-input', 'm-3', "bg-secondary", styles.title);
     statusInput.classList.add('form-control', 'status-input', 'm-3', "bg-secondary", styles.status);
     descriptionTextarea.classList.add('form-control', 'description-textarea', 'm-3', "bg-secondary", styles.description);
+    formSubmitBtn.classList.add(styles.addTask);
 
     titleInput.placeholder = 'Enter task title';
     statusInput.placeholder = 'Enter task status';
