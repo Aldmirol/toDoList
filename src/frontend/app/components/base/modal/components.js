@@ -1,4 +1,5 @@
 import { Button } from "../button/components";
+import { removeModal } from "../helpers";
 import { closeModal } from "./helpers";
 import styles from "./styles.module.scss";
 
@@ -8,7 +9,7 @@ export function Modal({
     hasFooterCloseButton,
     footerButtons = []
 }) {
-    document.querySelector('.modal')?.remove;
+    removeModal();
 
     const modal = document.createElement('div');
 
