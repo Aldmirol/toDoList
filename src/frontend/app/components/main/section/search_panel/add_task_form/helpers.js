@@ -1,4 +1,5 @@
 import {
+    addToast,
     removeModal
 } from "../../../../base/helpers";
 import {
@@ -54,6 +55,12 @@ export function addTask(e) {
 
                 setTimeout(() => {
                     removeModal();
+                    addToast({
+                        titleText: "Test",
+                        bodyText: "Test message",
+                        hideTime: 2000,
+                        type: "succes"
+                    });
                 }, 1000);
             });
     }, 2000);
