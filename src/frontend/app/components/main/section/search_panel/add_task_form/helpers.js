@@ -1,17 +1,17 @@
 import {
     addToast,
     removeModal
-} from "../../../../base/helpers";
+} from '../../../../base/helpers';
 import {
     ButtonSpinner
-} from "../../../../base/spinner/components";
+} from '../../../../base/spinner/components';
 import {
     Row
-} from "../../table/row";
+} from '../../table/row';
 import {
     formAddTaskSelector
-} from "./constants";
-import styles from "./styles.module.scss";
+} from './constants';
+import styles from './styles.module.scss';
 
 export function addTask(e) {
     e.preventDefault();
@@ -19,10 +19,9 @@ export function addTask(e) {
     const btn = e.submitter;
     const form = document.querySelector(formAddTaskSelector);
     const titleInput = form.querySelector('.title-input');
-    const statusInput = form.querySelector('.status-input');
     const descriptionTextarea = form.querySelector('.description-textarea');
     const title = titleInput.value;
-    const status = statusInput.value;
+    let status = checkStatus();
     const description = descriptionTextarea.value
 
     btn.innerHTML = ButtonSpinner();
@@ -49,19 +48,30 @@ export function addTask(e) {
                 });
                 document.querySelector('tbody').prepend(taskRow);
 
-                btn.textContent = "Succes";
-                btn.className = "btn btn-success";
+                btn.textContent = 'Succes';
+                btn.className = 'btn btn-success';
                 btn.classList.add(styles.addTask);
 
                 setTimeout(() => {
-                    removeModal();
                     addToast({
-                        titleText: "Test",
-                        bodyText: "Test message",
+                        titleText: 'Success',
+                        bodyText: 'Task succesfuly added',
                         hideTime: 2000,
-                        type: "succes"
+                        type: 'succes'
                     });
+
+                    removeModal();
                 }, 1000);
             });
     }, 2000);
+}
+
+function checkStatus() {
+    const buttons = document.getElementsByName('btnradio');
+    
+    for (let btn of buttons) {   
+        if (btn.checked) {
+            return btn.defaultValue;
+        }
+    }
 }

@@ -1,5 +1,5 @@
-import { debounce } from "../../../../base/helpers";
-import { Row } from "../../table/row";
+import { debounce } from '../../../../base/helpers';
+import { Row } from '../../table/row';
 
 
 export function SearchBarInput() {

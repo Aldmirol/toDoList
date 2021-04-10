@@ -1,9 +1,15 @@
 .form {
     cursor: default;
+    display: flex;
+    flex-direction: column;
     .title,
-    .status,
     .description {
         width: 90%;
+    }
+    .status {
+        align-self: center;
+        width: 70%;
+        margin-bottom: 20px;
     }
     .title::placeholder,
     .status::placeholder,

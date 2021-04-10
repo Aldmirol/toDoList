@@ -25,7 +25,7 @@ export function addToast({
     type
 }) {
     setTimeout(() => {
-        document.querySelector(".toast-section")?.remove();
+        document.querySelector('.toast-section')?.remove();
     }, 2000);
 
     return showToast({

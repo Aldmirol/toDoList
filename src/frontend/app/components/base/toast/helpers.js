@@ -1,4 +1,4 @@
-import { Toast } from "./components";
+import { Toast } from './components';
 
 export function showToast({
     titleText,

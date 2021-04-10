@@ -1,7 +1,7 @@
 import styles from './styles.module.scss';
 import {Button} from '../../../base/button';
 import {SelectMenu} from '../../../base/select_menu';
-import {SearchBarInput} from "./keyword_search_bar";
+import {SearchBarInput} from './keyword_search_bar';
 import { OpenTaskModal } from './add_task_form/components';
 import { openModal } from '../../../base/modal';
 
@@ -19,8 +19,8 @@ export function SearchPanel() {
     input.placeholder = 'search';
 
     searchPanel.append(input, select, Button({
-        classList: "info",
-        content: "Add task",
+        classList: 'info',
+        content: 'Add task',
         clickHandler: openModalToAddTask
     }));
 
@@ -29,7 +29,7 @@ export function SearchPanel() {
 
 function openModalToAddTask() {
     openModal({
-        title: "New Task",
+        title: 'New Task',
         body: OpenTaskModal()
     });
 }

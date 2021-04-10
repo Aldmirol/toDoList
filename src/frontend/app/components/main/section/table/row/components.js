@@ -1,6 +1,6 @@
-import { Button } from "../../../../base/button";
-import { Description } from "../helpers";
-import styles from "./styles.module.scss";
+import { Button } from '../../../../base/button';
+import { Description } from '../helpers';
+import styles from './styles.module.scss';
 
 export function Row({
     title,
@@ -27,8 +27,8 @@ export function Row({
         }),
         Description({
             data: [Button({
-                classList: "danger",
-                content: "Delete",
+                classList: 'danger',
+                content: 'Delete',
             })],
             dataId: id
         }),

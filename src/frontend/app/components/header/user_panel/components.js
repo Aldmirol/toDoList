@@ -5,7 +5,7 @@ export function UserPanel() {
     const userPanel = document.createElement('div');
     const userInfo = document.createElement('span');
     const btn = Button({
-        content: "Log out",
+        content: 'Log out',
     });
 
     userPanel.classList.add(styles.userPanel);

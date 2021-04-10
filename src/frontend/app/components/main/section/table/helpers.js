@@ -16,9 +16,9 @@ export function Description({
     dataId
 }) {
     const description = document.createElement('td');
-    description.setAttribute("data-id", dataId);
+    description.setAttribute('data-id', dataId);
 
-    if (typeof data === "string" || typeof status === 'string') {
+    if (typeof data === 'string' || typeof data === 'number' || typeof status === 'string') {
         if (data) {
             description.innerText = data;
         } else {

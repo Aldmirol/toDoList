@@ -1,13 +1,13 @@
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
 export function ButtonSpinner() {
-    return `<i class="fas fa-spinner fa-spin"></i>`;
+    return `<i class='fas fa-spinner fa-spin'></i>`;
 }
 
 export function Spinner() {
-    const spinner = document.createElement("i");
+    const spinner = document.createElement('i');
 
-    spinner.className = "fas fa-spinner fa-spin";
+    spinner.className = 'fas fa-spinner fa-spin';
     spinner.classList.add(styles.spinner)
 
     return spinner;
@@ -16,7 +16,7 @@ export function Spinner() {
 export function LoadingSpinner() {
     const spinner = Spinner();
 
-    spinner.classList.add("fa-3x", "loading", styles.loadingSpinner);
+    spinner.classList.add('fa-3x', 'loading', styles.loadingSpinner);
 
     return spinner;
 }
@@ -26,5 +26,5 @@ export function startLoadingSpinner() {
 }
 
 export function stopLoadingSpinner() {
-    document.querySelector("i.loading")?.remove();
+    document.querySelector('i.loading')?.remove();
 }

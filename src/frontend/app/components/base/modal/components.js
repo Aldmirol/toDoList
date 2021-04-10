@@ -1,7 +1,7 @@
-import { Button } from "../button/components";
-import { removeModal } from "../helpers";
-import { closeModal } from "./helpers";
-import styles from "./styles.module.scss";
+import { Button } from '../button/components';
+import { removeModal } from '../helpers';
+import { closeModal } from './helpers';
+import styles from './styles.module.scss';
 
 export function Modal({
     title,
@@ -34,7 +34,7 @@ function ModalDialog({
 }) {
     const modalDialog = document.createElement('div');
 
-    modalDialog.classList.add('modal-dialog', "modal-dialog-centered");
+    modalDialog.classList.add('modal-dialog', 'modal-dialog-centered');
 
     modalDialog.append(ModalContent({
         title,
@@ -79,7 +79,7 @@ function ModalBody(body) {
 
     modalBody.classList.add('modal-body', styles.body);
 
-    if (typeof body === "string") {
+    if (typeof body === 'string') {
         modalBody.innerHTML = body;
     } else {
         modalBody.append(body);

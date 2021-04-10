@@ -44,7 +44,7 @@ export function Table() {
 
     table.append(head, body);
 
-    table.addEventListener("click", openTask);
+    table.addEventListener('click', openTask);
 
     return table;
 }
