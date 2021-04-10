@@ -1,4 +1,7 @@
 import { Badge } from '../../../base/badge';
+import { Button } from '../../../base/button';
+import { deleteTask } from '../../../base/CRUD/components';
+import { Modal } from '../../../base/modal';
 import styles from './styles.module.scss';
 
 export function Heading(data, scope) {
@@ -49,3 +52,19 @@ export function HeadingRow({headings}) {
 
     return headingRow;
 }
+
+export function OpenDeleteTaskModal(e) {
+    const targetId = e.target.dataset.id;
+    return document.body.append(Modal({
+        title: 'Are you sure?',
+        body: 'Delited data cannot be recovered',
+        hasFooterCloseButton: true,
+        footerButtons: [Button({
+            content: 'Delete',
+            classList: 'danger',
+            clickHandler: deleteTask,
+            dataId: targetId
+        })]
+    }))
+}
+

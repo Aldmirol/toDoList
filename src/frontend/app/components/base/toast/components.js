@@ -36,20 +36,16 @@ function toastElement({
     toastEl.setAttribute('aria-atomic', 'true');
     toastEl.setAttribute('data-bs-autohide', 'true');
 
-    if (type === 'success') {
-        toastEl.classList.add(styles.toastElSucces);
-    }
-
-    toastEl.append(toastHeader(titleText), toastBody(bodyText));
+    toastEl.append(toastHeader(titleText, type), toastBody(bodyText));
 
     return toastEl;
 }
 
-function toastHeader(titleText) {
+function toastHeader(titleText, type) {
     const toastHeader = document.createElement('div');
     const titleEl = document.createElement('strong');
 
-    toastHeader.className = 'toast-header text-white bg-success';
+    toastHeader.className = `toast-header text-white bg-${type}`;
     titleEl.classList.add('me-auto');
     titleEl.textContent = titleText;
 

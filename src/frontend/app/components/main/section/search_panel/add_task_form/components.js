@@ -1,7 +1,7 @@
 import { Button } from '../../../../base/button';
+import { addTask } from '../../../../base/CRUD/components';
 import { RadioButtonsGroup } from '../../../../base/radio_buttons_group';
 import { formAddTaskClassName } from './constants';
-import { addTask } from './helpers';
 import styles from './styles.module.scss';
 
 export function OpenTaskModal() {

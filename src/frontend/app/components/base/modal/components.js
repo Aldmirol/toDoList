@@ -15,6 +15,8 @@ export function Modal({
 
     modal.classList.add('modal', styles.show);
     modal.setAttribute('tabindex', '-1');
+    modal.setAttribute('aria-labelledby', 'staticBackdropLabel');
+    modal.setAttribute('aria-hidden', 'true');
 
     modal.append(ModalDialog({
         title,

@@ -53,7 +53,7 @@ async function deleteOneTask(req, res) {
             res.status(400);
         };
 
-        res.status(204).json(`task with id:${id} deleted`);
+        res.status(200).json(id);
     });
 }
 
