@@ -1,5 +1,5 @@
 import { Row } from "../../main/section/table/row";
-import { addToast, removeModal } from "../helpers";
+import { addToast, checkStatusAddBadges, removeModal } from "../helpers";
 import { openModal } from "../modal";
 import { ButtonSpinner } from "../spinner/components";
 import styles from './styles.module.scss';
@@ -110,11 +110,19 @@ export function editTask(e) {
             .then(task => {
                 const title = document.querySelector(`td.title-input[data-id="${taskId}"]`);
                 const description = document.querySelector(`td.description-textarea[data-id="${taskId}"]`);
+                const statusContainer = document.querySelector(`td.status[data-id="${taskId}"]`);
                 const status = document.querySelector(`span.status-text[data-id="${taskId}"]`);
 
                 title.textContent = task['$set'].title;
                 description.textContent = task['$set'].description;
-                status.textContent = task['$set'].status;
+
+                status.remove();
+                
+                checkStatusAddBadges({
+                    checkTarget: task['$set'].status,
+                    appendTarget: statusContainer,
+                    id: taskId,
+                });
 
                 btn.textContent = 'Succes';
                 btn.className = 'btn btn-success';

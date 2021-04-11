@@ -1,6 +1,6 @@
-import { Badge } from '../../../base/badge';
 import { Button } from '../../../base/button';
 import { deleteTask } from '../../../base/CRUD/components';
+import { checkStatusAddBadges } from '../../../base/helpers';
 import { Modal } from '../../../base/modal';
 import styles from './styles.module.scss';
 
@@ -31,15 +31,11 @@ export function Description({
         if (data) {
             description.innerText = data;
         } else {
-            if (status === 'in progress') {
-                description.append(Badge('info', 'in progress', dataId));
-            } else if (status === 'done') {
-                description.append(Badge('success', 'done', dataId));
-            } else if (status === 'to do') {
-                description.append(Badge('primary', 'to do', dataId));
-            } else if (status === 'important') {
-                description.append(Badge('danger', 'important', dataId));
-            }
+            checkStatusAddBadges({
+                checkTarget: status,
+                appendTarget: description,
+                id: dataId
+            });
         }
         
     } else {
