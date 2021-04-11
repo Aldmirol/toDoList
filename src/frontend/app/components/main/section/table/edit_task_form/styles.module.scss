@@ -1,0 +1,34 @@
+.form {
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+
+    .title,
+    .description {
+        width: 90%;
+        color: #ffffff;
+    }
+
+    .status {
+        align-self: center;
+        width: 70%;
+        margin-bottom: 20px;
+    }
+
+    .title::placeholder,
+    .status::placeholder,
+    .description::placeholder {
+        color: #ffffff;
+    }
+
+    .add-task,
+    .close-button {
+        width: 130px;
+    }
+
+    .buttons-block {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

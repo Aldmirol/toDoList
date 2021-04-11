@@ -16,9 +16,15 @@ export function Heading(data, scope) {
 export function Description({
     data,
     status,
-    dataId
+    dataId,
+    classList
 }) {
     const description = document.createElement('td');
+
+    if(classList) {
+        description.classList.add(classList);
+    }
+
     description.setAttribute('data-id', dataId);
 
     if (typeof data === 'string' || typeof data === 'number' || typeof status === 'string') {
@@ -26,13 +32,13 @@ export function Description({
             description.innerText = data;
         } else {
             if (status === 'in progress') {
-                description.append(Badge('info', 'in progress'));
+                description.append(Badge('info', 'in progress', dataId));
             } else if (status === 'done') {
-                description.append(Badge('success', 'done'));
+                description.append(Badge('success', 'done', dataId));
             } else if (status === 'to do') {
-                description.append(Badge('primary', 'to do'));
+                description.append(Badge('primary', 'to do', dataId));
             } else if (status === 'important') {
-                description.append(Badge('danger', 'important'));
+                description.append(Badge('danger', 'important', dataId));
             }
         }
         

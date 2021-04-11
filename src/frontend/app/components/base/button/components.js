@@ -12,7 +12,18 @@ export function Button({
     button.setAttribute('type', type);
     button.setAttribute('data-id', dataId);
     button.addEventListener('click', clickHandler);
-    button.textContent = content;
+
+    if (typeof content === 'string') {
+        button.textContent = content;
+    } else {
+        const btnEl = document.createElement('i');
+        btnEl.classList.add('fas');
+        btnEl.classList.add(`fa-${content[0]}`);
+        btnEl.setAttribute('data-id', dataId);
+
+        button.append(btnEl);
+    }
+    
 
     return button;
 }

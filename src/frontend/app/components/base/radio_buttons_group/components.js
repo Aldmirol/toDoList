@@ -1,31 +1,40 @@
 import styles from './styles.module.scss';
 
-export function RadioButtonsGroup() {
+export function RadioButtonsGroup({
+    status = ''
+}) {
     const group = document.createElement('div');
-    
-    const label = document.createElement('label');
 
     group.classList.add('btn-group');
     group.setAttribute('role', 'group');
     group.setAttribute('aria-label', 'Basic radio toggle button group');
 
-    group.append(
-        radioButton({
-            id: 'btn1',
-            title: 'to do',
+    if (status === 'to do') {
+        group.append(toDoButton({
             checked: true
-        }),
-        radioButton({
-            id: 'btn2',
-            title: 'in progress',
-            buttonType: 'info'
-        }),
-        radioButton({
-            id: 'btn3',
-            title: 'important',
-            buttonType: 'danger'
-        })
-    );
+        }), inProgressButton({
+            checked: false
+        }), importantButton({
+            checked: false
+        }));
+    } else if (status === 'in progress') {
+        group.append(toDoButton({
+            checked: false
+        }), inProgressButton({
+            checked: true
+        }), importantButton({
+            checked: false
+        }));
+    } else {
+        group.append(toDoButton({
+            checked: false
+        }), inProgressButton({
+            checked: false
+        }), importantButton({
+            checked: true
+        }));
+    }
+    
 
     return group;
 }
@@ -58,4 +67,36 @@ function radioButton({
     fragment.append(input, label);
 
     return fragment;
+}
+
+function toDoButton({
+    checked = false
+}) {
+    return radioButton({
+        id: 'btn1',
+        title: 'to do',
+        checked: checked
+    });
+}
+
+function inProgressButton({
+    checked = false
+}) {
+    return radioButton({
+        id: 'btn2',
+        title: 'in progress',
+        buttonType: 'info',
+        checked: checked
+    });
+}
+
+function importantButton({
+    checked = false
+}) {
+    return radioButton({
+        id: 'btn3',
+        title: 'important',
+        buttonType: 'danger',
+        checked: checked
+    });
 }

@@ -1,13 +1,12 @@
 import { Button } from '../../../../base/button';
 import { addTask } from '../../../../base/CRUD/components';
 import { RadioButtonsGroup } from '../../../../base/radio_buttons_group';
-import { formAddTaskClassName } from './constants';
 import styles from './styles.module.scss';
 
-export function OpenTaskModal() {
+export function CreateAddTaskForm() {
     const form = document.createElement('form');
     const titleInput = document.createElement('input');
-    const status = RadioButtonsGroup();
+    const status = RadioButtonsGroup({status: 'to do'});
     const descriptionTextarea = document.createElement('textarea');
     const formSubmitBtn = Button({
         content: 'Add task',
@@ -16,7 +15,7 @@ export function OpenTaskModal() {
 
     titleInput.setAttribute('required', '');
 
-    form.classList.add(formAddTaskClassName, styles.form);
+    form.classList.add('add-task', styles.form);
     titleInput.classList.add('form-control', 'title-input', 'm-3', 'bg-secondary', styles.title);
     status.classList.add(styles.status);
     descriptionTextarea.classList.add('form-control', 'description-textarea', 'm-3', 'bg-secondary', styles.description);

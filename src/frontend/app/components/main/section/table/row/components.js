@@ -1,5 +1,6 @@
 import { Button } from '../../../../base/button';
 import { Description, OpenDeleteTaskModal } from '../helpers';
+import { OpenEditTaskModal } from '../edit_task_form/helpers';
 import styles from './styles.module.scss';
 
 export function Row({
@@ -15,16 +16,28 @@ export function Row({
 
     row.append(
         Description({
-            data: title,
+            data: [Button({
+                classList: 'info',
+                content: [`edit`],
+                dataId: id,
+                clickHandler: OpenEditTaskModal
+            })],
             dataId: id
+        }),
+        Description({
+            data: title,
+            dataId: id,
+            classList: 'title-input'
         }),
         Description({
             data: description,
-            dataId: id
+            dataId: id,
+            classList: 'description-textarea'
         }),
         Description({
             status: status,
-            dataId: id
+            dataId: id,
+            classList: 'status'
         }),
         Description({
             data: [Button({

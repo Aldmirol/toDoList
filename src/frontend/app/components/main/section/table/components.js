@@ -3,10 +3,8 @@ import {
     Heading,
     HeadingRow
 } from './helpers';
-import {
-    openModal, closeModal
-} from '../../../base/modal';
 import { Row } from './row';
+import { openTask } from '../../../base/CRUD/components';
 
 export function Table() {
     const table = document.createElement('table');
@@ -18,6 +16,7 @@ export function Table() {
 
     head.append(HeadingRow({
         headings: [
+            Heading('Edit', 'col'),
             Heading('Title', 'col'),
             Heading('Description', 'col'),
             Heading('Status', 'col'),
@@ -47,27 +46,4 @@ export function Table() {
     table.addEventListener('click', openTask);
 
     return table;
-}
-
-function openTask(e) {
-    const target = e.target;
-    const taskId = e.target.dataset.id;
-
-    if (target.tagName !== 'TD') {
-        return;
-    }
-
-    fetch(`http://localhost:3000/tasks/${taskId}`)
-        .then(res => res.json())
-        .then(task => {
-            console.log(task);
-            if (task) {
-                console.log(task.title);
-                openModal({
-                    title: task[0].title,
-                    body: task[0].description,
-                    hasFooterCloseButton: true,
-                });
-            }
-        });
 }

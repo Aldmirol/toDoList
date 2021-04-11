@@ -21,12 +21,12 @@ export function removeModal() {
 export function addToast({
     titleText,
     bodyText,
-    hideTime,
+    hideTime = 2000,
     type
 }) {
     setTimeout(() => {
         document.querySelector('.toast-section')?.remove();
-    }, 2000);
+    }, hideTime);
 
     return showToast({
         titleText,
