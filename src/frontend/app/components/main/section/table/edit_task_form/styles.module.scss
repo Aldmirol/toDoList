@@ -13,6 +13,9 @@
         align-self: center;
         width: 70%;
         margin-bottom: 20px;
+        & label[for*="btn"] {
+            color: #ffffff;
+        }
     }
 
     .title::placeholder,
@@ -30,5 +33,10 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+    }
+
+    .title-label,
+    .description-label {
+        padding-left: 20px;
     }
 }

@@ -12,7 +12,7 @@ export function Table() {
     const body = document.createElement('tbody');
     const fr = document.createDocumentFragment();
 
-    table.classList.add('table', 'table-dark', 'table-hover', styles.table);
+    table.classList.add('table', 'table-dark', 'table-hover', 'table-sm', styles.table);
 
     head.append(HeadingRow({
         headings: [
