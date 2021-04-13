@@ -1,6 +1,11 @@
 import styles from './styles.module.scss';
 
-export function Badge(type, title, dataId) {
+export function Badge({
+    type = '', 
+    title = '', 
+    dataId = '',
+    clickHandler = function() {}
+}) {
     const badge = document.createElement('span');
 
     badge.classList.add('badge');
@@ -11,6 +16,8 @@ export function Badge(type, title, dataId) {
     badge.setAttribute('data-id', dataId);
 
     badge.textContent = title;
+
+    badge.addEventListener('click', clickHandler)
 
     return badge;
 }

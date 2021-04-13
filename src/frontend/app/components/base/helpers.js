@@ -1,4 +1,5 @@
 import { Badge } from './badge';
+import { changeStatusToDone } from './CRUD/change_status_to_done';
 import { showToast } from './toast';
 
 export function debounce(func, wait) {
@@ -44,12 +45,63 @@ export function checkStatusAddBadges({
     appendTarget = ''
 }) {
     if (checkTarget === 'in progress') {
-        return appendTarget.append(Badge('info', 'in progress', id));
+        return appendTarget.append(Badge({
+            title: 'in progress',
+            type: 'info',
+            dataId: id,
+            clickHandler: changeStatusToDone
+        }));
     } else if (checkTarget === 'done') {
-        return appendTarget.append(Badge('success', 'done', id));
+        return appendTarget.append(Badge({
+            title: 'done',
+            type: 'success',
+            dataId: id,
+            clickHandler: changeStatusToDone
+        }));
     } else if (checkTarget === 'to do') {
-        return appendTarget.append(Badge('primary', 'to do', id));
+        return appendTarget.append(Badge({
+            title: 'to do',
+            type: 'primary',
+            dataId: id,
+            clickHandler: changeStatusToDone
+        }));
     } else if (checkTarget === 'important') {
-        return appendTarget.append(Badge('danger', 'important', id));
+        return appendTarget.append(Badge({
+            title: 'important',
+            type: 'danger',
+            dataId: id,
+            clickHandler: changeStatusToDone
+        }));
     }
+}
+
+export function changeButtonToSuccess({
+    button = '',
+    classList,
+}) {
+    const btn = button;
+
+    btn.textContent = 'Succes';
+    btn.className = 'btn btn-success';
+
+    if (classList) {
+        btn.classList.add(classList);
+    }
+    
+    return btn;
+}
+
+export function changeBadgeToSuccess({
+    badge = '',
+    classList
+}) {
+    const bdg = badge;
+
+    bdg.innerText = 'done';
+
+    if (classList) {
+        bdg.classList.add(classList);
+    }
+
+    return bdg;
 }

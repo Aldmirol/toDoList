@@ -1,7 +1,8 @@
 import { Row } from "../../main/section/table/row";
-import { addToast, checkStatusAddBadges, removeModal } from "../helpers";
+import { addToast, changeButtonToSuccess, checkStatusAddBadges, removeModal } from "../helpers";
 import { openModal } from "../modal";
 import { ButtonSpinner } from "../spinner/components";
+import { checkStatus } from "./helpers";
 import styles from './styles.module.scss';
 
 export function openTask(e) {
@@ -62,9 +63,10 @@ export function addTask(e) {
                 });
                 document.querySelector('tbody').prepend(taskRow);
 
-                btn.textContent = 'Succes';
-                btn.className = 'btn btn-success';
-                btn.classList.add(styles.addTask);
+                changeButtonToSuccess({
+                    button: btn,
+                    classList: styles.addTask,
+                })
 
                 setTimeout(() => {
                     addToast({
@@ -124,9 +126,10 @@ export function editTask(e) {
                     id: taskId,
                 });
 
-                btn.textContent = 'Succes';
-                btn.className = 'btn btn-success';
-                btn.classList.add(styles.addTask);
+                changeButtonToSuccess({
+                    button: btn,
+                    classList: styles.addTask,
+                });
 
                 setTimeout(() => {
                     addToast({
@@ -160,8 +163,10 @@ export function deleteTask(e) {
             })
             .then(res => res.json())
             .then(task => {
-                btn.textContent = 'Succes';
-                btn.className = 'btn btn-success';
+                
+                changeButtonToSuccess({
+                    button: btn,
+                });
 
                 document.querySelector(`tr[data-id="${task}"]`)?.remove();
 
@@ -177,14 +182,4 @@ export function deleteTask(e) {
                 }, 1000);
         });
     }, 1500);
-}
-
-function checkStatus() {
-    const buttons = document.getElementsByName('btnradio');
-
-    for (let btn of buttons) {
-        if (btn.checked) {
-            return btn.defaultValue;
-        }
-    }
 }
