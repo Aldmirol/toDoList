@@ -8,11 +8,16 @@ export function Row({
     description,
     status,
     id,
+    hasDoneStatus = false
 }) {
     const row = document.createElement('tr');
 
     row.classList.add(styles.row);
     row.setAttribute('data-id', id);
+
+    if (hasDoneStatus) {
+        row.classList.add("row-done-task");
+    }
 
     row.append(
         Description({

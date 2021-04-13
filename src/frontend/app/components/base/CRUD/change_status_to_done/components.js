@@ -1,4 +1,4 @@
-import { changeBadgeToSuccess, changeButtonToSuccess } from "../../helpers";
+import { addToast, changeBadgeToSuccess, changeButtonToSuccess } from "../../helpers";
 import { ButtonSpinner } from "../../spinner/components";
 import styles from './styles.module.scss';
 
@@ -22,11 +22,29 @@ export function changeStatusToDone(e) {
         })
         .then(res => res.json())
         .then(task => {
+            const doneTaskRow = document.querySelector(`tr[data-id="${taskId}"]`);
+            const rowBody = document.querySelector("tbody");
+            console.log(doneTaskRow);
+
             changeBadgeToSuccess({
                 badge: badge,
                 classList: styles.badge
             })
-        })
+
+            setTimeout(() => {
+               doneTaskRow.classList.add("row-done-task");
+
+               doneTaskRow.remove();
+               rowBody.append(doneTaskRow);
+            }, 1000);
+
+            addToast({
+                titleText: 'Success',
+                bodyText: 'Task done',
+                hideTime: 2000,
+                type: 'success'
+            });
+        });
     }, 1500);
     
 console.dir(status);
