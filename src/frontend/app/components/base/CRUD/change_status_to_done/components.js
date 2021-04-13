@@ -24,6 +24,7 @@ export function changeStatusToDone(e) {
         .then(task => {
             const doneTaskRow = document.querySelector(`tr[data-id="${taskId}"]`);
             const rowBody = document.querySelector("tbody");
+            const badge = document.querySelector(`span[data-id="${taskId}"]`);
             console.log(doneTaskRow);
 
             changeBadgeToSuccess({
@@ -35,6 +36,8 @@ export function changeStatusToDone(e) {
                doneTaskRow.classList.add("row-done-task");
 
                doneTaskRow.remove();
+               badge.removeEventListener("click", changeStatusToDone);
+
                rowBody.append(doneTaskRow);
             }, 1000);
 

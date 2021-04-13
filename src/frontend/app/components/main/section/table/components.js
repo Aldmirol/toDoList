@@ -10,6 +10,8 @@ export function Table() {
     const table = document.createElement('table');
     const head = document.createElement('thead');
     const body = document.createElement('tbody');
+    const allStatusExeptDoneEl = document.createDocumentFragment();
+    const doneStatusEl = document.createDocumentFragment();
     const fr = document.createDocumentFragment();
 
     table.classList.add('table', 'table-dark', 'table-hover', 'table-sm', styles.table);
@@ -28,17 +30,29 @@ export function Table() {
         .then(res => res.json())
         .then(tasks => {
             tasks.forEach(task => {
-                fr.append(
-                    Row({
-                        title: task.title,
-                        description: task.description,
-                        status: task.status,
-                        id: task._id
-                    })
-                );
+                if (task.status !== "done") {
+                    allStatusExeptDoneEl.append(
+                        Row({
+                            title: task.title,
+                            description: task.description,
+                            status: task.status,
+                            id: task._id
+                        })
+                    );
+                } else {
+                    doneStatusEl.append(
+                        Row({
+                            title: task.title,
+                            description: task.description,
+                            status: task.status,
+                            id: task._id,
+                            hasDoneStatus: true
+                        })
+                    );
+                }
             });
 
-            body.append(fr);
+            body.append(allStatusExeptDoneEl, doneStatusEl);
         });
 
     table.append(head, body);

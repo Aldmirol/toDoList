@@ -2,6 +2,7 @@ import { Row } from "../../main/section/table/row";
 import { addToast, changeButtonToSuccess, checkStatusAddBadges, removeModal } from "../helpers";
 import { openModal } from "../modal";
 import { ButtonSpinner } from "../spinner/components";
+import { changeStatusToDone } from "./change_status_to_done";
 import { checkStatus } from "./helpers";
 import styles from './styles.module.scss';
 
@@ -110,10 +111,13 @@ export function editTask(e) {
             })
             .then(res => res.json())
             .then(task => {
+                const tbody = document.querySelector("tbody");
+                const row = document.querySelector(`tr[data-id="${taskId}"]`);
                 const title = document.querySelector(`td.title-input[data-id="${taskId}"]`);
                 const description = document.querySelector(`td.description-textarea[data-id="${taskId}"]`);
                 const statusContainer = document.querySelector(`td.status[data-id="${taskId}"]`);
                 const status = document.querySelector(`span.status-text[data-id="${taskId}"]`);
+                const badge = document.querySelector(`span[data-id="${taskId}"]`);
 
                 title.textContent = task['$set'].title;
                 description.textContent = task['$set'].description;
@@ -125,6 +129,14 @@ export function editTask(e) {
                     appendTarget: statusContainer,
                     id: taskId,
                 });
+
+                if (task['$set'].status !== "done" && row.classList.contains("row-done-task")) {
+                    row.classList.remove("row-done-task");
+                    row.remove();
+                    tbody.prepend(row);
+
+                    badge.addEventListener("click", changeStatusToDone)
+                }
 
                 changeButtonToSuccess({
                     button: btn,

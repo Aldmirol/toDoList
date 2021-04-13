@@ -20,19 +20,33 @@ function search(e) {
         .then(tasks => {
             const body = document.querySelector('tbody');
             const fr = document.createDocumentFragment();
+            const allStatusExeptDoneEl = document.createDocumentFragment();
+            const doneStatusEl = document.createDocumentFragment();
 
             tasks.forEach(task => {
-                fr.append(
-                    Row({
-                        title: task.title,
-                        description: task.description,
-                        status: task.status,
-                        id: task._id
-                    })
-                );
+                if (task.status !== "done") {
+                    allStatusExeptDoneEl.append(
+                        Row({
+                            title: task.title,
+                            description: task.description,
+                            status: task.status,
+                            id: task._id
+                        })
+                    );
+                } else {
+                    doneStatusEl.append(
+                        Row({
+                            title: task.title,
+                            description: task.description,
+                            status: task.status,
+                            id: task._id,
+                            hasDoneStatus: true
+                        })
+                    );
+                }
             })
             body.innerHTML = '';
 
-            body.append(fr);
+            body.append(allStatusExeptDoneEl, doneStatusEl);
         });
 }
