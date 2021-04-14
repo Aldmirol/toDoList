@@ -7,13 +7,19 @@ export function Modal({
     title,
     body,
     hasFooterCloseButton,
-    footerButtons = []
+    footerButtons = [],
+    isLoginModal = false
 }) {
     removeModal();
 
     const modal = document.createElement('div');
 
-    modal.classList.add('modal', styles.show);
+    if (isLoginModal) {
+        modal.classList.add('modal', styles.loginModal);
+    } else {
+        modal.classList.add('modal', styles.show);
+    }
+
     modal.setAttribute('tabindex', '-1');
     modal.setAttribute('aria-labelledby', 'staticBackdropLabel');
     modal.setAttribute('aria-hidden', 'true');

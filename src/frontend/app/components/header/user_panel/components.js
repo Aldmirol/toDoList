@@ -1,5 +1,6 @@
 import {Button} from '../../base/button';
 import styles from './styles.module.scss';
+import { ThemeSwitcher } from './theme_switcher';
 
 export function UserPanel() {
     const userPanel = document.createElement('div');
@@ -14,7 +15,7 @@ export function UserPanel() {
 
     userInfo.innerText = 'Aliaksei';
 
-    userPanel.append(userInfo, btn);
+    userPanel.append(ThemeSwitcher(), userInfo, btn);
 
     return userPanel;
 }

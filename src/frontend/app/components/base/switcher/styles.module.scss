@@ -1,0 +1,22 @@
+.switcher {
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75px;
+
+    .input {
+        float: none;
+        margin-left: 0;
+    }
+
+    .icon-dark,
+    .icon-light {
+        color: white;
+        display: block;
+        box-sizing: content-box;
+    }
+}
+
+
+
