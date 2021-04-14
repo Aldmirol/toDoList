@@ -8,3 +8,32 @@
     text-decoration: line-through;
     opacity: 0.5;
 }
+
+body {
+    #root {
+        .theme-main-light {
+            background-color: #b5e6d7;
+        }
+
+        .theme-secondary-light {
+            background-color: #d5e2bf;
+        }
+
+        .theme-text-main-light {
+            color: #374c61;
+        }
+
+        .theme-aside-buttons-light {
+            background-color: #e6efd6;
+            // border-color: #D5E2BF;
+        }
+
+        .theme-table-text-light {
+            background-color: #e6efd6;
+            color: #374c61;
+            border-color: #374c61;
+        }
+    }
+}
+
+

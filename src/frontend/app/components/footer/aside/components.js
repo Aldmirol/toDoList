@@ -9,7 +9,7 @@ export function Aside() {
 
     aside.classList.add(styles.aside);
 
-    aside.append(btn);
+    aside.append();
 
     return aside;
 }

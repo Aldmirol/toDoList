@@ -8,6 +8,7 @@ export function CreateAddTaskForm() {
     const titleInput = document.createElement('input');
     const status = RadioButtonsGroup({status: 'to do'});
     const descriptionTextarea = document.createElement('textarea');
+    const theme = localStorage.getItem('theme');
     const formSubmitBtn = Button({
         content: 'Add task',
         type: 'submit',
@@ -15,11 +16,17 @@ export function CreateAddTaskForm() {
 
     titleInput.setAttribute('required', '');
 
-    form.classList.add('add-task', styles.form);
-    titleInput.classList.add('form-control', 'title-input', 'm-3', 'bg-secondary', styles.title);
+    form.classList.add('add-task', styles.form);    
     status.classList.add(styles.status);
-    descriptionTextarea.classList.add('form-control', 'description-textarea', 'm-3', 'bg-secondary', styles.description);
     formSubmitBtn.classList.add(styles.addTask);
+
+    if (theme && theme === 'light') {
+        titleInput.classList.add('form-control', 'title-input', 'm-3', styles.lightTheme);
+        descriptionTextarea.classList.add('form-control', 'description-textarea', 'm-3', styles.lightTheme);
+    } else {
+        titleInput.classList.add('form-control', 'title-input', 'm-3', 'bg-secondary', styles.title);
+        descriptionTextarea.classList.add('form-control', 'description-textarea', 'm-3', 'bg-secondary', styles.description);
+    }
 
     titleInput.placeholder = 'Enter task title';
     descriptionTextarea.placeholder = 'Enter task description';

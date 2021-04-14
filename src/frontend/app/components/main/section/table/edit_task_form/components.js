@@ -17,6 +17,7 @@ export function CreateEditTaskForm({
     const descriptionTextarea = document.createElement('textarea');
     const descriptionLabel = document.createElement('label');
     const buttonsBlock = document.createElement('div');
+    const theme = localStorage.getItem('theme');
     const formSubmitBtn = Button({
         content: 'Save',
         type: 'submit',
@@ -26,17 +27,24 @@ export function CreateEditTaskForm({
 
     buttonsBlock.classList.add(styles.buttonsBlock)
     form.classList.add('edit-task', styles.form);
-    titleInput.classList.add('form-control', 'title-input', 'm-3', 'bg-secondary', styles.title);
     titleInput.setAttribute('name', 'title');
     titleLabel.setAttribute('for', 'title');
     titleLabel.classList.add(styles.titleLabel);
-    statusList.classList.add(styles.status);
-    descriptionTextarea.classList.add('form-control', 'description-textarea', 'm-3', 'bg-secondary', styles.description);
     descriptionTextarea.setAttribute('name', 'description');
     descriptionLabel.setAttribute('for', 'description');
     descriptionLabel.classList.add(styles.descriptionLabel);
     formSubmitBtn.classList.add(styles.addTask);
     formSubmitBtn.setAttribute('data-id', id);
+
+    if (theme && theme === 'light') {
+        titleInput.classList.add('form-control', 'title-input', 'm-3', styles.lightTheme);
+        descriptionTextarea.classList.add('form-control', 'description-textarea', 'm-3', styles.lightTheme);
+        statusList.classList.add(styles.lightThemeStatus);
+    } else {
+        titleInput.classList.add('form-control', 'title-input', 'm-3', 'bg-secondary', styles.title);
+        descriptionTextarea.classList.add('form-control', 'description-textarea', 'm-3', 'bg-secondary', styles.description);
+        statusList.classList.add(styles.status);
+    }
 
     titleInput.value = title;
     descriptionTextarea.value = description;

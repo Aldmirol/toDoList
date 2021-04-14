@@ -9,12 +9,26 @@
         color: #ffffff;
     }
 
+    .light-theme {
+        width: 90%;
+    }
+
     .status {
         align-self: center;
         width: 70%;
         margin-bottom: 20px;
         & label[for*="btn"] {
             color: #ffffff;
+        }
+    }
+
+    .light-theme-status {
+        align-self: center;
+        width: 70%;
+        margin-bottom: 20px;
+
+        & label[for*="btn"] {
+            color: #374c61;
         }
     }
 

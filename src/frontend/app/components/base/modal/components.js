@@ -74,8 +74,13 @@ function ModalContent({
 
 function ModalHeader(title) {
     const modalHeader = document.createElement('div');
+    const theme = localStorage.getItem('theme');
 
-    modalHeader.classList.add('modal-header', styles.header);
+    if (theme && theme === 'light') {
+        modalHeader.classList.add('modal-header', styles.lightThemeMain);
+    } else {
+        modalHeader.classList.add('modal-header', styles.header);
+    }
 
     modalHeader.append(ModalTitle(title), ModalCloseHeaderButton());
 
@@ -84,8 +89,13 @@ function ModalHeader(title) {
 
 function ModalBody(body) {
     const modalBody = document.createElement('div');
+    const theme = localStorage.getItem('theme');
 
-    modalBody.classList.add('modal-body', styles.body);
+    if (theme && theme === 'light') {
+        modalBody.classList.add('modal-body', styles.lightThemeSecond);
+    } else {
+        modalBody.classList.add('modal-body', styles.body);
+    }
 
     if (typeof body === 'string') {
         modalBody.innerHTML = body;
@@ -101,8 +111,13 @@ function ModalFooter({
     footerButtons
 }) {
     const modalFooter = document.createElement('div');
+    const theme = localStorage.getItem('theme');
 
-    modalFooter.classList.add('modal-footer', styles.footer);
+    if (theme && theme === 'light') {
+        modalFooter.classList.add('modal-footer', styles.lightThemeSecond);
+    } else {
+        modalFooter.classList.add('modal-footer', styles.footer);
+    }
 
     if (hasFooterCloseButton) {
         modalFooter.append(ModalCloseFooterButton());
