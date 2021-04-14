@@ -155,10 +155,6 @@ export function editTask(e) {
                 }, 1000);
             })
     }, 1500);
-    
-
-
-    console.log(taskId);
 }
 
 export function deleteTask(e) {

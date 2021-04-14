@@ -6,9 +6,15 @@
   "scripts": {
     "copy:img": "copyfiles -u 3 ./src/frontend/app/img/*.* ./dist",
     "build:frontend": "webpack && npm run copy:img",
+    "build:backend": "webpack --config ./webpack.server.config.js",
+    "start:prod:backend": "node ./dist/backend/server.js",
+    "start:prod:frontend": "http-server ./dist",
     "start:dev:backend": "nodemon ./src/backend/index",
     "start:dev:frontend": "webpack serve",
-    "start:dev": "concurrently \"npm run start:dev:frontend\" \"npm run start:dev:backend\""
+    "start:dev": "concurrently \"npm run start:dev:frontend\" \"npm run start:dev:backend\"",
+    "start:prod": "concurrently \"npm run build:prod\" \"npm run start:prod:frontend\" \"npm run start:prod:backend\"",
+    "remove:dist": "rimraf ./dist",
+    "build:prod": "npm run remove:dist && npm run build:frontend && npm run build:backend"
   },
   "repository": {
     "type": "git",
