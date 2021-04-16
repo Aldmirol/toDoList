@@ -28,7 +28,8 @@ export function Modal({
         title,
         body,
         hasFooterCloseButton,
-        footerButtons
+        footerButtons,
+        isLoginModal
     }));
 
     return modal;
@@ -38,7 +39,8 @@ function ModalDialog({
     title,
     body,
     hasFooterCloseButton,
-    footerButtons
+    footerButtons,
+    isLoginModal
 }) {
     const modalDialog = document.createElement('div');
 
@@ -48,7 +50,8 @@ function ModalDialog({
         title,
         body,
         hasFooterCloseButton,
-        footerButtons
+        footerButtons,
+        isLoginModal
     }));
 
     return modalDialog;
@@ -58,13 +61,14 @@ function ModalContent({
     title,
     body,
     hasFooterCloseButton,
-    footerButtons
+    footerButtons,
+    isLoginModal
 }) {
     const modalContent = document.createElement('div');
 
     modalContent.classList.add('modal-content');
 
-    modalContent.append(ModalHeader(title), ModalBody(body), ModalFooter({
+    modalContent.append(ModalHeader(title, isLoginModal), ModalBody(body), ModalFooter({
         hasFooterCloseButton,
         footerButtons
     }));
@@ -72,7 +76,7 @@ function ModalContent({
     return modalContent;
 }
 
-function ModalHeader(title) {
+function ModalHeader(title, isLoginModal) {
     const modalHeader = document.createElement('div');
     const theme = localStorage.getItem('theme');
 
@@ -82,7 +86,11 @@ function ModalHeader(title) {
         modalHeader.classList.add('modal-header', styles.header);
     }
 
-    modalHeader.append(ModalTitle(title), ModalCloseHeaderButton());
+    if (isLoginModal) {
+        modalHeader.append(ModalTitle(title));
+    } else {
+        modalHeader.append(ModalTitle(title), ModalCloseHeaderButton());
+    }
 
     return modalHeader;
 }

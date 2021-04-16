@@ -105,3 +105,7 @@ export function changeBadgeToSuccess({
 
     return bdg;
 }
+
+export function closeModalWithoutEventTarget() {
+    return document.querySelector(".modal")?.remove();
+}

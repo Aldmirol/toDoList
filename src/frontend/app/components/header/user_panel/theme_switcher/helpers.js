@@ -67,10 +67,7 @@ export function switchTheme({
         checked
     }
 }) {
-    // const theme = localStorage.getItem('theme');
     const selectors = new LightThemeElementSelectors();
-    // const logo = document.querySelector('div[class^="logo"]');
-    // const userPanel = document.querySelector('div[class^="userPanel"]');
     
     if (checked) {
         localStorage.setItem('theme', 'dark');
