@@ -70,6 +70,9 @@ export function SortByDate(e) {
 
                     break;
                 };
+                case 'week': {
+                    
+                };
             }
         })
 }
