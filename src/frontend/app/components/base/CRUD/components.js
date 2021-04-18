@@ -18,7 +18,6 @@ export function openTask(e) {
     fetch(`http://localhost:3000/tasks/${taskId}`)
         .then(res => res.json())
         .then(task => {
-            console.log(task);
             if (task) {
                 console.log(task.title);
                 openModal({
@@ -60,12 +59,15 @@ export function addTask(e) {
             })
             .then(res => res.json())
             .then(task => {
-                console.log(task);
+                const maxDate = new Date(task.expirationDate);
+                const deadline = moment(maxDate).format('LL');
+                
                 const taskRow = Row({
                     id: task._id,
                     title: task.title,
                     description: task.description,
-                    status: task.status
+                    status: task.status,
+                    expirationDate: deadline
                 });
                 document.querySelector('tbody').prepend(taskRow);
 
@@ -96,6 +98,8 @@ export function editTask(e) {
     const form = document.querySelector('form.edit-task');
     const titleInput = form.querySelector('.title-input');
     const descriptionTextarea = form.querySelector('.description-textarea');
+    const dateInput = form.querySelector('#edit-datepicker');
+    const date = moment(dateInput.value).valueOf();
     const title = titleInput.value;
     let status = checkStatus();
     const description = descriptionTextarea.value;
@@ -108,7 +112,8 @@ export function editTask(e) {
                 body: JSON.stringify({
                     title: title,
                     description: description,
-                    status: status
+                    status: status,
+                    expirationDate: date,
                 }),
                 headers: {
                     'Content-Type': 'application/json'
@@ -116,6 +121,8 @@ export function editTask(e) {
             })
             .then(res => res.json())
             .then(task => {
+                const maxDate = new Date(task['$set'].expirationDate);
+                const deadline = moment(maxDate).format('LL');
                 const tbody = document.querySelector("tbody");
                 const row = document.querySelector(`tr[data-id="${taskId}"]`);
                 const title = document.querySelector(`td.title-input[data-id="${taskId}"]`);
@@ -123,9 +130,11 @@ export function editTask(e) {
                 const statusContainer = document.querySelector(`td.status[data-id="${taskId}"]`);
                 const status = document.querySelector(`span.status-text[data-id="${taskId}"]`);
                 const badge = document.querySelector(`span[data-id="${taskId}"]`);
+                const dateInput = document.querySelector(`td.expirationDate[data-id="${taskId}"]`);
 
                 title.textContent = task['$set'].title;
                 description.textContent = task['$set'].description;
+                dateInput.textContent = deadline;
 
                 status.remove();
                 

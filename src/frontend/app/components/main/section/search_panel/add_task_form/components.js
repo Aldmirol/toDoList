@@ -29,6 +29,7 @@ export function CreateAddTaskForm() {
     formSubmitBtn.classList.add(styles.addTask);
     inputLabel.classList.add('form-label');
     descriptionLabel.classList.add('form-label');
+    dateLabel.classList.add('form-label');
 
     titleInput.setAttribute('id', 'title');
     descriptionTextarea.setAttribute('id', 'description');
@@ -55,6 +56,7 @@ export function CreateAddTaskForm() {
 
     titleInput.placeholder = 'Enter task title';
     descriptionTextarea.placeholder = 'Enter task description';
+    dateInput.placeholder = 'Choose expiration date';
 
     form.append(inputLabel, titleInput, descriptionLabel, descriptionTextarea, dateLabel, dateInput, status, formSubmitBtn);
 
