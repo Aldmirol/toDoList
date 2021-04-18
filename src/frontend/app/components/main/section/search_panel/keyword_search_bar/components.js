@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { debounce } from '../../../../base/helpers';
 import { Row } from '../../table/row';
 
@@ -8,6 +9,7 @@ export function SearchBarInput() {
 
     searchBarInput.classList.add('form-control');
     searchBarInput.addEventListener('keyup', debounceSearch);
+    searchBarInput.setAttribute('autocomplete', 'off');
 
     return searchBarInput;
 }
@@ -22,25 +24,32 @@ function search(e) {
             const fr = document.createDocumentFragment();
             const allStatusExeptDoneEl = document.createDocumentFragment();
             const doneStatusEl = document.createDocumentFragment();
+            
 
             tasks.forEach(task => {
+                const maxDate = new Date(task.expirationDate);
+                const deadline = moment(maxDate).format('LL');
                 if (task.status !== "done") {
                     allStatusExeptDoneEl.append(
                         Row({
                             title: task.title,
                             description: task.description,
                             status: task.status,
-                            id: task._id
+                            id: task._id,
+                            expirationDate: deadline
                         })
                     );
                 } else {
+                    const maxDate = new Date(task.expirationDate);
+                    const deadline = moment(maxDate).format('LL');
                     doneStatusEl.append(
                         Row({
                             title: task.title,
                             description: task.description,
                             status: task.status,
                             id: task._id,
-                            hasDoneStatus: true
+                            hasDoneStatus: true,
+                            expirationDate: deadline
                         })
                     );
                 }

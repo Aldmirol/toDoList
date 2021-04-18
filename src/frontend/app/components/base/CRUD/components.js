@@ -1,3 +1,4 @@
+import moment from "../../../../../../node_modules/moment/moment.js";
 import { Row } from "../../main/section/table/row";
 import { addToast, changeButtonToSuccess, checkStatusAddBadges, removeModal } from "../helpers";
 import { openModal } from "../modal";
@@ -36,9 +37,11 @@ export function addTask(e) {
     const form = document.querySelector(`form.add-task`);
     const titleInput = form.querySelector('.title-input');
     const descriptionTextarea = form.querySelector('.description-textarea');
+    const dateInput = form.querySelector('#datepicker');
     const title = titleInput.value;
     let status = checkStatus();
-    const description = descriptionTextarea.value
+    const description = descriptionTextarea.value;
+    const date = moment(dateInput.value).valueOf();
 
     btn.innerHTML = ButtonSpinner();
 
@@ -49,6 +52,7 @@ export function addTask(e) {
                     title: title,
                     description: description,
                     status: status,
+                    expirationDate: date,
                 }),
                 headers: {
                     'Content-Type': 'application/json'
@@ -56,6 +60,7 @@ export function addTask(e) {
             })
             .then(res => res.json())
             .then(task => {
+                console.log(task);
                 const taskRow = Row({
                     id: task._id,
                     title: task.title,

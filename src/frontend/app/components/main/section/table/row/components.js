@@ -8,6 +8,7 @@ export function Row({
     description,
     status,
     id,
+    expirationDate,
     hasDoneStatus = false
 }) {
     const row = document.createElement('tr');
@@ -43,6 +44,11 @@ export function Row({
             status: status,
             dataId: id,
             classList: 'status'
+        }),
+        Description({
+            data: expirationDate,
+            classList: 'expirationDate',
+            dataId: id,
         }),
         Description({
             data: [Button({

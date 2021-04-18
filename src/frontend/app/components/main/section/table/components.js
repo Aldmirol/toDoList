@@ -5,6 +5,7 @@ import {
 } from './helpers';
 import { Row } from './row';
 import { openTask } from '../../../base/CRUD/components';
+import moment from 'moment';
 
 export function Table() {
     const table = document.createElement('table');
@@ -22,6 +23,7 @@ export function Table() {
             Heading('Title', 'col'),
             Heading('Description', 'col'),
             Heading('Status', 'col'),
+            Heading('Deadline', 'col'),
             Heading('Action', 'col'),
         ]
     }));
@@ -30,13 +32,17 @@ export function Table() {
         .then(res => res.json())
         .then(tasks => {
             tasks.forEach(task => {
+                const maxDate = new Date(task.expirationDate);
+                const deadline = moment(maxDate).format('LL');
+
                 if (task.status !== "done") {
                     allStatusExeptDoneEl.append(
                         Row({
                             title: task.title,
                             description: task.description,
                             status: task.status,
-                            id: task._id
+                            id: task._id,
+                            expirationDate: deadline
                         })
                     );
                 } else {
@@ -46,6 +52,7 @@ export function Table() {
                             description: task.description,
                             status: task.status,
                             id: task._id,
+                            expirationDate: deadline,
                             hasDoneStatus: true
                         })
                     );

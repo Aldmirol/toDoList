@@ -4,8 +4,9 @@
     flex-direction: column;
     .title,
     .description,
-    .light-theme {
-        width: 90%;
+    .light-theme,
+    .date {
+        width: 100%;
     }
     .status {
         align-self: center;

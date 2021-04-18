@@ -12,6 +12,8 @@ export function Modal({
 }) {
     removeModal();
 
+    document.querySelector('#ui-datepicker-div')?.remove();
+
     const modal = document.createElement('div');
 
     if (isLoginModal) {

@@ -29,20 +29,20 @@ export function CreateEditTaskForm({
     form.classList.add('edit-task', styles.form);
     titleInput.setAttribute('name', 'title');
     titleLabel.setAttribute('for', 'title');
-    titleLabel.classList.add(styles.titleLabel);
+    titleLabel.classList.add(styles.titleLabel, 'form-label');
     descriptionTextarea.setAttribute('name', 'description');
     descriptionLabel.setAttribute('for', 'description');
-    descriptionLabel.classList.add(styles.descriptionLabel);
+    descriptionLabel.classList.add(styles.descriptionLabel, 'form-label');
     formSubmitBtn.classList.add(styles.addTask);
     formSubmitBtn.setAttribute('data-id', id);
 
     if (theme && theme === 'light') {
-        titleInput.classList.add('form-control', 'title-input', 'm-3', styles.lightTheme);
-        descriptionTextarea.classList.add('form-control', 'description-textarea', 'm-3', styles.lightTheme);
+        titleInput.classList.add('form-control', 'title-input', 'mr-3', 'ml-3', 'mb-3', styles.lightTheme);
+        descriptionTextarea.classList.add('form-control', 'description-textarea', 'mr-3', 'ml-3', 'mb-3', styles.lightTheme);
         statusList.classList.add(styles.lightThemeStatus);
     } else {
-        titleInput.classList.add('form-control', 'title-input', 'm-3', 'bg-secondary', styles.title);
-        descriptionTextarea.classList.add('form-control', 'description-textarea', 'm-3', 'bg-secondary', styles.description);
+        titleInput.classList.add('form-control', 'title-input', 'mr-3', 'ml-3', 'mb-3', 'bg-secondary', styles.title);
+        descriptionTextarea.classList.add('form-control', 'description-textarea', 'mr-3', 'ml-3', 'mb-3', 'bg-secondary', styles.description);
         statusList.classList.add(styles.status);
     }
 
