@@ -1,5 +1,7 @@
 import moment from "moment";
-import { Row } from "../../../main/section/table/row";
+import {
+    Row
+} from "../../../main/section/table/row";
 
 export function SortByDate(e) {
     const sortParam = e.target.dataset.id;
@@ -13,7 +15,7 @@ export function SortByDate(e) {
 
             tbody.innerText = '';
 
-            switch(sortParam) {
+            switch (sortParam) {
                 case 'year': {
                     tasks.filter(task => new Date(task.expirationDate).getFullYear() === new Date().getFullYear())
                         .forEach(task => {
@@ -29,12 +31,32 @@ export function SortByDate(e) {
                             }))
                         })
 
-                        tbody.append(fr);
+                    tbody.append(fr);
 
-                        break;
+                    break;
                 };
-                case 'all': {
-                    tasks.forEach(task => {
+            case 'all': {
+                tasks.forEach(task => {
+                    const maxDate = new Date(task.expirationDate);
+                    const deadline = moment(maxDate).format('LL');
+
+                    fr.append(Row({
+                        title: task.title,
+                        description: task.description,
+                        expirationDate: deadline,
+                        status: task.status,
+                        id: task._id
+                    }))
+                })
+
+                tbody.append(fr);
+
+                break;
+            };
+            case 'month': {
+                tasks.filter(task => new Date(task.expirationDate).getFullYear() === new Date().getFullYear())
+                    .filter(task => new Date(task.expirationDate).getMonth() === new Date().getMonth())
+                    .forEach(task => {
                         const maxDate = new Date(task.expirationDate);
                         const deadline = moment(maxDate).format('LL');
 
@@ -47,32 +69,29 @@ export function SortByDate(e) {
                         }))
                     })
 
-                    tbody.append(fr);
+                tbody.append(fr);
 
-                    break;
-                };
-                case 'month': {
-                    tasks.filter(task => new Date(task.expirationDate).getMonth() === new Date().getMonth())
-                        .forEach(task => {
-                            const maxDate = new Date(task.expirationDate);
-                            const deadline = moment(maxDate).format('LL');
+                break;
+            };
+            case 'week': {
+                tasks.filter(task => new Date(task.expirationDate).getFullYear() === new Date().getFullYear())
+                    .filter(task => moment(new Date(task.expirationDate)).week() === moment(new Date()).week())
+                    .forEach(task => {
+                        const maxDate = new Date(task.expirationDate);
+                        const deadline = moment(maxDate).format('LL');
 
-                            fr.append(Row({
-                                title: task.title,
-                                description: task.description,
-                                expirationDate: deadline,
-                                status: task.status,
-                                id: task._id
-                            }))
-                        })
+                        fr.append(Row({
+                            title: task.title,
+                            description: task.description,
+                            expirationDate: deadline,
+                            status: task.status,
+                            id: task._id
+                        }));
+                    })
+                tbody.append(fr);
 
-                    tbody.append(fr);
-
-                    break;
-                };
-                case 'week': {
-                    
-                };
+                break;
+            };
             }
         })
 }
