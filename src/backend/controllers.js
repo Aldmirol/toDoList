@@ -12,7 +12,7 @@ async function getTasks(req, res) {
         q
     } = req.query;
     const tasks = (await database).collection('tasks');
-  
+
     tasks.find({}).toArray((err, result) => {
         if (err) {
             return res.status(400);
@@ -97,10 +97,44 @@ async function newTask(req, res) {
     });
 }
 
+async function getUser(req, res) {
+    const {
+        userName,
+        password
+    } = req.body;
+    const users = (await database).collection('users');
+
+    users.find({}).toArray((err, result) => {
+        if (err) {
+            res.status(400);
+        };
+
+        res.status(200).json(result.filter(user => user.userName === userName && user.password === password));
+    });
+}
+
+async function newUser(req, res) {
+    const user = Object.assign({}, req.body, {
+        userId: Date.now(),
+    });
+
+    const users = (await database).collection('users');
+
+    users.insertOne(user, (err, result) => {
+        if (err) {
+            res.status(400);
+        };
+
+        res.status(200).json(user);
+    });
+}
+
 module.exports = {
     getTasks,
     getOneTask,
     deleteOneTask,
     updateTask,
-    newTask
+    newTask,
+    getUser,
+    newUser
 };

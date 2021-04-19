@@ -15,12 +15,19 @@ export function Modal({
     document.querySelector('#ui-datepicker-div')?.remove();
 
     const modal = document.createElement('div');
+    const theme = localStorage.getItem('theme');
 
     if (isLoginModal) {
-        modal.classList.add('modal', styles.loginModal);
+
+        if (theme === 'light') {
+            modal.classList.add('modal', styles.loginModalLight);
+        } else {
+            modal.classList.add('modal', styles.loginModal);
+        }
+        
     } else {
         modal.classList.add('modal', styles.show);
-    }
+    } 
 
     modal.setAttribute('tabindex', '-1');
     modal.setAttribute('aria-labelledby', 'staticBackdropLabel');

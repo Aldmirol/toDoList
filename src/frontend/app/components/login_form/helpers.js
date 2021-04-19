@@ -1,3 +1,4 @@
+import { addNewUser } from "../base/CRUD/login_and_new_user/controllers";
 import { closeModalWithoutEventTarget } from "../base/helpers";
 import { Modal } from "../base/modal/components";
 import { LoginForm } from "./components";
@@ -12,7 +13,8 @@ export function openNewUserForm(e) {
         isLoginModal: true,
         hasFooterCloseButton: false,
         body: LoginForm({
-            isNewUserForm: true
+            isNewUserForm: true,
+            submitHandler: addNewUser
         })
     }));
 }

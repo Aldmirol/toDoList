@@ -1,10 +1,12 @@
 import { Button } from "../base/button/components";
+import { login } from "../base/CRUD/login_and_new_user/controllers";
 import { openLoginForm } from "../header/user_panel/helpers";
 import { openNewUserForm } from "./helpers";
 import styles from "./styles.module.scss";
 
 export function LoginForm({
-    isNewUserForm = false
+    isNewUserForm = false,
+    submitHandler
 }) {
     const loginForm = document.createElement("div");
     const userNameContainer = document.createElement("div");
@@ -17,7 +19,7 @@ export function LoginForm({
     const loginButton = Button({
         classList: "primary",
         content: "Log in",
-        type: "submit"
+        type: "button"
     });
     const backButton = Button({
         content: "Back",
@@ -67,6 +69,10 @@ export function LoginForm({
     }
     userNameContainer.append(userNameTitle, userNameInput);
     passwordContainer.append(passwordTitle, passwordInput);
+
+    if (submitHandler) {
+        loginButton.addEventListener('click', submitHandler);
+    }
 
     newUserLink.addEventListener("click", openNewUserForm);
 
