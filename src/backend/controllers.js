@@ -97,11 +97,8 @@ async function newTask(req, res) {
     });
 }
 
-async function getUser(req, res) {
-    const {
-        userName,
-        password
-    } = req.body;
+async function getUsers(req, res) {
+    
     const users = (await database).collection('users');
 
     users.find({}).toArray((err, result) => {
@@ -109,7 +106,7 @@ async function getUser(req, res) {
             res.status(400);
         };
 
-        res.status(200).json(result.filter(user => user.userName === userName && user.password === password));
+        res.status(200).json(result);
     });
 }
 
@@ -135,6 +132,6 @@ module.exports = {
     deleteOneTask,
     updateTask,
     newTask,
-    getUser,
+    getUsers,
     newUser
 };

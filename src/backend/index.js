@@ -8,7 +8,7 @@ const {
     deleteOneTask,
     updateTask,
     newTask,
-    getUser,
+    getUsers,
     newUser
 } = require('./controllers.js');
 
@@ -32,5 +32,5 @@ app.delete('/tasks/:id', deleteOneTask);
 app.put('/tasks/:id', updateTask);
 app.post('/tasks', newTask);
 
-app.post('/users', getUser);
+app.get('/users', getUsers);
 app.post('/users', newUser);
