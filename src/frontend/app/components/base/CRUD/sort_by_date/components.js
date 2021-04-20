@@ -71,19 +71,20 @@ export function SortByDate(e) {
             };
             case 'week': {
                 tasks.filter(task => new Date(task.expirationDate).getFullYear() === new Date().getFullYear())
-                    .filter(task => moment(new Date(task.expirationDate)).week() === moment(new Date()).week())
-                        .forEach(task => {
-                            const maxDate = new Date(task.expirationDate);
-                            const deadline = moment(maxDate).format('LL');
+                    .filter(task => new Date(task.expirationDate).getMonth() === new Date().getMonth())
+                        .filter(task => moment(new Date(task.expirationDate)).isoWeek() === moment(new Date()).isoWeek())
+                            .forEach(task => {
+                                const maxDate = new Date(task.expirationDate);
+                                const deadline = moment(maxDate).format('LL');
 
-                            fr.append(Row({
-                                title: task.title,
-                                description: task.description,
-                                expirationDate: deadline,
-                                status: task.status,
-                                id: task._id
-                            }));
-                        });
+                                fr.append(Row({
+                                    title: task.title,
+                                    description: task.description,
+                                    expirationDate: deadline,
+                                    status: task.status,
+                                    id: task._id
+                                }));
+                            });
                 tbody.append(fr);
 
                 break;

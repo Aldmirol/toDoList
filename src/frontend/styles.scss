@@ -26,13 +26,31 @@ body {
 
         .theme-aside-buttons-light {
             background-color: #e6efd6;
-            // border-color: #D5E2BF;
         }
 
         .theme-table-text-light {
             background-color: #e6efd6;
             color: #374c61;
             border-color: #374c61;
+        }
+
+        .table {
+            .title-input {
+                width: 10vw;
+            }
+
+            .description-textarea {
+                width: 35vw;
+                overflow: hidden;
+            }
+
+            .status {
+                width: 7vw;
+            }
+
+            .expirationDate {
+                width: 7vw;
+            }
         }
     }
 }
