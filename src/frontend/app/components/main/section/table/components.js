@@ -19,12 +19,12 @@ export function Table() {
 
     head.append(HeadingRow({
         headings: [
-            Heading('Edit', 'col'),
+            Heading('', 'col'),
             Heading('Title', 'col'),
             Heading('Description', 'col'),
             Heading('Status', 'col'),
             Heading('Deadline', 'col'),
-            Heading('Action', 'col'),
+            Heading('', 'col'),
         ]
     }));
 
@@ -64,7 +64,7 @@ export function Table() {
 
     table.append(head, body);
 
-    table.addEventListener('click', openTask);
+    table.addEventListener('dblclick', openTask);
 
     return table;
 }

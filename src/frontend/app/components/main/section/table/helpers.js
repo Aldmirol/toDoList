@@ -28,7 +28,15 @@ export function Description({
     description.setAttribute('data-id', dataId);
 
     if (typeof data === 'string' || typeof data === 'number' || typeof status === 'string') {
-        if (data) {
+        if (classList === 'description-textarea') {
+            const descriptionBlock = document.createElement('div');
+
+            descriptionBlock.classList.add(styles.descriptionBlock);
+            descriptionBlock.setAttribute('data-id', dataId);
+            descriptionBlock.textContent = data;
+
+            description.append(descriptionBlock);
+        } else if (data) {
             description.innerText = data;
         } else {
             checkStatusAddBadges({
@@ -37,6 +45,7 @@ export function Description({
                 id: dataId
             });
         }
+        
         
     } else {
         data.forEach(el => description.append(el));

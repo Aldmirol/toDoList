@@ -35,21 +35,33 @@ body {
         }
 
         .table {
+            .edit {
+                
+                width: 2vw;
+            }
+
             .title-input {
+                
                 width: 10vw;
             }
 
             .description-textarea {
                 width: 35vw;
-                overflow: hidden;
             }
 
             .status {
+                
                 width: 7vw;
             }
 
             .expirationDate {
-                width: 7vw;
+                
+                width: 6vw;
+            }
+
+            .delete {
+                
+                width: 2vw;
             }
         }
     }

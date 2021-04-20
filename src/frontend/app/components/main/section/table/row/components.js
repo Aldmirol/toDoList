@@ -2,6 +2,7 @@ import { Button } from '../../../../base/button';
 import { Description, OpenDeleteTaskModal } from '../helpers';
 import { OpenEditTaskModal } from '../edit_task_form/helpers';
 import styles from './styles.module.scss';
+import { FontButton } from '../../../../base/font_button/components';
 
 export function Row({
     title,
@@ -22,13 +23,13 @@ export function Row({
 
     row.append(
         Description({
-            data: [Button({
-                classList: 'info',
-                content: [`edit`],
+            data: [FontButton({
                 dataId: id,
-                clickHandler: OpenEditTaskModal
+                clickHadler: OpenEditTaskModal,
+                type: 'edit',
             })],
-            dataId: id
+            dataId: id,
+            classList: 'edit'
         }),
         Description({
             data: title,
@@ -51,13 +52,13 @@ export function Row({
             dataId: id,
         }),
         Description({
-            data: [Button({
-                classList: 'danger',
-                content: 'Delete',
-                clickHandler: OpenDeleteTaskModal,
-                dataId: id
+            data: [FontButton({
+                dataId: id,
+                clickHadler: OpenDeleteTaskModal,
+                type: 'trash-alt',
             })],
-            dataId: id
+            dataId: id,
+            classList: 'delete'
         }),
     );
 
