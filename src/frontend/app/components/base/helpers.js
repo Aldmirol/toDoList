@@ -81,7 +81,7 @@ export function changeButtonToSuccess({
 }) {
     const btn = button;
 
-    btn.textContent = 'Succes';
+    btn.textContent = 'Success';
     btn.className = 'btn btn-success';
 
     if (classList) {
