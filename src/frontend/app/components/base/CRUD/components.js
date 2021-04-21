@@ -1,4 +1,5 @@
 import moment from "../../../../../../node_modules/moment/moment.js";
+import { CreateEditTaskForm } from "../../main/section/table/edit_task_form/components.js";
 import { Row } from "../../main/section/table/row";
 import { addToast, changeButtonToSuccess, checkStatusAddBadges, removeModal } from "../helpers";
 import { openModal } from "../modal";
@@ -19,10 +20,16 @@ export function openTask(e) {
         .then(res => res.json())
         .then(task => {
             if (task) {
-                console.log(task.title);
+                const maxDate = new Date(task[0].expirationDate);
+                const deadline = moment(maxDate).format('MMMM Do YYYY');
                 openModal({
-                    title: task[0].title,
-                    body: task[0].description,
+                    title: task[0].status.toUpperCase(),
+                    body: CreateEditTaskForm({
+                        title: task[0].title,
+                        description: task[0].description,
+                        expirationDate: deadline,
+                        openTaskForm: true
+                    }),
                     hasFooterCloseButton: true,
                 });
             }

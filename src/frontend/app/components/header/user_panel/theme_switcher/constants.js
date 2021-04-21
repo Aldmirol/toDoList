@@ -10,6 +10,7 @@ export class LightThemeElementSelectors {
         //main components
         this.asideContainer = document.querySelector('[class^="side-panel"]');
         this.asideButtons = this.asideContainer.querySelectorAll('[class^="custom"]');
+        this.activeAsideButtons = this.asideContainer.querySelector('div[class*="active"]');
         this.asideButtonsText = this.asideContainer.querySelectorAll('aside span');
         this.section = document.querySelector('section');
         this.table = document.querySelector('table');

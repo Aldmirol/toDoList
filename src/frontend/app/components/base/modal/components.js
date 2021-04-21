@@ -101,6 +101,16 @@ function ModalHeader(title, isLoginModal) {
         modalHeader.append(ModalTitle(title), ModalCloseHeaderButton());
     }
 
+    if (title === 'IMPORTANT') {
+        modalHeader.classList.add(styles.importantStatusHeader);
+    } else if (title === 'TO DO') {
+        modalHeader.classList.add(styles.toDoStatusHeader);
+    } else if (title === 'IN PROGRESS') {
+        modalHeader.classList.add(styles.inProgressStatusHeader);
+    } else if (title === 'DONE') {
+        modalHeader.classList.add(styles.doneStatusHeader);
+    }
+
     return modalHeader;
 }
 

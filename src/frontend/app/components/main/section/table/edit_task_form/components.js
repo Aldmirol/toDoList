@@ -13,7 +13,8 @@ export function CreateEditTaskForm({
     description = '',
     status = '',
     id,
-    expirationDate
+    expirationDate,
+    openTaskForm = false
 }) {
     const form = document.createElement('form');
     const titleInput = document.createElement('input');
@@ -68,18 +69,26 @@ export function CreateEditTaskForm({
 
     buttonsBlock.append(formSubmitBtn, ModalCloseButton());
 
-    form.append(titleLabel, titleInput, descriptionLabel, descriptionTextarea, dateLabel, dateInput, statusList, buttonsBlock);
+    if (openTaskForm) {
+        titleInput.setAttribute('readonly', '');
+        descriptionTextarea.setAttribute('readonly', '');
+        dateInput.setAttribute('readonly', '');
+
+        form.append(titleInput, descriptionTextarea, dateLabel, dateInput);
+    } else {
+        form.append(titleLabel, titleInput, descriptionLabel, descriptionTextarea, dateLabel, dateInput, statusList, buttonsBlock);
+
+        datepickerFactory($);
+        datepickerJAFactory($);
+        $(function () {
+            $("#edit-datepicker").datepicker({
+                dateFormat: "yy-mm-dd",
+                minDate: new Date(new Date().getTime())
+            });
+        });
+    }
 
     form.addEventListener('submit', editTask);
-
-    datepickerFactory($);
-    datepickerJAFactory($);
-    $(function () {
-        $("#edit-datepicker").datepicker({
-            dateFormat: "yy-mm-dd",
-            minDate: new Date(new Date().getTime())
-        });
-    });
 
     return form;
 }

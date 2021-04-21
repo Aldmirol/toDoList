@@ -20,7 +20,8 @@ export function checkTheme() {
         selectors.userName.classList.add(`theme-text-main-${theme}`);
         selectors.asideContainer.classList.add(`theme-secondary-${theme}`);
         selectors.asideButtons.forEach(el => el.classList.add(`theme-aside-buttons-${theme}`));
-        selectors.asideButtonsText.forEach(el => el.classList.add(`theme-text-main-${theme}`));
+        selectors.activeAsideButtons.classList.add('active-aside-buttons');
+        selectors.asideButtonsText.forEach(el => el.classList.add(`theme-text-main-${theme}`, `theme-aside-buttons-dark`));
         selectors.section.classList.add(`theme-main-${theme}`);
         selectors.footerAsideContainer.classList.add(`theme-main-${theme}`);
         selectors.footerSectionContainer.classList.add(`theme-secondary-${theme}`);
@@ -30,9 +31,13 @@ export function checkTheme() {
         if (theme === 'light') {
             selectors.table.classList.remove('table-dark');
             selectors.table.classList.add('theme-table-text-light');
+            selectors.activeAsideButtons.classList.remove('active-aside-buttons');
+            selectors.activeAsideButtons.classList.add('theme-active-aside-buttons-light');
         } else {
             selectors.table.classList.add('table-dark');
             selectors.table.classList.remove('theme-table-text-light');
+            selectors.activeAsideButtons.classList.add('active-aside-buttons');
+            selectors.activeAsideButtons.classList.remove('theme-active-aside-buttons-light');
         }
 
     } else {
@@ -44,6 +49,7 @@ export function checkTheme() {
         selectors.userName.classList.remove('theme-text-main-light');
         selectors.asideContainer.classList.remove('theme-secondary-light');
         selectors.asideButtons.forEach(el => el.classList.remove('theme-aside-buttons-light'));
+        selectors.activeAsideButtons.classList.remove('theme-active-aside-buttons-light');
         selectors.asideButtonsText.forEach(el => el.classList.remove('theme-text-main-light'));
         selectors.section.classList.remove('theme-main-light');
         selectors.table.classList.add('table-dark');
@@ -76,6 +82,8 @@ export function switchTheme({
         selectors.asideContainer.classList.remove('theme-secondary-light');
         selectors.asideButtons.forEach(el => el.classList.remove('theme-aside-buttons-light'));
         selectors.asideButtonsText.forEach(el => el.classList.remove('theme-text-main-light'));
+        selectors.activeAsideButtons.classList.remove('theme-active-aside-buttons-light');
+        selectors.activeAsideButtons.classList.add('active-aside-buttons');
         selectors.section.classList.remove('theme-main-light');
         selectors.table.classList.add('table-dark');
         selectors.table.classList.remove('theme-table-text-light');
@@ -92,6 +100,8 @@ export function switchTheme({
         selectors.userName.classList.add('theme-text-main-light');
         selectors.asideContainer.classList.add(`theme-secondary-light`);
         selectors.asideButtons.forEach(el => el.classList.add('theme-aside-buttons-light'));
+        selectors.activeAsideButtons.classList.add('theme-active-aside-buttons-light');
+        selectors.activeAsideButtons.classList.remove('active-aside-buttons');
         selectors.asideButtonsText.forEach(el => el.classList.add('theme-text-main-light'));
         selectors.section.classList.add(`theme-main-light`);
         selectors.table.classList.remove('table-dark');

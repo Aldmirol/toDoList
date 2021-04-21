@@ -9,10 +9,6 @@
         color: #ffffff;
     }
 
-    .light-theme {
-        width: 90%;
-    }
-
     .status {
         align-self: center;
         width: 70%;
@@ -34,7 +30,8 @@
 
     .title::placeholder,
     .status::placeholder,
-    .description::placeholder {
+    .description::placeholder,
+    .date {
         color: #ffffff;
     }
 
