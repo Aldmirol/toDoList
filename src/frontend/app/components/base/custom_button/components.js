@@ -2,15 +2,23 @@ import styles from './styles.module.scss';
 
 export function CustomButton({
     name = '',
-    customClass = '',
-    clickHandler = function(){}
+    clickHandler = function(){},
+    active = false
 }) {
-    const customButton = document.createElement('div')
-    const elemText = document.createElement('span')
+    const customButton = document.createElement('div');
+    const elemText = document.createElement('span');
+    const theme = localStorage.getItem("theme");
 
-    customButton.className = customClass;
     customButton.classList.add(styles.customButton);
     elemText.classList.add(styles.elemText);
+
+    if (active) {
+        if (theme === "light") {
+            customButton.classList.add("theme-active-aside-buttons-light");
+        } else {
+            customButton.classList.add("active-aside-buttons");
+        }
+    }
 
     customButton.setAttribute('data-id', name.toLowerCase());
     elemText.setAttribute('data-id', name.toLowerCase());

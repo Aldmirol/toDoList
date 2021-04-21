@@ -7,8 +7,6 @@ export function checkThemeState() {
     }
 }
 
-
-
 export function checkTheme() {
     const theme = localStorage.getItem('theme');
     const switcher = document.querySelector('#flexSwitchCheckChecked');
@@ -60,7 +58,6 @@ export function checkTheme() {
         switcher.removeAttribute('checked');
     }
 }
-
 
 export function switchTheme({
     target: {
