@@ -97,14 +97,18 @@ async function newTask(req, res) {
     });
 }
 
-async function getUsers(req, res) {
+async function login(req, res) {
+    const { name } = req.query;
     
     const users = (await database).collection('users');
+    console.log(name);
 
     users.find({}).toArray((err, result) => {
         if (err) {
-            res.status(400);
-        };
+            return res.status(400);
+        } else if (name) {
+            return res.status(200).json(result.filter(user => user.name.includes("" + name)));
+        }
 
         res.status(200).json(result);
     });
@@ -122,7 +126,7 @@ async function newUser(req, res) {
             res.status(400);
         };
 
-        res.status(200).json(user);
+        res.status(200).json("result");
     });
 }
 
@@ -132,6 +136,6 @@ module.exports = {
     deleteOneTask,
     updateTask,
     newTask,
-    getUsers,
+    login,
     newUser
 };

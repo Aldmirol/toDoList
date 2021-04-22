@@ -16,7 +16,7 @@ export function addNewUser(e) {
         fetch('http://localhost:3000/users', {
                 method: 'POST',
                 body: JSON.stringify({
-                    userName: newUserName,
+                    name: newUserName,
                     password: newUserPassword,
                 }),
                 headers: {
@@ -40,24 +40,24 @@ export function addNewUser(e) {
 }
 
 export function login(e) {
+
     const password = document.querySelector('#password').value;
-    const name = document.querySelector('#user-name').value;
+    const userName = document.querySelector('#user-name').value;
     const button = e.target;
 
-    fetch('http://localhost:3000/tasks', {
-        method: 'POST',
-        body: JSON.stringify({
-            userName: name,
-            password: password,
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+    fetch(`http://localhost:3000/users?name=${userName}`)
     .then(res => res.json())
     .then(user => {
-        console.log(user);
-    });
+        const userId= user[0].userId;
+        const userName = user[0].name;
+        const rootEl = document.querySelector("#root");
+
+        rootEl.setAttribute("data-id", userId);
+        rootEl.setAttribute("value", userName);
+        console.log(userId);
+        
+    })
+    .catch(e => alert("error"));
 
 
 }
