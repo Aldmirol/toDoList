@@ -1,6 +1,13 @@
-import { openLoginForm } from "../../../header/user_panel/helpers";
-import { changeButtonToSuccess, removeModal } from "../../helpers";
-import { ButtonSpinner } from "../../spinner/components";
+import {
+    openLoginForm
+} from "../../../header/user_panel/helpers";
+import {
+    changeButtonToSuccess,
+    removeModal
+} from "../../helpers";
+import {
+    ButtonSpinner
+} from "../../spinner/components";
 import styles from './styles.module.scss';
 
 export function addNewUser(e) {
@@ -34,7 +41,7 @@ export function addNewUser(e) {
 
                     openLoginForm();
                 }, 1000);
-                
+
             });
     }, 1500);
 }
@@ -45,19 +52,31 @@ export function login(e) {
     const userName = document.querySelector('#user-name').value;
     const button = e.target;
 
-    fetch(`http://localhost:3000/users?name=${userName}`)
-    .then(res => res.json())
-    .then(user => {
-        const userId= user[0].userId;
-        const userName = user[0].name;
-        const rootEl = document.querySelector("#root");
+    button.classList.add(styles.loginButton);
 
-        rootEl.setAttribute("data-id", userId);
-        rootEl.setAttribute("value", userName);
-        console.log(userId);
-        
-    })
-    .catch(e => alert("error"));
+    button.innerHTML = ButtonSpinner();
 
+    setTimeout(() => {
+        fetch(`http://localhost:3000/users?name=${userName}`)
+            .then(res => res.json())
+            .then(user => {
+                const userId = user[0].userId;
+                const userName = user[0].name;
+                const rootEl = document.querySelector("#root");
+
+                rootEl.setAttribute("data-id", userId);
+                rootEl.setAttribute("value", userName);
+
+                changeButtonToSuccess({
+                    button: button,
+                    classList: styles.loginButton
+                });
+
+                setTimeout(() => {
+                    removeModal();
+                }, 1000);
+            })
+            .catch(e => alert("error"));
+    }, 1500);
 
 }

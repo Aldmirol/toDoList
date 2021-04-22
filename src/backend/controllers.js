@@ -99,9 +99,7 @@ async function newTask(req, res) {
 
 async function login(req, res) {
     const { name } = req.query;
-    
     const users = (await database).collection('users');
-    console.log(name);
 
     users.find({}).toArray((err, result) => {
         if (err) {
