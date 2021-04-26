@@ -48,6 +48,8 @@ export function addTask(e) {
     let status = checkStatus();
     const description = descriptionTextarea.value;
     const date = moment(dateInput.value).valueOf();
+    const rootEl = document.querySelector("#root");
+    const userId = "" + rootEl.dataset.id;
 
     btn.innerHTML = ButtonSpinner();
 
@@ -59,6 +61,7 @@ export function addTask(e) {
                     description: description,
                     status: status,
                     expirationDate: date,
+                    userId: userId
                 }),
                 headers: {
                     'Content-Type': 'application/json'

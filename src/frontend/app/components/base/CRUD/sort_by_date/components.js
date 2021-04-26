@@ -22,15 +22,17 @@ export function SortByDate(e) {
         .then(res => res.json())
         .then(tasks => {
             const tbody = document.querySelector('tbody');
-            const fr = document.createDocumentFragment();
+            const rootEl = document.querySelector("#root");
             const allStatusExeptDoneEl = document.createDocumentFragment();
             const doneStatusEl = document.createDocumentFragment();
+            const userId = "" + rootEl.dataset.id;
 
             tbody.innerText = '';
 
             switch (sortParam) {
                 case 'year': {
-                    tasks.filter(task => new Date(task.expirationDate).getFullYear() === new Date().getFullYear())
+                    tasks.filter(task => task.userId === userId)
+                        .filter(task => new Date(task.expirationDate).getFullYear() === new Date().getFullYear())
                         .forEach(task => {
                             const maxDate = new Date(task.expirationDate);
                             const deadline = moment(maxDate).format('LL');
@@ -59,7 +61,8 @@ export function SortByDate(e) {
                     break;
                 };
             case 'all': {
-                tasks.forEach(task => {
+                tasks.filter(task => task.userId === userId)
+                .forEach(task => {
                     const maxDate = new Date(task.expirationDate);
                     const deadline = moment(maxDate).format('LL');
 
@@ -87,7 +90,8 @@ export function SortByDate(e) {
                 break;
             };
             case 'month': {
-                tasks.filter(task => new Date(task.expirationDate).getFullYear() === new Date().getFullYear())
+                tasks.filter(task => task.userId === userId)
+                    .filter(task => new Date(task.expirationDate).getFullYear() === new Date().getFullYear())
                     .filter(task => new Date(task.expirationDate).getMonth() === new Date().getMonth())
                     .forEach(task => {
                         const maxDate = new Date(task.expirationDate);
@@ -117,7 +121,8 @@ export function SortByDate(e) {
                 break;
             };
             case 'week': {
-                tasks.filter(task => new Date(task.expirationDate).getFullYear() === new Date().getFullYear())
+                tasks.filter(task => task.userId === userId)
+                    .filter(task => new Date(task.expirationDate).getFullYear() === new Date().getFullYear())
                     .filter(task => new Date(task.expirationDate).getMonth() === new Date().getMonth())
                     .filter(task => moment(new Date(task.expirationDate)).isoWeek() === moment(new Date()).isoWeek())
                     .forEach(task => {
@@ -147,7 +152,8 @@ export function SortByDate(e) {
                 break;
             };
             case 'today': {
-                tasks.filter(task => new Date(task.expirationDate).getFullYear() === new Date().getFullYear())
+                tasks.filter(task => task.userId === userId)
+                    .filter(task => new Date(task.expirationDate).getFullYear() === new Date().getFullYear())
                     .filter(task => moment(new Date(task.expirationDate)).dayOfYear() === moment(new Date()).dayOfYear())
                     .forEach(task => {
                         const maxDate = new Date(task.expirationDate);
