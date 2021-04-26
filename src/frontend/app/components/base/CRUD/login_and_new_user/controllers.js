@@ -47,7 +47,6 @@ export function addNewUser(e) {
 }
 
 export function login(e) {
-
     const password = document.querySelector('#password').value;
     const userName = document.querySelector('#user-name').value;
     const button = e.target;

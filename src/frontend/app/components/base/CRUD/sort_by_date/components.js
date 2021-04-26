@@ -23,6 +23,8 @@ export function SortByDate(e) {
         .then(tasks => {
             const tbody = document.querySelector('tbody');
             const fr = document.createDocumentFragment();
+            const allStatusExeptDoneEl = document.createDocumentFragment();
+            const doneStatusEl = document.createDocumentFragment();
 
             tbody.innerText = '';
 
@@ -33,15 +35,26 @@ export function SortByDate(e) {
                             const maxDate = new Date(task.expirationDate);
                             const deadline = moment(maxDate).format('LL');
 
-                            fr.append(Row({
-                                title: task.title,
-                                description: task.description,
-                                expirationDate: deadline,
-                                status: task.status,
-                                id: task._id
-                            }))
+                            if (task.status === "done") {
+                                doneStatusEl.append(Row({
+                                    title: task.title,
+                                    description: task.description,
+                                    expirationDate: deadline,
+                                    status: task.status,
+                                    id: task._id,
+                                    hasDoneStatus: true
+                                }))
+                            } else {
+                                allStatusExeptDoneEl.append(Row({
+                                    title: task.title,
+                                    description: task.description,
+                                    expirationDate: deadline,
+                                    status: task.status,
+                                    id: task._id
+                                }))
+                            }
                         })
-                    tbody.append(fr);
+                    tbody.append(allStatusExeptDoneEl, doneStatusEl);
 
                     break;
                 };
@@ -50,73 +63,116 @@ export function SortByDate(e) {
                     const maxDate = new Date(task.expirationDate);
                     const deadline = moment(maxDate).format('LL');
 
-                    fr.append(Row({
-                        title: task.title,
-                        description: task.description,
-                        expirationDate: deadline,
-                        status: task.status,
-                        id: task._id
-                    }))
-                });
-                tbody.append(fr);
+                    if (task.status === "done") {
+                        doneStatusEl.append(Row({
+                            title: task.title,
+                            description: task.description,
+                            expirationDate: deadline,
+                            status: task.status,
+                            id: task._id,
+                            hasDoneStatus: true
+                        }))
+                    } else {
+                        allStatusExeptDoneEl.append(Row({
+                            title: task.title,
+                            description: task.description,
+                            expirationDate: deadline,
+                            status: task.status,
+                            id: task._id
+                        }))
+                    }
+                })
+                tbody.append(allStatusExeptDoneEl, doneStatusEl);
 
                 break;
             };
             case 'month': {
                 tasks.filter(task => new Date(task.expirationDate).getFullYear() === new Date().getFullYear())
                     .filter(task => new Date(task.expirationDate).getMonth() === new Date().getMonth())
-                        .forEach(task => {
-                            const maxDate = new Date(task.expirationDate);
-                            const deadline = moment(maxDate).format('LL');
+                    .forEach(task => {
+                        const maxDate = new Date(task.expirationDate);
+                        const deadline = moment(maxDate).format('LL');
 
-                            fr.append(Row({
+                        if (task.status === "done") {
+                            doneStatusEl.append(Row({
+                                title: task.title,
+                                description: task.description,
+                                expirationDate: deadline,
+                                status: task.status,
+                                id: task._id,
+                                hasDoneStatus: true
+                            }))
+                        } else {
+                            allStatusExeptDoneEl.append(Row({
                                 title: task.title,
                                 description: task.description,
                                 expirationDate: deadline,
                                 status: task.status,
                                 id: task._id
                             }))
-                        });
-                tbody.append(fr);
+                        }
+                    })
+                tbody.append(allStatusExeptDoneEl, doneStatusEl);
 
                 break;
             };
             case 'week': {
                 tasks.filter(task => new Date(task.expirationDate).getFullYear() === new Date().getFullYear())
                     .filter(task => new Date(task.expirationDate).getMonth() === new Date().getMonth())
-                        .filter(task => moment(new Date(task.expirationDate)).isoWeek() === moment(new Date()).isoWeek())
-                            .forEach(task => {
-                                const maxDate = new Date(task.expirationDate);
-                                const deadline = moment(maxDate).format('LL');
+                    .filter(task => moment(new Date(task.expirationDate)).isoWeek() === moment(new Date()).isoWeek())
+                    .forEach(task => {
+                        const maxDate = new Date(task.expirationDate);
+                        const deadline = moment(maxDate).format('LL');
 
-                                fr.append(Row({
-                                    title: task.title,
-                                    description: task.description,
-                                    expirationDate: deadline,
-                                    status: task.status,
-                                    id: task._id
-                                }));
-                            });
-                tbody.append(fr);
-
+                        if (task.status === "done") {
+                            doneStatusEl.append(Row({
+                                title: task.title,
+                                description: task.description,
+                                expirationDate: deadline,
+                                status: task.status,
+                                id: task._id,
+                                hasDoneStatus: true
+                            }))
+                        } else {
+                            allStatusExeptDoneEl.append(Row({
+                                title: task.title,
+                                description: task.description,
+                                expirationDate: deadline,
+                                status: task.status,
+                                id: task._id
+                            }))
+                        }
+                    })
+                tbody.append(allStatusExeptDoneEl, doneStatusEl);
                 break;
             };
             case 'today': {
                 tasks.filter(task => new Date(task.expirationDate).getFullYear() === new Date().getFullYear())
-                        .filter(task => moment(new Date(task.expirationDate)).dayOfYear() === moment(new Date()).dayOfYear())
-                            .forEach(task => {
-                                const maxDate = new Date(task.expirationDate);
-                                const deadline = moment(maxDate).format('LL');
+                    .filter(task => moment(new Date(task.expirationDate)).dayOfYear() === moment(new Date()).dayOfYear())
+                    .forEach(task => {
+                        const maxDate = new Date(task.expirationDate);
+                        const deadline = moment(maxDate).format('LL');
 
-                                fr.append(Row({
-                                    title: task.title,
-                                    description: task.description,
-                                    expirationDate: deadline,
-                                    status: task.status,
-                                    id: task._id
-                                }));
-                            });
-                tbody.append(fr);
+                        if (task.status === "done") {
+                            doneStatusEl.append(Row({
+                                title: task.title,
+                                description: task.description,
+                                expirationDate: deadline,
+                                status: task.status,
+                                id: task._id,
+                                hasDoneStatus: true
+                            }))
+                        } else {
+                            allStatusExeptDoneEl.append(Row({
+                                title: task.title,
+                                description: task.description,
+                                expirationDate: deadline,
+                                status: task.status,
+                                id: task._id
+                            }))
+                        }
+                    })
+                tbody.append(allStatusExeptDoneEl, doneStatusEl);
 
                 break;
             };
