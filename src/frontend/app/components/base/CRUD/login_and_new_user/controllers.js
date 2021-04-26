@@ -5,7 +5,9 @@ import {
 import { Row } from "../../../main/section/table/row";
 import {
     changeButtonToSuccess,
-    removeModal
+    removeModal,
+    changeButtonToError,
+    addToast
 } from "../../helpers";
 import {
     ButtonSpinner
@@ -61,64 +63,104 @@ export function login(e) {
         fetch(`http://localhost:3000/users?name=${userName}`)
             .then(res => res.json())
             .then(user => {
-                const userId = user[0].userId;
-                const userName = user[0].name;
-                const rootEl = document.querySelector("#root");
-                const tbody = document.querySelector("tbody");
+                if (user !== 'Not found') {
+                    const userId = user[0].userId;
+                    const userName = user[0].name;
+                    const rootEl = document.querySelector("#root");
+                    const tbody = document.querySelector("tbody");
 
-                rootEl.setAttribute("data-id", userId);
-                rootEl.setAttribute("value", userName);
+                    rootEl.setAttribute("data-id", userId);
+                    rootEl.setAttribute("value", userName);
 
-                changeButtonToSuccess({
+                    changeButtonToSuccess({
+                        button: button,
+                        classList: styles.loginButton
+                    });
+
+                    addToast({
+                        titleText: 'Success',
+                        bodyText: 'Successful log in',
+                        type: 'success',
+                        hideTime: 2000
+                    });
+
+                    tbody.innerHTML = "";
+
+                    fetch("http://localhost:3000/tasks/")
+                        .then(res => res.json())
+                        .then(tasks => {
+                            const doneStatusEl = document.createDocumentFragment();
+                            const allStatusExeptDoneEl = document.createDocumentFragment();
+
+                            tasks.forEach(task => {
+                                const maxDate = new Date(task.expirationDate);
+                                const deadline = moment(maxDate).format('LL');
+
+                                if (task.status === "done" && task.userId === "" + userId) {
+                                    doneStatusEl.append(Row({
+                                        title: task.title,
+                                        description: task.description,
+                                        expirationDate: deadline,
+                                        status: task.status,
+                                        id: task._id,
+                                        hasDoneStatus: true
+                                    }));
+                                } else if (task.status !== "done" && task.userId === "" + userId) {
+                                    allStatusExeptDoneEl.append(Row({
+                                        title: task.title,
+                                        description: task.description,
+                                        expirationDate: deadline,
+                                        status: task.status,
+                                        id: task._id
+                                    }));
+                                }
+                            });
+                            tbody.append(allStatusExeptDoneEl, doneStatusEl);
+                        });
+
+                    setTimeout(() => {
+                        removeModal();
+                    }, 1000);
+                } else {
+                    changeButtonToError({
+                        button: button,
+                        classList: styles.loginButton
+                    });
+
+                    setTimeout(() => {
+                        button.classList.remove('btn-danger');
+                        button.classList.add(styles.loginButton, 'btn-primary');
+                        button.textContent = 'Log in';
+                    }, 1500);
+
+                    addToast({
+                        titleText: 'Error',
+                        bodyText: 'User name or password is invalid',
+                        type: 'warning',
+                        hideTime: 2000
+                    });
+                }
+                
+            })
+            .catch(e => {
+                changeButtonToError({
                     button: button,
                     classList: styles.loginButton
                 });
 
-                tbody.innerHTML = "";
-
-                fetch("http://localhost:3000/tasks/")
-                    .then(res => res.json())
-                    .then(tasks => {
-                        console.log(userId);
-                        tasks.forEach(task => {
-                            const doneStatusEl = document.createDocumentFragment();
-                            const allStatusExeptDoneEl = document.createDocumentFragment();
-                            const maxDate = new Date(task.expirationDate);
-                            const deadline = moment(maxDate).format('LL');
-
-                            if (task.status === "done" && task.userId === "" + userId) {
-                                doneStatusEl.append(Row({
-                                    title: task.title,
-                                    description: task.description,
-                                    expirationDate: deadline,
-                                    status: task.status,
-                                    id: task._id,
-                                    hasDoneStatus: true
-                                }));
-                            } else if (task.status !== "done" && task.userId === "" + userId) {
-                                allStatusExeptDoneEl.append(Row({
-                                    title: task.title,
-                                    description: task.description,
-                                    expirationDate: deadline,
-                                    status: task.status,
-                                    id: task._id
-                                }));
-                            } else {
-                                tbody.append(Row({
-                                    description: ["No tasks yet"]
-                                }));
-                            }
-
-                            tbody.append(doneStatusEl, allStatusExeptDoneEl);
-                        }   
-                        );
-                    });
-            
                 setTimeout(() => {
-                    removeModal();
-                }, 1000);
-            })
-            .catch(e => alert("error"));
+                    button.classList.remove('btn-danger');
+                    button.classList.add(styles.loginButton, 'btn-primary');
+                    button.textContent = 'Log in';
+                }, 1500);
+
+                addToast({
+                    titleText: 'Error',
+                    bodyText: 'User name or password is invalid',
+                    type: 'warning',
+                    hideTime: 2000
+                });
+            });
     }, 1500);
 
 }

@@ -91,6 +91,22 @@ export function changeButtonToSuccess({
     return btn;
 }
 
+export function changeButtonToError({
+    button = '',
+    classList,
+}) {
+    const btn = button;
+
+    btn.textContent = 'Error';
+    btn.className = 'btn btn-danger';
+
+    if (classList) {
+        btn.classList.add(classList);
+    }
+
+    return btn;
+}
+
 export function changeBadgeToSuccess({
     badge = '',
     classList

@@ -44,9 +44,7 @@ export function Description({
                 appendTarget: description,
                 id: dataId
             });
-        }
-        
-        
+        }    
     } else {
         data.forEach(el => description.append(el));
     }

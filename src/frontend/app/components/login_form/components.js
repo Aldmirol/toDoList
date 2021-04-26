@@ -1,5 +1,4 @@
 import { Button } from "../base/button/components";
-import { login } from "../base/CRUD/login_and_new_user/controllers";
 import { openLoginForm } from "../header/user_panel/helpers";
 import { openNewUserForm } from "./helpers";
 import styles from "./styles.module.scss";
@@ -64,6 +63,7 @@ export function LoginForm({
         buttonContainer.append(loginButton, backButton);
         buttonContainer.classList.add(styles.buttonContainer);
         backButton.addEventListener("click", openLoginForm);
+        loginButton.textContent = 'Sign in';
     } else {
         buttonContainer.append(loginButton, newUserContainer);
     }
