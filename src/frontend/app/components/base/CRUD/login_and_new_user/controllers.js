@@ -66,11 +66,13 @@ export function login(e) {
                 if (user !== 'Not found') {
                     const userId = user[0].userId;
                     const userName = user[0].name;
-                    const rootEl = document.querySelector("#root");
                     const tbody = document.querySelector("tbody");
+                    const userNameInfo = document.querySelector('.user-name-info');
 
-                    rootEl.setAttribute("data-id", userId);
-                    rootEl.setAttribute("value", userName);
+                    localStorage.setItem("data-id", userId);
+                    localStorage.setItem("name", userName);
+
+                    userNameInfo.textContent = localStorage.getItem('name')
 
                     changeButtonToSuccess({
                         button: button,

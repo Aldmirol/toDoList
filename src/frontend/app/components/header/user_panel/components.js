@@ -12,10 +12,9 @@ export function UserPanel() {
     });
 
     userPanel.classList.add(styles.userPanel);
-    userInfo.classList.add(styles.userInfo);
+    userInfo.classList.add(styles.userInfo, 'user-name-info');
     btn.classList.add(styles.button);
 
-    userInfo.innerText = 'Aliaksei';
 
     userPanel.append(ThemeSwitcher(), userInfo, btn);
 

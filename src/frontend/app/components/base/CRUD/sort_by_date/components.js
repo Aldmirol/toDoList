@@ -22,10 +22,9 @@ export function SortByDate(e) {
         .then(res => res.json())
         .then(tasks => {
             const tbody = document.querySelector('tbody');
-            const rootEl = document.querySelector("#root");
             const allStatusExeptDoneEl = document.createDocumentFragment();
             const doneStatusEl = document.createDocumentFragment();
-            const userId = "" + rootEl.dataset.id;
+            const userId = localStorage.getItem('data-id');
 
             tbody.innerText = '';
 

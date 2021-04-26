@@ -48,8 +48,7 @@ export function addTask(e) {
     let status = checkStatus();
     const description = descriptionTextarea.value;
     const date = moment(dateInput.value).valueOf();
-    const rootEl = document.querySelector("#root");
-    const userId = "" + rootEl.dataset.id;
+    const userId = localStorage.getItem('data-id');
 
     btn.innerHTML = ButtonSpinner();
 
