@@ -17,11 +17,11 @@ export function SelectMenu() {
     selectMenu.classList.add('form-select', styles.selectMenu);
 
     selectMenu.append(
-        Option('1', 'All'),
-        Option('2', 'In Progress', styles.inProgress),
-        Option('3', 'Done', styles.done),
-        Option('4', 'Important', styles.important),
-        Option('5', 'To Do', styles.toDo),
+        Option('all', 'All'),
+        Option('in progress', 'In Progress', styles.inProgress),
+        Option('done', 'Done', styles.done),
+        Option('important', 'Important', styles.important),
+        Option('to do', 'To Do', styles.toDo),
     );
 
     selectMenu.addEventListener("change", sortByStatus);

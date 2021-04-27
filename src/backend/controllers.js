@@ -102,7 +102,7 @@ async function login(req, res) {
     const users = (await database).collection('users');
 
     users.find({}).toArray((err, result) => {
-        console.dir(name);
+        
         if (err) {
             return res.status(400);
         } else if (name !== '') {
