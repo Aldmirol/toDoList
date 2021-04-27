@@ -1,3 +1,4 @@
+import { sortByStatus } from './helpers';
 import styles from './styles.module.scss';
 
 function Option(value, title, customClass) {
@@ -15,15 +16,15 @@ export function SelectMenu() {
 
     selectMenu.classList.add('form-select', styles.selectMenu);
 
-    selectMenu.addEventListener('change', function(e){console.log(e)});
-
     selectMenu.append(
-        Option('1', 'To Do', styles.toDo),
+        Option('1', 'All'),
         Option('2', 'In Progress', styles.inProgress),
         Option('3', 'Done', styles.done),
         Option('4', 'Important', styles.important),
-        Option('5', 'All'),
+        Option('5', 'To Do', styles.toDo),
     );
+
+    selectMenu.addEventListener("change", sortByStatus);
 
     return selectMenu;
 }
