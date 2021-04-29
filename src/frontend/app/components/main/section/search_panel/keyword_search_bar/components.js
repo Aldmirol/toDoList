@@ -1,5 +1,6 @@
 import moment from 'moment';
 import {
+    addEmptyRow,
     debounce
 } from '../../../../base/helpers';
 import {
@@ -61,5 +62,7 @@ function search(e) {
             body.innerHTML = '';
 
             body.append(allStatusExeptDoneEl, doneStatusEl);
+
+            addEmptyRow();
         });
 }
