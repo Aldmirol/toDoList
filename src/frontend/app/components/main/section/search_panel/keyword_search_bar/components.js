@@ -26,7 +26,6 @@ function search(e) {
         .then(res => res.json())
         .then(tasks => {
             const body = document.querySelector('tbody');
-            const fr = document.createDocumentFragment();
             const allStatusExeptDoneEl = document.createDocumentFragment();
             const doneStatusEl = document.createDocumentFragment();
 
