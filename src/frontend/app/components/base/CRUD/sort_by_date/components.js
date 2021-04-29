@@ -2,6 +2,8 @@ import moment from "moment";
 import {
     Row
 } from "../../../main/section/table/row";
+import "../../../../../styles.scss";
+import { addEmptyRow } from "../../helpers";
 
 export function SortByDate(e) {
     const sortParam = e.target.dataset.id;
@@ -185,5 +187,8 @@ export function SortByDate(e) {
                 break;
             };
             }
+
+            addEmptyRow();
+            
         });
 }

@@ -1,6 +1,13 @@
-import { Badge } from './badge';
-import { changeStatusToDone } from './CRUD/change_status_to_done';
-import { showToast } from './toast';
+import { Row } from '../main/section/table/row';
+import {
+    Badge
+} from './badge';
+import {
+    changeStatusToDone
+} from './CRUD/change_status_to_done';
+import {
+    showToast
+} from './toast';
 
 export function debounce(func, wait) {
     let timeout;
@@ -36,7 +43,7 @@ export function addToast({
         hideTime,
         type
     });
-    
+
 }
 
 export function checkStatusAddBadges({
@@ -87,7 +94,7 @@ export function changeButtonToSuccess({
     if (classList) {
         btn.classList.add(classList);
     }
-    
+
     return btn;
 }
 
@@ -126,3 +133,28 @@ export function closeModalWithoutEventTarget() {
     return document.querySelector(".modal")?.remove();
 }
 
+export function deleteEmptyRow() {
+    const emptyRow = document.querySelector(`tr[data-id="1"]`);
+
+    return emptyRow?.remove();
+}
+
+export function addEmptyRow() {
+    const tbody = document.querySelector("tbody");
+    const hasShowClassRows = tbody.querySelectorAll(`tr[class*="hide"]`);
+    const rows = tbody.querySelectorAll("tr");
+
+    if (tbody.childNodes.length === 0 || rows.length === hasShowClassRows.length) {
+        return tbody.append(Row({
+            title: "",
+            description: "No tasks yet",
+            expirationDate: "",
+            id: "1",
+            status: "",
+            hasDoneStatus: false,
+            isEmpty: true
+        }));
+    } else {
+        return deleteEmptyRow(); 
+    }
+}

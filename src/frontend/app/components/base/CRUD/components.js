@@ -1,7 +1,7 @@
 import moment from "../../../../../../node_modules/moment/moment.js";
 import { CreateEditTaskForm } from "../../main/section/table/edit_task_form/components.js";
 import { Row } from "../../main/section/table/row";
-import { addToast, changeButtonToSuccess, checkStatusAddBadges, removeModal } from "../helpers";
+import { addEmptyRow, addToast, changeButtonToSuccess, checkStatusAddBadges, deleteEmptyRow, removeModal } from "../helpers";
 import { openModal } from "../modal";
 import { ButtonSpinner } from "../spinner/components";
 import { changeStatusToDone } from "./change_status_to_done";
@@ -70,6 +70,8 @@ export function addTask(e) {
             .then(task => {
                 const maxDate = new Date(task.expirationDate);
                 const deadline = moment(maxDate).format('LL');
+                
+                deleteEmptyRow();
                 
                 const taskRow = Row({
                     id: task._id,
@@ -194,13 +196,14 @@ export function deleteTask(e) {
             })
             .then(res => res.json())
             .then(task => {
-                
                 changeButtonToSuccess({
                     button: btn,
                     classList: styles.deleteButton
                 });
 
                 document.querySelector(`tr[data-id="${task}"]`)?.remove();
+
+                addEmptyRow();
 
                 setTimeout(() => {
                     removeModal();

@@ -7,7 +7,8 @@ import {
     changeButtonToSuccess,
     removeModal,
     changeButtonToError,
-    addToast
+    addToast,
+    addEmptyRow
 } from "../../helpers";
 import {
     ButtonSpinner
@@ -51,7 +52,6 @@ export function addNewUser(e) {
 }
 
 export function login(e) {
-    const password = document.querySelector('#password').value;
     const userName = document.querySelector('#user-name').value;
     const button = e.target;
 
@@ -118,6 +118,8 @@ export function login(e) {
                                 }
                             });
                             tbody.append(allStatusExeptDoneEl, doneStatusEl);
+
+                            addEmptyRow();
                         });
 
                     setTimeout(() => {
