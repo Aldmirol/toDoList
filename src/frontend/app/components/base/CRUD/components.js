@@ -211,7 +211,7 @@ export function deleteTask(e) {
                     addToast({
                         titleText: 'Success',
                         bodyText: 'Task successfully deleted',
-                        type: 'warning',
+                        type: 'success',
                         hideTime: 2000,
                     });
                 }, 1000);
