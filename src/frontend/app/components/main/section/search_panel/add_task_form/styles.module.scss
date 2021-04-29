@@ -2,12 +2,24 @@
     cursor: default;
     display: flex;
     flex-direction: column;
+
     .title,
     .description,
     .light-theme,
     .date {
         width: 100%;
     }
+
+    .light-theme {
+        color: #000000;
+    }
+
+    .title,
+    .description,
+    .date {
+        color: #ffffff;
+    }
+
     .status {
         align-self: center;
         width: 70%;

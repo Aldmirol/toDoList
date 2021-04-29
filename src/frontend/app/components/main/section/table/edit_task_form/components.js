@@ -44,6 +44,7 @@ export function CreateEditTaskForm({
     formSubmitBtn.classList.add(styles.addTask);
     formSubmitBtn.setAttribute('data-id', id);
     dateInput.setAttribute('id', 'edit-datepicker');
+    dateLabel.classList.add('form-label');
     dateLabel.setAttribute('for', 'edit-datepicker');
     dateInput.setAttribute('autocomplete', 'off');
     dateInput.setAttribute('type', 'text');

@@ -133,12 +133,12 @@ export function login(e) {
                         button.classList.remove('btn-danger');
                         button.classList.add(styles.loginButton, 'btn-primary');
                         button.textContent = 'Log in';
-                    }, 1500);
+                    }, 2000);
 
                     addToast({
                         titleText: 'Error',
                         bodyText: 'User name or password is invalid',
-                        type: 'warning',
+                        type: 'danger',
                         hideTime: 2000
                     });
                 }

@@ -14,7 +14,4 @@ export function OpenTaskForm({
     titleEl.setAttribute('readonly', '');
     descriptionEl.setAttribute('readonly', '');
     statusEl.setAttribute('readonly', '');
-
-    
-
 }

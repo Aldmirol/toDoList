@@ -9,6 +9,9 @@ export function SortByDate(e) {
     const currenActiveButton = document.querySelector(`.active-aside-buttons`);
     const currentActiveButtonLightTheme = document.querySelector(".theme-active-aside-buttons-light");
     const theme = localStorage.getItem("theme");
+    const select = document.querySelector('.form-select');
+
+    select.value = 'all';
 
     if (theme === "light") {
         currentActiveButtonLightTheme.classList.remove("theme-active-aside-buttons-light");

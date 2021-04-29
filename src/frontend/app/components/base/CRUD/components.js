@@ -197,6 +197,7 @@ export function deleteTask(e) {
                 
                 changeButtonToSuccess({
                     button: btn,
+                    classList: styles.deleteButton
                 });
 
                 document.querySelector(`tr[data-id="${task}"]`)?.remove();

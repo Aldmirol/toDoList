@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 function Option(value, title, customClass) {
     const option = document.createElement('option');
 
-    option.classList.add(customClass);
+    option.classList.add(customClass, styles.option);
     option.value = value;
     option.innerText = title;
 

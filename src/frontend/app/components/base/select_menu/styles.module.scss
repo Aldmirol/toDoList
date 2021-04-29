@@ -1,21 +1,21 @@
 .selectMenu {
-    width: 20%;
+    width: 15%;
 }
 
 .in-progress {
-    background: #597EAA;
+    background: #0DCAF0;
 }
 
 .done {
-    background: #93C47D;
+    background: #198754;
 }
 
 .to-do {
-    background: #F6B26B;
+    background: #0D6EFD;
 }
 
 .important {
-    background: #E06666;
+    background: #DC3545;
 }
 
 .hide {
@@ -25,3 +25,8 @@
 .show {
     display: table-row;
 }
+
+.option {
+    font-size: 1.1rem;
+}
+

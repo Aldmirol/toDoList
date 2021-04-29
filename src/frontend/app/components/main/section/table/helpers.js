@@ -72,7 +72,7 @@ export function OpenDeleteTaskModal(e) {
             content: 'Delete',
             classList: 'danger',
             clickHandler: deleteTask,
-            dataId: targetId
+            dataId: targetId,
         })]
     }))
 }

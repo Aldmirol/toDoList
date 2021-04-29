@@ -3,7 +3,7 @@ export function Button({
     content = '',
     clickHandler = function() {},
     type = "button",
-    dataId = ''
+    dataId = '',
 }) {
     const button = document.createElement('button');
 

@@ -23,7 +23,7 @@ export function CreateAddTaskForm() {
     });
 
     titleInput.setAttribute('required', '');
-
+    titleInput.setAttribute('autocomplete', 'off');
     form.classList.add('add-task', styles.form);    
     status.classList.add(styles.status);
     formSubmitBtn.classList.add(styles.addTask);
