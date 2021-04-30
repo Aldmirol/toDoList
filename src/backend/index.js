@@ -7,7 +7,9 @@ const {
     getOneTask,
     deleteOneTask,
     updateTask,
-    newTask
+    newTask,
+    login,
+    newUser
 } = require('./controllers.js');
 
 const PORT = 3000;
@@ -29,3 +31,6 @@ app.get('/tasks/:id', getOneTask);
 app.delete('/tasks/:id', deleteOneTask);
 app.put('/tasks/:id', updateTask);
 app.post('/tasks', newTask);
+
+app.get('/users', login);
+app.post('/users', newUser);

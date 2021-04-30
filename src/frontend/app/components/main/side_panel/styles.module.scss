@@ -5,19 +5,11 @@
     flex-direction: column;
     background-color: #232323;
 
-    .period,
-    .importance {
+    .period {
         width: 100%;
         height: 40%;
-    }
-    .period {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
     }
-}
-
-.sort-elem {
-    height: 15%;
-    margin-top: 10px;
 }

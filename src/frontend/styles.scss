@@ -3,3 +3,77 @@
 @import './assets/chrome-extensions-bugfix';
 @import 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css';
 @import 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap';
+@import 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css';
+
+.row-done-task {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+//#bbc5ab
+body {
+    #root {
+        .theme-main-light {
+            background-color: #b5e6d7;
+        }
+
+        .theme-secondary-light {
+            background-color: #d5e2bf;
+        }
+
+        .theme-text-main-light {
+            color: #374c61;
+        }
+
+        .theme-aside-buttons-light {
+            background-color: #e6efd6;
+        }
+
+        .active-aside-buttons {
+            background-color: #434343;
+        }
+
+        .theme-active-aside-buttons-light {
+            background-color: #acb996;
+        }
+
+        .theme-table-text-light {
+            background-color: #e6efd6;
+            color: #374c61;
+            border-color: #374c61;
+        }
+
+        .table {
+            .edit {
+                
+                width: 2vw;
+            }
+
+            .title-input {
+                
+                width: 10vw;
+            }
+
+            .description-textarea {
+                width: 35vw;
+            }
+
+            .status {
+                
+                width: 7vw;
+            }
+
+            .expirationDate {
+                
+                width: 6vw;
+            }
+
+            .delete {
+                
+                width: 2vw;
+            }
+        }
+    }
+}
+
+
+

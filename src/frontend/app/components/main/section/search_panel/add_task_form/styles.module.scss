@@ -1,0 +1,37 @@
+.form {
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+
+    .title,
+    .description,
+    .light-theme,
+    .date {
+        width: 100%;
+    }
+
+    .light-theme {
+        color: #000000;
+    }
+
+    .title,
+    .description,
+    .date {
+        color: #ffffff;
+    }
+
+    .status {
+        align-self: center;
+        width: 70%;
+        margin-bottom: 20px;
+    }
+    .title::placeholder,
+    .status::placeholder,
+    .description::placeholder,
+    .date::placeholder {
+        color: #ffffff;
+    }
+    .add-task{
+        width: 130px;
+    }
+}

@@ -6,9 +6,15 @@
   "scripts": {
     "copy:img": "copyfiles -u 3 ./src/frontend/app/img/*.* ./dist",
     "build:frontend": "webpack && npm run copy:img",
+    "build:backend": "webpack --config ./webpack.server.config.js",
+    "start:prod:backend": "node ./dist/backend/server.js",
+    "start:prod:frontend": "http-server ./dist",
     "start:dev:backend": "nodemon ./src/backend/index",
     "start:dev:frontend": "webpack serve",
-    "start:dev": "concurrently \"npm run start:dev:frontend\" \"npm run start:dev:backend\""
+    "start:dev": "concurrently \"npm run start:dev:frontend\" \"npm run start:dev:backend\"",
+    "start:prod": "concurrently \"npm run build:prod\" \"npm run start:prod:frontend\" \"npm run start:prod:backend\"",
+    "remove:dist": "rimraf ./dist",
+    "build:prod": "npm run remove:dist && npm run build:frontend && npm run build:backend"
   },
   "repository": {
     "type": "git",
@@ -28,15 +34,18 @@
   "homepage": "https://github.com/Aldmirol/toDoList#readme",
   "dependencies": {
     "body-parser": "1.19.0",
-    "cors": "^2.8.5",
+    "cors": "2.8.5",
     "express": "4.17.1",
-    "font-awesome": "4.7.0",
+    "jquery": "3.6.0",
+    "jquery-datepicker": "1.12.3",
+    "jquery-ui": "1.12.1",
+    "moment": "2.29.1",
     "mongodb": "3.6.5",
     "normalize.css": "8.0.1"
   },
   "devDependencies": {
     "@types/express": "4.11.1",
-    "concurrently": "^6.0.0",
+    "concurrently": "6.0.0",
     "copyfiles": "2.4.1",
     "css-loader": "5.2.0",
     "html-webpack-plugin": "5.3.1",

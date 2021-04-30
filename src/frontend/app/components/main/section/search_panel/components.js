@@ -1,7 +1,12 @@
 import styles from './styles.module.scss';
 import {Button} from '../../../base/button';
 import {SelectMenu} from '../../../base/select_menu';
-import {SearchBarInput} from "../../../base/search_bar_input";
+import {SearchBarInput} from './keyword_search_bar';
+import {
+    CreateAddTaskForm
+} from './add_task_form/components';
+import { openModal } from '../../../base/modal';
+
 
 export function SearchPanel() {
     const searchPanel = document.createElement('div');
@@ -15,7 +20,18 @@ export function SearchPanel() {
     input.type = 'text';
     input.placeholder = 'search';
 
-    searchPanel.append(input, select, Button('info', 'Add task'));
+    searchPanel.append(input, select, Button({
+        classList: 'info',
+        content: 'Add task',
+        clickHandler: openModalToAddTask
+    }));
 
     return searchPanel;
+}
+
+function openModalToAddTask() {
+    openModal({
+        title: 'New Task',
+        body: CreateAddTaskForm()
+    });
 }

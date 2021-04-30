@@ -1,0 +1,50 @@
+.form {
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+
+    .title,
+    .description {
+        width: 100%;
+        color: #ffffff;
+    }
+
+    .status {
+        align-self: center;
+        width: 70%;
+        margin-bottom: 20px;
+        & label[for*="btn"] {
+            color: #ffffff;
+        }
+    }
+
+    .light-theme-status {
+        align-self: center;
+        width: 70%;
+        margin-bottom: 20px;
+
+        & label[for*="btn"] {
+            color: #374c61;
+        }
+    }
+
+    .title::placeholder,
+    .status::placeholder,
+    .description::placeholder,
+    .date {
+        color: #ffffff;
+    }
+
+    .add-task,
+    .close-button {
+        width: 130px;
+    }
+
+    .buttons-block {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    
+}

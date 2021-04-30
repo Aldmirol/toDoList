@@ -1,7 +1,7 @@
-import { Badge } from '../../../base/badge';
-import {
-    Button
-} from '../../../base/button/components';
+import { Button } from '../../../base/button';
+import { deleteTask } from '../../../base/CRUD/components';
+import { checkStatusAddBadges } from '../../../base/helpers';
+import { Modal } from '../../../base/modal';
 import styles from './styles.module.scss';
 
 export function Heading(data, scope) {
@@ -16,26 +16,35 @@ export function Heading(data, scope) {
 export function Description({
     data,
     status,
-    dataId
+    dataId,
+    classList
 }) {
     const description = document.createElement('td');
-    description.setAttribute("data-id", dataId);
 
-    if (typeof data === "string" || typeof status === 'string') {
-        if (data) {
+    if(classList) {
+        description.classList.add(classList);
+    }
+
+    description.setAttribute('data-id', dataId);
+
+    if (typeof data === 'string' || typeof data === 'number' || typeof status === 'string') {
+        if (classList === 'description-textarea') {
+            const descriptionBlock = document.createElement('div');
+
+            descriptionBlock.classList.add(styles.descriptionBlock);
+            descriptionBlock.setAttribute('data-id', dataId);
+            descriptionBlock.textContent = data;
+
+            description.append(descriptionBlock);
+        } else if (data) {
             description.innerText = data;
         } else {
-            if (status === 'in progress') {
-                description.append(Badge('info', 'in progress'));
-            } else if (status === 'done') {
-                description.append(Badge('success', 'done'));
-            } else if (status === 'to do') {
-                description.append(Badge('primary', 'to do'));
-            } else if (status === 'important') {
-                description.append(Badge('danger', 'important'));
-            }
-        }
-        
+            checkStatusAddBadges({
+                checkTarget: status,
+                appendTarget: description,
+                id: dataId
+            });
+        }    
     } else {
         data.forEach(el => description.append(el));
     }
@@ -43,41 +52,28 @@ export function Description({
     return description;
 }
 
-export function Row({
-    title,
-    description,
-    status,
-    id,
-    headings
-}) {
-    const row = document.createElement('tr');
+export function HeadingRow({headings}) {
+    const headingRow = document.createElement('tr');
+    
+    headingRow.classList.add(styles.headingRow);
 
-    row.classList.add(styles.row);
+    headings.forEach(heading => headingRow.append(heading));
 
-    if (headings) {
-        headings.forEach(element => {
-            row.append(element)
-        });
-    } else {
-        row.append(
-            Description({
-                data: title,
-                dataId: id
-            }),
-            Description({
-                data: description,
-                dataId: id
-            }),
-            Description({
-                status: status,
-                dataId: id
-            }),
-            Description({
-                data: [Button("danger", "Delete")],
-                dataId: id
-            }),
-            );
-    }
-
-return row;
+    return headingRow;
 }
+
+export function OpenDeleteTaskModal(e) {
+    const targetId = e.target.dataset.id;
+    return document.body.append(Modal({
+        title: 'Are you sure?',
+        body: 'Delited data cannot be recovered',
+        hasFooterCloseButton: true,
+        footerButtons: [Button({
+            content: 'Delete',
+            classList: 'danger',
+            clickHandler: deleteTask,
+            dataId: targetId,
+        })]
+    }))
+}
+

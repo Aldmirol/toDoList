@@ -12,15 +12,15 @@ async function getTasks(req, res) {
         q
     } = req.query;
     const tasks = (await database).collection('tasks');
-    
+
     tasks.find({}).toArray((err, result) => {
         if (err) {
             return res.status(400);
         } else if (q) {
             return res.status(200).json(result.filter(task => task.title.toLowerCase().includes(q.toLowerCase())));
         }
-
-        return res.status(200).json(result);
+        
+            return res.status(200).json(result.sort((nextTask, prevTask) => prevTask.creationDate - nextTask.creationDate));
     });
 }
 
@@ -53,7 +53,7 @@ async function deleteOneTask(req, res) {
             res.status(400);
         };
 
-        res.status(204).json(`task with id:${id} deleted`);
+        res.status(200).json(id);
     });
 }
 
@@ -97,10 +97,44 @@ async function newTask(req, res) {
     });
 }
 
+async function login(req, res) {
+    const { name } = req.query;
+    const users = (await database).collection('users');
+
+    users.find({}).toArray((err, result) => {
+        
+        if (err) {
+            return res.status(400);
+        } else if (name !== '') {
+            return res.status(200).json(result.filter(user => user.name === name));
+        } else {
+            return res.json('Not found');
+        }
+    });
+}
+
+async function newUser(req, res) {
+    const user = Object.assign({}, req.body, {
+        userId: Date.now(),
+    });
+
+    const users = (await database).collection('users');
+
+    users.insertOne(user, (err, result) => {
+        if (err) {
+            res.status(400);
+        };
+
+        res.status(200).json("result");
+    });
+}
+
 module.exports = {
     getTasks,
     getOneTask,
     deleteOneTask,
     updateTask,
-    newTask
+    newTask,
+    login,
+    newUser
 };

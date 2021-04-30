@@ -1,0 +1,54 @@
+.show {
+    display: block;
+    backdrop-filter: blur(7px);
+}
+
+.login-modal {
+    display: block;
+    background-color: #1C1C23;
+}
+
+.login-modal-light {
+    display: block;
+    background-color: #E6EFD6;
+}
+
+.header {
+    background-color: #636668;
+    color: #ffffff;
+}
+
+.body {
+    background-color: #323539;
+    color: #ffffff;
+}
+
+.footer {
+    background-color: #323539;
+    color: #ffffff;
+}
+
+.light-theme-main {
+    background-color: #b5e6d7;
+}
+
+.light-theme-second {
+    background-color: #d5e2bf;
+    color: #323539;
+}
+
+.important-status-header {
+    background-color: #DC3545;
+}
+
+.to-do-status-header {
+    background-color: #0D6EFD;
+}
+
+.in-progress-status-header {
+    background-color: #0DCAF0;
+}
+
+.done-status-header {
+    background-color: #198754;
+}

@@ -1,12 +1,15 @@
 import styles from './styles.module.scss';
-import {SortElem} from "../../base/sort_elem";
+import {
+    CustomButton
+} from '../../base/custom_button';
 
 export function Aside() {
     const aside = document.createElement('aside');
+    const btn = CustomButton('Help', styles.help);
 
     aside.classList.add(styles.aside);
 
-    aside.append(SortElem("Help", styles.help));
+    aside.append();
 
     return aside;
 }

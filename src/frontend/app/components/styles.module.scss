@@ -1,7 +1,7 @@
 .app {
     display:grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 10vh 85vh 5vh;
+    grid-template-rows: 10vh minmax(85vh, max-content) 5vh;
     grid-template-areas: 
     "header"
     "main"
