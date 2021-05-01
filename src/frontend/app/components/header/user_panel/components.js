@@ -1,5 +1,5 @@
-import {Button} from '../../base/button';
-import { openLoginForm } from './helpers';
+import { Button } from '../../base/button';
+import { openLoginForm } from '../../login_form/helpers';
 import styles from './styles.module.scss';
 import { ThemeSwitcher } from './theme_switcher';
 

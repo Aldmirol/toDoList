@@ -24,7 +24,7 @@ export function SelectMenu() {
         Option('to do', 'To Do', styles.toDo),
     );
 
-    selectMenu.addEventListener("change", sortByStatus);
+    selectMenu.addEventListener('change', sortByStatus);
 
     return selectMenu;
 }

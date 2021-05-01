@@ -1,7 +1,7 @@
-import { Button } from "../../../../base/button";
-import { editTask } from "../../../../base/CRUD/components";
-import { closeModal } from "../../../../base/modal";
-import { RadioButtonsGroup } from "../../../../base/radio_buttons_group";
+import { Button } from '../../../../base/button';
+import { editTask } from '../../../../base/CRUD/components';
+import { closeModal } from '../../../../base/modal';
+import { RadioButtonsGroup } from '../../../../base/radio_buttons_group';
 import styles from './styles.module.scss';
 import $ from 'jquery';
 import datepickerFactory from 'jquery-datepicker';

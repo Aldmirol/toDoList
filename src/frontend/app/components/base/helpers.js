@@ -27,6 +27,10 @@ export function removeModal() {
     document.querySelector('.modal')?.remove();
 }
 
+export function removeDatePicker() {
+    document.querySelector('#ui-datepicker-div')?.remove();
+}
+
 export function addToast({
     titleText,
     bodyText,
@@ -40,7 +44,6 @@ export function addToast({
     return showToast({
         titleText,
         bodyText,
-        hideTime,
         type
     });
 
@@ -130,27 +133,27 @@ export function changeBadgeToSuccess({
 }
 
 export function closeModalWithoutEventTarget() {
-    return document.querySelector(".modal")?.remove();
+    return document.querySelector('.modal')?.remove();
 }
 
 export function deleteEmptyRow() {
-    const emptyRow = document.querySelector(`tr[data-id="1"]`);
+    const emptyRow = document.querySelector(`tr[data-id='1']`);
 
     return emptyRow?.remove();
 }
 
 export function addEmptyRow() {
-    const tbody = document.querySelector("tbody");
-    const hasShowClassRows = tbody.querySelectorAll(`tr[class*="hide"]`);
-    const rows = tbody.querySelectorAll("tr");
+    const tbody = document.querySelector('tbody');
+    const hasShowClassRows = tbody.querySelectorAll(`tr[class*='hide']`);
+    const rows = tbody.querySelectorAll('tr');
 
     if (tbody.childNodes.length === 0 || rows.length === hasShowClassRows.length) {
         return tbody.append(Row({
-            title: "",
-            description: "No tasks yet",
-            expirationDate: "",
-            id: "1",
-            status: "",
+            title: '',
+            description: 'No tasks yet',
+            expirationDate: '',
+            id: '1',
+            status: '',
             hasDoneStatus: false,
             isEmpty: true
         }));

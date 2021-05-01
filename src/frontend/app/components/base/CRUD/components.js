@@ -1,11 +1,11 @@
-import moment from "../../../../../../node_modules/moment/moment.js";
-import { CreateEditTaskForm } from "../../main/section/table/edit_task_form/components.js";
-import { Row } from "../../main/section/table/row";
-import { addEmptyRow, addToast, changeButtonToSuccess, checkStatusAddBadges, deleteEmptyRow, removeModal } from "../helpers";
-import { openModal } from "../modal";
-import { ButtonSpinner } from "../spinner/components";
-import { changeStatusToDone } from "./change_status_to_done";
-import { checkStatus } from "./helpers";
+import moment from '../../../../../../node_modules/moment/moment.js';
+import { CreateEditTaskForm } from '../../main/section/table/edit_task_form/components.js';
+import { Row } from '../../main/section/table/row';
+import { addEmptyRow, addToast, changeButtonToSuccess, checkStatusAddBadges, deleteEmptyRow, removeModal } from '../helpers';
+import { openModal } from '../modal';
+import { ButtonSpinner } from '../spinner/components';
+import { changeStatusToDone } from './change_status_to_done';
+import { checkStatus } from './helpers';
 import styles from './styles.module.scss';
 
 export function openTask(e) {
@@ -134,14 +134,14 @@ export function editTask(e) {
             .then(task => {
                 const maxDate = new Date(task['$set'].expirationDate);
                 const deadline = moment(maxDate).format('LL');
-                const tbody = document.querySelector("tbody");
-                const row = document.querySelector(`tr[data-id="${taskId}"]`);
-                const title = document.querySelector(`td.title-input[data-id="${taskId}"]`);
-                const description = document.querySelector(`div[class^="description"]`);
-                const statusContainer = document.querySelector(`td.status[data-id="${taskId}"]`);
-                const status = document.querySelector(`span.status-text[data-id="${taskId}"]`);
-                const badge = document.querySelector(`span[data-id="${taskId}"]`);
-                const dateInput = document.querySelector(`td.expirationDate[data-id="${taskId}"]`);
+                const tbody = document.querySelector('tbody');
+                const row = document.querySelector(`tr[data-id='${taskId}']`);
+                const title = document.querySelector(`td.title-input[data-id='${taskId}']`);
+                const description = document.querySelector(`div[class^='description']`);
+                const statusContainer = document.querySelector(`td.status[data-id='${taskId}']`);
+                const status = document.querySelector(`span.status-text[data-id='${taskId}']`);
+                const badge = document.querySelector(`span[data-id='${taskId}']`);
+                const dateInput = document.querySelector(`td.expirationDate[data-id='${taskId}']`);
 
                 title.textContent = task['$set'].title;
                 description.textContent = task['$set'].description;
@@ -155,12 +155,12 @@ export function editTask(e) {
                     id: taskId,
                 });
 
-                if (task['$set'].status !== "done" && row.classList.contains("row-done-task")) {
-                    row.classList.remove("row-done-task");
+                if (task['$set'].status !== 'done' && row.classList.contains('row-done-task')) {
+                    row.classList.remove('row-done-task');
                     row.remove();
                     tbody.prepend(row);
 
-                    badge.addEventListener("click", changeStatusToDone)
+                    badge.addEventListener('click', changeStatusToDone)
                 }
 
                 changeButtonToSuccess({
@@ -201,7 +201,7 @@ export function deleteTask(e) {
                     classList: styles.deleteButton
                 });
 
-                document.querySelector(`tr[data-id="${task}"]`)?.remove();
+                document.querySelector(`tr[data-id='${task}']`)?.remove();
 
                 addEmptyRow();
 

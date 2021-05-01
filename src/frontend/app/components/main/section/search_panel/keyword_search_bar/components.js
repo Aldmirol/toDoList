@@ -3,9 +3,7 @@ import {
     addEmptyRow,
     debounce
 } from '../../../../base/helpers';
-import {
-    Row
-} from '../../table/row';
+import { Row } from '../../table/row';
 
 
 export function SearchBarInput() {
@@ -34,7 +32,7 @@ function search(e) {
                 .forEach(task => {
                     const maxDate = new Date(task.expirationDate);
                     const deadline = moment(maxDate).format('LL');
-                    if (task.status !== "done") {
+                    if (task.status !== 'done') {
                         allStatusExeptDoneEl.append(
                             Row({
                                 title: task.title,

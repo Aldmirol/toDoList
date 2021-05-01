@@ -1,9 +1,12 @@
+import styles from './styles.module.scss';
+
 export function Button({
     classList = 'primary',
     content = '',
     clickHandler = function() {},
-    type = "button",
+    type = 'button',
     dataId = '',
+    isModalFooterButton = false
 }) {
     const button = document.createElement('button');
 
@@ -12,6 +15,10 @@ export function Button({
     button.setAttribute('type', type);
     button.setAttribute('data-id', dataId);
     button.addEventListener('click', clickHandler);
+
+    if (isModalFooterButton) {
+        button.classList.add(styles.button);
+    }
 
     if (typeof content === 'string') {
         button.textContent = content;

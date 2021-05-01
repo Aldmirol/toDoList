@@ -1,6 +1,6 @@
-import { openModal } from "../../../../base/modal";
-import { CreateEditTaskForm } from ".";
-import moment from "moment";
+import { openModal } from '../../../../base/modal';
+import { CreateEditTaskForm } from '.';
+import moment from 'moment';
 
 export function OpenEditTaskModal(e) {
     const taskId = e.target.dataset.id;

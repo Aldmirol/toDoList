@@ -1,5 +1,5 @@
-import {SidePanel} from './side_panel';
-import {Section} from './section';
+import { SidePanel } from './side_panel';
+import { Section } from './section';
 import styles from './styles.module.scss'
 
 export function Main() {

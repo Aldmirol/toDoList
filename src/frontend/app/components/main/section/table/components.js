@@ -35,7 +35,7 @@ export function Table() {
                 const maxDate = new Date(task.expirationDate);
                 const deadline = moment(maxDate).format('LL');
 
-                if (task.status !== "done") {
+                if (task.status !== 'done') {
                     allStatusExeptDoneEl.append(
                         Row({
                             title: task.title,
