@@ -1,4 +1,1 @@
-export {
-    CreateEditTaskForm
-}
-from './components';
+export { CreateEditTaskForm } from './components';

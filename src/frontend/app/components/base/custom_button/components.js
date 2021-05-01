@@ -7,16 +7,16 @@ export function CustomButton({
 }) {
     const customButton = document.createElement('div');
     const elemText = document.createElement('span');
-    const theme = localStorage.getItem("theme");
+    const theme = localStorage.getItem('theme');
 
     customButton.classList.add(styles.customButton);
     elemText.classList.add(styles.elemText);
 
     if (active) {
-        if (theme === "light") {
-            customButton.classList.add("theme-active-aside-buttons-light");
+        if (theme === 'light') {
+            customButton.classList.add('theme-active-aside-buttons-light');
         } else {
-            customButton.classList.add("active-aside-buttons");
+            customButton.classList.add('active-aside-buttons');
         }
     }
 

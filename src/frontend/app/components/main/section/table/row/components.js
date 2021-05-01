@@ -1,4 +1,3 @@
-import { Button } from '../../../../base/button';
 import { Description, OpenDeleteTaskModal } from '../helpers';
 import { OpenEditTaskModal } from '../edit_task_form/helpers';
 import styles from './styles.module.scss';
@@ -19,13 +18,13 @@ export function Row({
     row.setAttribute('data-id', id);
 
     if (hasDoneStatus) {
-        row.classList.add("row-done-task");
+        row.classList.add('row-done-task');
     }
 
     if (isEmpty) {
         row.append(
             Description({
-                data: "",
+                data: '',
                 classList: 'edit'
             }),
             Description({
@@ -49,7 +48,7 @@ export function Row({
                 dataId: id,
             }),
             Description({
-                data: "",
+                data: '',
                 classList: 'delete'
             })
         );

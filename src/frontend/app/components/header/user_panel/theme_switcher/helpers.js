@@ -2,8 +2,8 @@ import '../../../../../styles.scss';
 import { LightThemeElementSelectors } from './constants';
 
 export function checkThemeState() {
-    if (!localStorage.getItem("theme")) {
-        localStorage.setItem("theme", "dark");
+    if (!localStorage.getItem('theme')) {
+        localStorage.setItem('theme', 'dark');
     }
 }
 

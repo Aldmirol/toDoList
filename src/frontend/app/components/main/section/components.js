@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
-import {Table} from './table';
-import {SearchPanel} from './search_panel';
+import { Table } from './table';
+import { SearchPanel } from './search_panel';
 
 export function Section() {
     const section = document.createElement('section');

@@ -2,9 +2,7 @@ import {
     addToast,
     changeBadgeToSuccess
 } from "../../helpers";
-import {
-    ButtonSpinner
-} from "../../spinner/components";
+import { ButtonSpinner } from "../../spinner/components";
 import styles from './styles.module.scss';
 
 export function changeStatusToDone(e) {
@@ -28,7 +26,7 @@ export function changeStatusToDone(e) {
             .then(res => res.json())
             .then(task => {
                 const doneTaskRow = document.querySelector(`tr[data-id="${taskId}"]`);
-                const rowBody = document.querySelector("tbody");
+                const rowBody = document.querySelector('tbody');
                 const badge = document.querySelector(`span[data-id="${taskId}"]`);
                 console.log(doneTaskRow);
 
@@ -38,10 +36,10 @@ export function changeStatusToDone(e) {
                 })
 
                 setTimeout(() => {
-                    doneTaskRow.classList.add("row-done-task");
+                    doneTaskRow.classList.add('row-done-task');
 
                     doneTaskRow.remove();
-                    badge.removeEventListener("click", changeStatusToDone);
+                    badge.removeEventListener('click', changeStatusToDone);
 
                     rowBody.append(doneTaskRow);
                 }, 1000);

@@ -1,9 +1,9 @@
 import { Header } from './header';
 import { Main } from './main';
 import { Footer } from './footer';
-
 import styles from './styles.module.scss';
-import { openLoginForm } from './header/user_panel/helpers';
+import { openLoginForm } from './login_form/helpers';
+
 
 export function App() {
     const app = document.createElement('div');

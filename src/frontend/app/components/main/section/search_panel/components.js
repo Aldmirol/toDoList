@@ -1,10 +1,8 @@
 import styles from './styles.module.scss';
-import {Button} from '../../../base/button';
-import {SelectMenu} from '../../../base/select_menu';
-import {SearchBarInput} from './keyword_search_bar';
-import {
-    CreateAddTaskForm
-} from './add_task_form/components';
+import { Button } from '../../../base/button';
+import { SelectMenu } from '../../../base/select_menu';
+import { SearchBarInput } from './keyword_search_bar';
+import { CreateAddTaskForm } from './add_task_form/components';
 import { openModal } from '../../../base/modal';
 
 

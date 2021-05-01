@@ -73,6 +73,7 @@ export function OpenDeleteTaskModal(e) {
             classList: 'danger',
             clickHandler: deleteTask,
             dataId: targetId,
+            isModalFooterButton: true
         })]
     }))
 }

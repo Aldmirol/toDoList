@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
-import {Logo} from './logo/index';
-import {UserPanel} from './user_panel';
+import { Logo } from './logo/index';
+import { UserPanel } from './user_panel';
 
 export function Header() {
     const header = document.createElement('div');

@@ -1,1 +1,1 @@
-export {SearchPanel} from './components';
+export { SearchPanel } from './components';

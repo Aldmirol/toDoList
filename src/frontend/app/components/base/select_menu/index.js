@@ -1,1 +1,1 @@
-export {SelectMenu} from './components';
+export { SelectMenu } from './components';

@@ -1,5 +1,5 @@
 import { Button } from '../button/components';
-import { removeModal } from '../helpers';
+import { removeDatePicker, removeModal } from '../helpers';
 import { closeModal } from './helpers';
 import styles from './styles.module.scss';
 
@@ -12,19 +12,17 @@ export function Modal({
 }) {
     removeModal();
 
-    document.querySelector('#ui-datepicker-div')?.remove();
+    removeDatePicker();
 
     const modal = document.createElement('div');
     const theme = localStorage.getItem('theme');
 
     if (isLoginModal) {
-
         if (theme === 'light') {
-            modal.classList.add('modal', styles.loginModalLight);
+            modal.classList.add('modal', styles.loginModalLight, styles.show);
         } else {
-            modal.classList.add('modal', styles.loginModal);
-        }
-        
+            modal.classList.add('modal', styles.loginModal, styles.show);
+        }    
     } else {
         modal.classList.add('modal', styles.show);
     } 
@@ -179,6 +177,7 @@ function ModalCloseFooterButton() {
         classList: 'secondary',
         content: 'Close',
         clickHandler: closeModal,
+        isModalFooterButton: true
     });
 
     return modalCloseButton;

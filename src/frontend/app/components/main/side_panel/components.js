@@ -1,7 +1,5 @@
 import styles from './styles.module.scss';
-import {
-    CustomButton
-} from '../../base/custom_button';
+import { CustomButton } from '../../base/custom_button';
 import { SortByDate } from '../../base/CRUD/sort_by_date';
 
 export function SidePanel() {

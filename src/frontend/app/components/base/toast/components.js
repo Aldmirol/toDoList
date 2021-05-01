@@ -3,8 +3,7 @@ import styles from './styles.module.scss';
 export function Toast({
     titleText = '',
     bodyText = '',
-    type = 'success',
-    hideTime = 2000
+    type = 'success'
 }) {
     const toast = document.createElement('div');
     
@@ -14,8 +13,7 @@ export function Toast({
     toast.append(toastElement({
         titleText,
         bodyText,
-        type,
-        hideTime
+        type
     }));
 
     return toast;
@@ -24,8 +22,7 @@ export function Toast({
 function toastElement({
     titleText,
     bodyText,
-    type,
-    hideTime,
+    type
 }) {
     const toastEl = document.createElement('div')
 

@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
-import {Aside} from './aside';
-import {Section} from './section';
+import { Aside } from './aside';
+import { Section } from './section';
 
 export function Footer() {
     const footer = document.createElement('div');

@@ -1,1 +1,1 @@
-export {UserPanel} from './components';
+export { UserPanel } from './components';

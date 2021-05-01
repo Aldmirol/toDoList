@@ -1,18 +1,14 @@
-import moment from "moment";
-import {
-    openLoginForm
-} from "../../../header/user_panel/helpers";
-import { Row } from "../../../main/section/table/row";
+import moment from 'moment';
+import { openLoginForm } from '../../../login_form/helpers';
+import { Row } from '../../../main/section/table/row';
 import {
     changeButtonToSuccess,
     removeModal,
     changeButtonToError,
     addToast,
     addEmptyRow
-} from "../../helpers";
-import {
-    ButtonSpinner
-} from "../../spinner/components";
+} from '../../helpers';
+import { ButtonSpinner } from '../../spinner/components';
 import styles from './styles.module.scss';
 
 export function addNewUser(e) {
@@ -24,31 +20,61 @@ export function addNewUser(e) {
 
     button.innerHTML = ButtonSpinner();
 
-    setTimeout(() => {
-        fetch('http://localhost:3000/users', {
-                method: 'POST',
-                body: JSON.stringify({
-                    name: newUserName,
-                    password: newUserPassword,
-                }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(res => res.json())
-            .then(user => {
-                changeButtonToSuccess({
-                    button: button
+    if (newUserName) {
+        setTimeout(() => {
+            fetch('http://localhost:3000/users', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        name: newUserName,
+                        password: newUserPassword,
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(res => res.json())
+                .then(user => {
+                    changeButtonToSuccess({
+                        button: button,
+                        classList: styles.addUser
+                    });
+
+                    addToast({
+                        titleText: 'Success',
+                        bodyText: 'New user added',
+                        type: 'success',
+                        hideTime: 2000
+                    });
+
+                    setTimeout(() => {
+                        removeModal();
+
+                        openLoginForm();
+                    }, 1000);
+
                 });
-
-                setTimeout(() => {
-                    removeModal();
-
-                    openLoginForm();
-                }, 1000);
-
+        }, 1500);
+    } else {
+        setTimeout(() => {
+            changeButtonToError({
+                button: button,
+                classList: styles.addUser
             });
-    }, 1500);
+
+            setTimeout(() => {
+                button.classList.remove('btn-danger');
+                button.classList.add(styles.addUser, 'btn-primary');
+                button.textContent = 'Sign in';
+            }, 2000);
+
+            addToast({
+                titleText: 'Error',
+                bodyText: 'Enter user name',
+                type: 'danger',
+                hideTime: 2000
+            });
+        }, 1500);
+    }
 }
 
 export function login(e) {
@@ -66,11 +92,11 @@ export function login(e) {
                 if (user !== 'Not found') {
                     const userId = user[0].userId;
                     const userName = user[0].name;
-                    const tbody = document.querySelector("tbody");
+                    const tbody = document.querySelector('tbody');
                     const userNameInfo = document.querySelector('.user-name-info');
 
-                    localStorage.setItem("data-id", userId);
-                    localStorage.setItem("name", userName);
+                    localStorage.setItem('data-id', userId);
+                    localStorage.setItem('name', userName);
 
                     userNameInfo.textContent = localStorage.getItem('name')
 
@@ -86,9 +112,9 @@ export function login(e) {
                         hideTime: 2000
                     });
 
-                    tbody.innerHTML = "";
+                    tbody.innerHTML = '';
 
-                    fetch("http://localhost:3000/tasks/")
+                    fetch('http://localhost:3000/tasks/')
                         .then(res => res.json())
                         .then(tasks => {
                             const doneStatusEl = document.createDocumentFragment();
@@ -98,7 +124,7 @@ export function login(e) {
                                 const maxDate = new Date(task.expirationDate);
                                 const deadline = moment(maxDate).format('LL');
 
-                                if (task.status === "done" && task.userId === "" + userId) {
+                                if (task.status === 'done' && task.userId === '' + userId) {
                                     doneStatusEl.append(Row({
                                         title: task.title,
                                         description: task.description,
@@ -107,7 +133,7 @@ export function login(e) {
                                         id: task._id,
                                         hasDoneStatus: true
                                     }));
-                                } else if (task.status !== "done" && task.userId === "" + userId) {
+                                } else if (task.status !== 'done' && task.userId === '' + userId) {
                                     allStatusExeptDoneEl.append(Row({
                                         title: task.title,
                                         description: task.description,
