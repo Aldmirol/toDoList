@@ -24,7 +24,7 @@ export function openNewUserForm(e) {
 }
 
 export function openLoginForm() {
-    return document.body.append(Modal({
+    return Modal({
         title: "Log in",
         body: LoginForm({
             isNewUserForm: false,
@@ -32,5 +32,5 @@ export function openLoginForm() {
         }),
         isLoginModal: true,
         hasFooterCloseButton: false,
-    }));
+    });
 }
