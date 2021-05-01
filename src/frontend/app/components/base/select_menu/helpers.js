@@ -8,7 +8,6 @@ export function sortByStatus(e) {
     deleteEmptyRow();
     
     rows.childNodes.forEach(row => {
-        console.log(row);
         if (row.dataset.id !== '1') {
             const status = row.querySelector('.badge').textContent;
 

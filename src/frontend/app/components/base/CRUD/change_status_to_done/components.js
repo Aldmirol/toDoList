@@ -28,7 +28,6 @@ export function changeStatusToDone(e) {
                 const doneTaskRow = document.querySelector(`tr[data-id="${taskId}"]`);
                 const rowBody = document.querySelector('tbody');
                 const badge = document.querySelector(`span[data-id="${taskId}"]`);
-                console.log(doneTaskRow);
 
                 changeBadgeToSuccess({
                     badge: badge,
@@ -52,6 +51,4 @@ export function changeStatusToDone(e) {
                 });
             });
     }, 1500);
-
-    console.dir(status);
 }
