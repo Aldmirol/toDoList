@@ -3,14 +3,20 @@ import styles from './styles.module.scss';
 export function CustomButton({
     name = '',
     clickHandler = function(){},
-    active = false
+    active = false,
+    isHiddenBlockButton = false
 }) {
     const customButton = document.createElement('div');
     const elemText = document.createElement('span');
     const theme = localStorage.getItem('theme');
 
-    customButton.classList.add(styles.customButton);
-    elemText.classList.add(styles.elemText);
+    if (isHiddenBlockButton) {
+        customButton.classList.add(styles.customButton, styles.customButtonHidden);
+        elemText.classList.add(styles.elemText, styles.elemTextHidden);
+    } else {
+        customButton.classList.add(styles.customButton);
+        elemText.classList.add(styles.elemText);
+    }
 
     if (active) {
         if (theme === 'light') {

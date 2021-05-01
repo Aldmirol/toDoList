@@ -5,6 +5,10 @@
     justify-content: flex-end;
     align-items: center;
     background-color: #232323;
+
+    @media screen and (max-width: 830px) {
+        width: 100%;
+    }
 }
 
 .userInfo {
@@ -17,4 +21,11 @@
 .userInfo, 
 .button {
     margin-right: 20px;
+}
+
+.button {
+    @media screen and (max-width: 830px) {
+        width: 60px;
+        font-size: 0.6rem;
+    }
 }

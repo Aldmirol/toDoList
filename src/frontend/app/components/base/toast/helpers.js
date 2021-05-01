@@ -5,7 +5,7 @@ export function showToast({
     bodyText,
     type
 }) {
-    document.body.append(Toast({
+    return document.body.append(Toast({
         titleText,
         bodyText,
         type

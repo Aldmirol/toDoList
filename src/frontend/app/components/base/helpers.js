@@ -1,13 +1,7 @@
 import { Row } from '../main/section/table/row';
-import {
-    Badge
-} from './badge';
-import {
-    changeStatusToDone
-} from './CRUD/change_status_to_done';
-import {
-    showToast
-} from './toast';
+import { Badge } from './badge';
+import { changeStatusToDone } from './CRUD/change_status_to_done';
+import { showToast } from './toast';
 
 export function debounce(func, wait) {
     let timeout;
@@ -24,11 +18,11 @@ export function debounce(func, wait) {
 }
 
 export function removeModal() {
-    document.querySelector('.modal')?.remove();
+    return document.querySelector('.modal')?.remove();
 }
 
 export function removeDatePicker() {
-    document.querySelector('#ui-datepicker-div')?.remove();
+    return document.querySelector('#ui-datepicker-div')?.remove();
 }
 
 export function addToast({

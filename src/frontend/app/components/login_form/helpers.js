@@ -1,4 +1,7 @@
-import { addNewUser, login } from "../base/CRUD/login_and_new_user";
+import {
+    addNewUser,
+    login
+} from "../base/CRUD/login_and_new_user";
 import { closeModalWithoutEventTarget } from "../base/helpers";
 import { Modal } from "../base/modal/components";
 import { LoginForm } from "./components";
@@ -21,7 +24,7 @@ export function openNewUserForm(e) {
 }
 
 export function openLoginForm() {
-    return document.body.append(Modal({
+    return Modal({
         title: "Log in",
         body: LoginForm({
             isNewUserForm: false,
@@ -29,5 +32,5 @@ export function openLoginForm() {
         }),
         isLoginModal: true,
         hasFooterCloseButton: false,
-    }));
+    });
 }

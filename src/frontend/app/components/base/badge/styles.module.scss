@@ -2,4 +2,9 @@
     width: 105px;
     text-align: center;
     font-size: 1rem;
+
+    @media screen and (max-width: 830px) {
+        width: 80px;
+        font-size: 0.8rem;
+    }
 }

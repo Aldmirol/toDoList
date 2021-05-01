@@ -187,7 +187,6 @@ export function deleteTask(e) {
     const btn = e.target;
 
     btn.classList.add(styles.deleteTask)
-    console.log(e);
     btn.innerHTML = ButtonSpinner();
 
     setTimeout(() => {
