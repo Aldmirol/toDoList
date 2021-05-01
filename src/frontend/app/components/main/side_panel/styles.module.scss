@@ -5,6 +5,10 @@
     flex-direction: column;
     background-color: #232323;
 
+    @media screen and (max-width: 830px) {
+        display: none;
+    }
+
     .period {
         width: 100%;
         height: 40%;

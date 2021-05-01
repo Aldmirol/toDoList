@@ -22,9 +22,9 @@ export function LoadingSpinner() {
 }
 
 export function startLoadingSpinner() {
-    document.body.append(LoadingSpinner());
+    return document.body.append(LoadingSpinner());
 }
 
 export function stopLoadingSpinner() {
-    document.querySelector('i.loading')?.remove();
+    return document.querySelector('i.loading')?.remove();
 }

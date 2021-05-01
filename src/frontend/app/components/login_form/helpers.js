@@ -1,4 +1,7 @@
-import { addNewUser, login } from "../base/CRUD/login_and_new_user";
+import {
+    addNewUser,
+    login
+} from "../base/CRUD/login_and_new_user";
 import { closeModalWithoutEventTarget } from "../base/helpers";
 import { Modal } from "../base/modal/components";
 import { LoginForm } from "./components";
