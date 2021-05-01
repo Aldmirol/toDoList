@@ -3,6 +3,7 @@
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     @media screen and (max-width: 830px) {
         width: 95%;
@@ -12,8 +13,30 @@
 .input{
     width: 15%;
     height: 90%;
+
+    @media screen and (max-width: 830px) {
+        height: 80%;
+        font-size: 0.6rem;
+    }
 }
 
 .select {
     height: 90%;
+
+    @media screen and (max-width: 830px) {
+        height: 80%;
+        font-size: 0.6rem;
+    }
+}
+
+.button {
+    @media screen and (max-width: 830px) {
+        padding-left: 2px;
+        padding-right: 2px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        width: 60px;
+        font-size: 0.6rem;
+        font-weight: 700;
+    }
 }

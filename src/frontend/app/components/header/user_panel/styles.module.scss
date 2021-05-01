@@ -22,3 +22,10 @@
 .button {
     margin-right: 20px;
 }
+
+.button {
+    @media screen and (max-width: 830px) {
+        width: 60px;
+        font-size: 0.6rem;
+    }
+}

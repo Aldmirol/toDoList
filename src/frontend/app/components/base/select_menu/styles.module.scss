@@ -28,5 +28,9 @@
 
 .option {
     font-size: 1.1rem;
+
+    @media screen and (max-width: 830px) {
+        font-size: 0.9rem;
+    }
 }
 
