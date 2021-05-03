@@ -1,5 +1,9 @@
 .toast {
     z-index: 1081;
+
+    @media screen and (max-width: 395px) {
+        width: 250px;
+    }
 }
 
 .toast-el-succes {
