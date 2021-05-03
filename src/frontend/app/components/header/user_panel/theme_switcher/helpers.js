@@ -11,9 +11,9 @@ export function checkTheme() {
     const theme = localStorage.getItem('theme');
     const switcher = document.querySelector('#flexSwitchCheckChecked');
     const selectors = new LightThemeElementSelectors();
-    
+
     if (theme) {
-        selectors.logo.classList.add(`theme-main-${theme}`);
+        selectors.logo.classList.add(`theme-secondary-${theme}`, `bordered-${theme}`);
         selectors.logoText.classList.add(`theme-text-main-${theme}`);
         selectors.userPanel.classList.add(`theme-secondary-${theme}`);
         selectors.switcherLabels.forEach(el => el.classList.add(`theme-text-main-${theme}`));
@@ -51,7 +51,7 @@ export function checkTheme() {
 
     } else {
         localStorage.setItem('theme', 'dark');
-        selectors.logo.classList.remove('theme-main-light');
+        selectors.logo.classList.remove('theme-secondary-light', 'bordered-light');
         selectors.logoText.classList.remove('theme-text-main-light');
         selectors.userPanel.classList.remove('theme-secondary-light');
         selectors.switcherLabels.forEach(el => el.classList.remove('theme-text-main-light'));
@@ -88,7 +88,7 @@ export function switchTheme({
     
     if (checked) {
         localStorage.setItem('theme', 'dark');
-        selectors.logo.classList.remove('theme-main-light');
+        selectors.logo.classList.remove('theme-secondary-light', 'bordered-light');
         selectors.logoText.classList.remove('theme-text-main-light');
         selectors.userPanel.classList.remove('theme-secondary-light');
         selectors.switcherLabels.forEach(el => el.classList.remove('theme-text-main-light'));
@@ -112,7 +112,8 @@ export function switchTheme({
         
     } else {
         localStorage.setItem('theme', 'light');
-        selectors.logo.classList.add(`theme-main-light`);
+        selectors.logo.classList.add(`theme-secondary-light`, 'bordered-light');
+        selectors.logo.classList.remove('bordered-dark');
         selectors.logoText.classList.add('theme-text-main-light');
         selectors.userPanel.classList.add(`theme-secondary-light`);
         selectors.switcherLabels.forEach(el => el.classList.add('theme-text-main-light'));

@@ -13,11 +13,25 @@
 body {
     #root {
         .theme-main-light {
-            background-color: #b5e6d7;
+            background-color: #bbc5ab;
         }
 
         .theme-secondary-light {
             background-color: #d5e2bf;
+        }
+
+        .bordered-light {
+            border-right: 1px solid #bbc5ab;
+            background-color: #BBC5AB;
+
+            @media screen and (max-width: 830px) {
+                border: none;
+                background-color: #D5E2BF;
+            }
+        }
+
+        .bordered-dark {
+            border-right: none;
         }
 
         .theme-text-main-light {
