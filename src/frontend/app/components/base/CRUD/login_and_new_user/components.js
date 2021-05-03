@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { openLoginForm } from '../../../login_form/helpers';
+import { openLoginFormWithAppendToRoot } from '../../../login_form/helpers';
 import { Row } from '../../../main/section/table/row';
 import {
     changeButtonToSuccess,
@@ -49,7 +49,7 @@ export function addNewUser(e) {
                     setTimeout(() => {
                         removeModal();
 
-                        openLoginForm();
+                        openLoginFormWithAppendToRoot();
                     }, 1000);
 
                 });

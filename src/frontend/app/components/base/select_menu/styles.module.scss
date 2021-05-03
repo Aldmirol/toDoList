@@ -1,5 +1,11 @@
 .selectMenu {
     width: 15%;
+
+    @media screen and (max-width: 600px) {
+        width: 40%;
+        height: 3vh;
+        margin-bottom: 5px;
+    }
 }
 
 .in-progress {

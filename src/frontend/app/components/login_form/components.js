@@ -1,5 +1,5 @@
 import { Button } from '../base/button/components';
-import { openLoginForm, openNewUserForm } from './helpers';
+import { openLoginFormWithAppendToRoot, openNewUserForm } from './helpers';
 import styles from './styles.module.scss';
 
 export function LoginForm({
@@ -37,7 +37,8 @@ export function LoginForm({
     passwordTitle.classList.add('form-label');
     buttonContainer.classList.add('button-container', 'm-3');
     newUserContainer.classList.add('new-user', 'mt-3');
-    newUserLink.classList.add(styles.userLink);
+    newUserLink.classList.add(styles.userLink, styles.text);
+    newUserText.classList.add(styles.text)
     loginButton.classList.add(styles.formButton);
     backButton.classList.add(styles.formButton);
 
@@ -63,7 +64,7 @@ export function LoginForm({
     if (isNewUserForm) {
         buttonContainer.append(loginButton, backButton);
         buttonContainer.classList.add(styles.buttonContainer);
-        backButton.addEventListener('click', openLoginForm);
+        backButton.addEventListener('click', openLoginFormWithAppendToRoot);
         loginButton.textContent = 'Sign in';
     } else {
         buttonContainer.append(loginButton, newUserContainer);

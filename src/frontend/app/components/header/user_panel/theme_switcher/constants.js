@@ -9,9 +9,10 @@ export class LightThemeElementSelectors {
 
         //main components
         this.asideContainer = document.querySelector('[class^="side-panel"]');
-        this.asideButtons = this.asideContainer.querySelectorAll('[class^="custom"]');
-        this.activeAsideButtons = this.asideContainer.querySelector('div[class*="active"]');
+        this.asideButtons = document.querySelectorAll('[class^="custom"]');
+        this.activeAsideButtons = document.querySelector('div[class*="active"]');
         this.asideButtonsText = this.asideContainer.querySelectorAll('aside span');
+        this.hiddenButtonsText = document.querySelectorAll(`span[class^="elem"]`);
         this.section = document.querySelector('section');
         this.table = document.querySelector('table');
 
@@ -19,7 +20,6 @@ export class LightThemeElementSelectors {
         this.footerAsideContainer = document.querySelector('[class^="aside"]');
         this.footerSectionContainer = document.querySelector('.footer-section');
         this.footerText = this.footerSectionContainer.querySelector('span');
-
     }
     
 }

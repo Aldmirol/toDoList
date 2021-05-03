@@ -33,7 +33,7 @@ export function CreateEditTaskForm({
 
     titleInput.setAttribute('required', '');
 
-    buttonsBlock.classList.add(styles.buttonsBlock)
+    buttonsBlock.classList.add(styles.buttonsBlock);
     form.classList.add('edit-task', styles.form);
     titleInput.setAttribute('name', 'title');
     titleLabel.setAttribute('for', 'title');
@@ -94,7 +94,7 @@ export function CreateEditTaskForm({
     return form;
 }
 
-function ModalCloseButton() {
+export function ModalCloseButton() {
     const modalCloseButton = Button({
         classList: 'secondary',
         content: 'Close',

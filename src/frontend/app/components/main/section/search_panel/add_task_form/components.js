@@ -2,6 +2,7 @@ import { Button } from '../../../../base/button';
 import { addTask } from '../../../../base/CRUD/components';
 import { RadioButtonsGroup } from '../../../../base/radio_buttons_group';
 import styles from './styles.module.scss';
+import { ModalCloseButton } from '../../table/edit_task_form'
 import $ from 'jquery';
 import datepickerFactory from 'jquery-datepicker';
 import datepickerJAFactory from 'jquery-datepicker/i18n/jquery.ui.datepicker-en-GB';
@@ -16,17 +17,21 @@ export function CreateAddTaskForm() {
     const status = RadioButtonsGroup({status: 'to do'});
     const descriptionTextarea = document.createElement('textarea');
     const descriptionLabel = document.createElement('label');
+    const buttonsBlock = document.createElement('div');
     const theme = localStorage.getItem('theme');
     const formSubmitBtn = Button({
         content: 'Add task',
         type: 'submit',
     });
+    const closeButton = ModalCloseButton();
 
+    buttonsBlock.classList.add(styles.buttonsBlock);
     titleInput.setAttribute('required', '');
     titleInput.setAttribute('autocomplete', 'off');
     form.classList.add('add-task', styles.form);    
     status.classList.add(styles.status);
     formSubmitBtn.classList.add(styles.addTask);
+    closeButton.classList.add(styles.closeButton);
     inputLabel.classList.add('form-label');
     descriptionLabel.classList.add('form-label');
     dateLabel.classList.add('form-label');
@@ -58,7 +63,9 @@ export function CreateAddTaskForm() {
     descriptionTextarea.placeholder = 'Enter task description';
     dateInput.placeholder = 'Choose expiration date';
 
-    form.append(inputLabel, titleInput, descriptionLabel, descriptionTextarea, dateLabel, dateInput, status, formSubmitBtn);
+    buttonsBlock.append(formSubmitBtn, closeButton);
+
+    form.append(inputLabel, titleInput, descriptionLabel, descriptionTextarea, dateLabel, dateInput, status, buttonsBlock);
 
     form.addEventListener('submit', addTask)
 

@@ -1,1 +1,1 @@
-export { CreateEditTaskForm } from './components';
+export { CreateEditTaskForm, ModalCloseButton } from './components';

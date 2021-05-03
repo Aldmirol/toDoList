@@ -10,7 +10,7 @@ export function App() {
 
     app.classList.add(styles.app);
 
-    app.append(Header(), Main(), Footer(), openLoginForm());
+    app.append(Header(), Main(), Footer());
 
     return app;
 }

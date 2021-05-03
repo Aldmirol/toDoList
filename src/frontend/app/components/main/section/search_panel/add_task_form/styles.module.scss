@@ -24,6 +24,15 @@
         align-self: center;
         width: 70%;
         margin-bottom: 20px;
+
+        & label[for*="btn"] {
+            color: #ffffff;
+        }
+
+        @media screen and (max-width: 395px) {
+            width: 100%;
+            height: 30px;
+        }
     }
     .title::placeholder,
     .status::placeholder,
@@ -31,7 +40,15 @@
     .date::placeholder {
         color: #ffffff;
     }
-    .add-task{
+
+    .add-task,
+    .close-button {
         width: 130px;
+    }
+
+    .buttons-block {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
 }

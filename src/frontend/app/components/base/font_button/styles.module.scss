@@ -5,6 +5,10 @@
     @media screen and (max-width: 830px) {
         font-size: 1rem;
     }
+
+    @media screen and (max-width: 600px) {
+        font-size: 0.8rem;
+    }
 }
 
 .delete-button {
@@ -13,5 +17,9 @@
 
     @media screen and (max-width: 830px) {
         font-size: 1rem;
+    }
+
+    @media screen and (max-width: 600px) {
+        font-size: 0.8rem;
     }
 }

@@ -17,3 +17,9 @@
 .form-button {
     width: 77px;
 }
+
+.text {
+    @media screen and (max-width: 395px) {
+        font-size: 0.7rem;
+    }
+}

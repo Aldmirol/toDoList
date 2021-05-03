@@ -1,3 +1,13 @@
 .label {
     width: 100px;
+
+    @media screen and (max-width: 600px) {
+        width: 50px;
+        font-size: 0.7rem;
+    }
+
+    @media screen and (max-width: 395px) {
+        font-size: 14px;
+        padding: 2px;
+    }
 }

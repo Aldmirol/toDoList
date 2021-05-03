@@ -34,3 +34,17 @@ export function openLoginForm() {
         hasFooterCloseButton: false,
     });
 }
+
+export function openLoginFormWithAppendToRoot() {
+    const root = document.querySelector('#root');
+
+    return root.append(Modal({
+        title: "Log in",
+        body: LoginForm({
+            isNewUserForm: false,
+            submitHandler: login
+        }),
+        isLoginModal: true,
+        hasFooterCloseButton: false,
+    }));
+}

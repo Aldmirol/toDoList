@@ -8,6 +8,12 @@
     @media screen and (max-width: 830px) {
         width: 95%;
     }
+
+    @media screen and (max-width: 600px) {
+        margin: 0;
+        flex-direction: column;
+        position: relative;
+    }
 }
 
 .input{
@@ -18,6 +24,15 @@
         height: 80%;
         font-size: 0.6rem;
     }
+
+    @media screen and (max-width: 600px) {
+        width: 40%;
+        height: 3vh;
+        margin-bottom: 5px;
+        position: absolute;
+        top: 50px;
+        left: 0;
+    }
 }
 
 .select {
@@ -26,6 +41,12 @@
     @media screen and (max-width: 830px) {
         height: 80%;
         font-size: 0.6rem;
+    }
+
+    @media screen and (max-width: 600px) {
+        position: absolute;
+        top: 50px;
+        right: 0;
     }
 }
 
@@ -38,5 +59,14 @@
         width: 60px;
         font-size: 0.6rem;
         font-weight: 700;
+    }
+
+    @media screen and (max-width: 600px) {
+        @media screen and (max-width: 600px) {
+            height: 27px;
+            padding-top: 0.3rem;
+            position: absolute;
+            top: 50px;
+        }
     }
 }

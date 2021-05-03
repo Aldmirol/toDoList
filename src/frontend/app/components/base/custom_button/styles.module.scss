@@ -16,6 +16,10 @@
     height: 100%;
     display: flex;
     margin-top: 0;
+
+    @media screen and (max-width: 600px) {
+        height: 5vh;
+    }
 }
 
 .custom-button:hover,
@@ -31,6 +35,10 @@
 
 .elem-text-hidden {
     font-size: 0.9rem;
+
+    @media screen and (max-width: 600px) {
+        font-size: 0.7rem;
+    }
 }
 
 .custom-button:active {

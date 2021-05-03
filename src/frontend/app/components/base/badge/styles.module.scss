@@ -7,4 +7,14 @@
         width: 80px;
         font-size: 0.8rem;
     }
+
+    @media screen and (max-width: 600px) {
+        width: 70px;
+        font-size: 0.7rem;
+    }
+
+    @media screen and (max-width: 395px) {
+        width: 60px;
+        font-size: 0.6rem;
+    }
 }
