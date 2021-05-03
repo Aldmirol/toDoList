@@ -16,9 +16,15 @@
     height: 100%;
     display: flex;
     margin-top: 0;
+    border-left: 1px solid #1C1C23;
+
+    @media screen and (max-width: 830px) {
+        border-left: 1px solid #1C1C23;
+        border-right: 1px solid #1C1C23;
+    }
 
     @media screen and (max-width: 600px) {
-        height: 5vh;
+        height: 4vh;
     }
 }
 
