@@ -10,12 +10,11 @@ export function Modal({
     footerButtons = [],
     isLoginModal = false
 }) {
-    removeModal();
-
-    removeDatePicker();
-
     const modal = document.createElement('div');
     const theme = localStorage.getItem('theme');
+
+    removeModal();
+    removeDatePicker();
 
     if (isLoginModal) {
         if (theme === 'light') {

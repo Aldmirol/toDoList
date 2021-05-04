@@ -24,7 +24,7 @@ function toastElement({
     bodyText,
     type
 }) {
-    const toastEl = document.createElement('div')
+    const toastEl = document.createElement('div');
 
     toastEl.className = 'toast show';
     toastEl.setAttribute('role', 'alert');
