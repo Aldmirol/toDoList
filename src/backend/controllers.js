@@ -1,9 +1,5 @@
-const {
-    db
-} = require('./db.js');
-
+const { db } = require('./db.js');
 const ObjectId = require('mongodb').ObjectId
-
 const database = db();
 
 
@@ -20,7 +16,7 @@ async function getTasks(req, res) {
             return res.status(200).json(result.filter(task => task.title.toLowerCase().includes(q.toLowerCase())));
         }
         
-            return res.status(200).json(result.sort((nextTask, prevTask) => prevTask.creationDate - nextTask.creationDate));
+        return res.status(200).json(result.sort((nextTask, prevTask) => prevTask.creationDate - nextTask.creationDate));
     });
 }
 
@@ -33,7 +29,7 @@ async function getOneTask(req, res) {
     tasks.find({}).toArray((err, result) => {
         if (err) {
             res.status(400);
-        };
+        }
 
         res.status(200).json(result.filter(task => '' + task['_id'] === id));
     });
@@ -51,7 +47,7 @@ async function deleteOneTask(req, res) {
     tasks.deleteOne(task, (err, result) => {
         if (err) {
             res.status(400);
-        };
+        }
 
         res.status(200).json(id);
     });

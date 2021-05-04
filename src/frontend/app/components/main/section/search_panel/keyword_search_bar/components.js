@@ -3,6 +3,7 @@ import {
     debounce
 } from '../../../../base/helpers';
 import styles from './styles.module.scss';
+import * as constants from './constants';
 
 
 export function SearchBarInput() {
@@ -22,15 +23,15 @@ function search(e) {
     const body = document.querySelector('tbody');
 
     body.childNodes.forEach(row => {
-        if (row.dataset.id !== '1') {
+        if (row.dataset.id !== constants.emptyRowId) {
             const title = row.querySelector(`td[class^="title"]`);
             
             if (title.textContent.toLowerCase().includes(q.toLowerCase())) {
-                row.classList.add(styles.show);
-                row.classList.remove(styles.hide);
+                row.classList.add(styles.debounceShow);
+                row.classList.remove(styles.debounceHide);
             } else {
-                row.classList.add(styles.hide);
-                row.classList.remove(styles.show);
+                row.classList.add(styles.debounceHide);
+                row.classList.remove(styles.debounceShow);
             }
         }
     });
