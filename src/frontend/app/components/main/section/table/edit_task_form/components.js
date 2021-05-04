@@ -83,7 +83,7 @@ export function CreateEditTaskForm({
         datepickerJAFactory($);
         $(function () {
             $("#edit-datepicker").datepicker({
-                dateFormat: "yy-mm-dd",
+                dateFormat: "MM d, yy",
                 minDate: new Date(new Date().getTime())
             });
         });

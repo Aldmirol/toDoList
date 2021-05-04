@@ -21,7 +21,7 @@ export function openTask(e) {
         .then(task => {
             if (task) {
                 const maxDate = new Date(task[0].expirationDate);
-                const deadline = moment(maxDate).format('MMMM Do YYYY');
+                const deadline = moment(maxDate).format('LL');
                 openModal({
                     title: task[0].status.toUpperCase(),
                     body: CreateEditTaskForm({

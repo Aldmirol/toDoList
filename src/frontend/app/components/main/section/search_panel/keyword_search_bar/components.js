@@ -21,8 +21,6 @@ function search(e) {
     const dataId = localStorage.getItem('data-id');
     const body = document.querySelector('tbody');
 
-    console.log(body.childNodes);
-
     body.childNodes.forEach(row => {
         if (row.dataset.id !== '1') {
             const title = row.querySelector(`td[class^="title"]`);

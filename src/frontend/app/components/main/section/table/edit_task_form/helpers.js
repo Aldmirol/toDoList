@@ -9,7 +9,7 @@ export function OpenEditTaskModal(e) {
         .then(res => res.json())
         .then(task => {
             const maxDate = new Date(task[0].expirationDate);
-            const deadline = moment(maxDate).format('L');
+            const deadline = moment(maxDate).format('LL');
             if (task) {
                 openModal({
                     title: 'Edit task',
