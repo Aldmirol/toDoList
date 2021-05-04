@@ -69,7 +69,6 @@ export function CreateAddTaskForm() {
 
     form.addEventListener('submit', addTask)
 
-   
     datepickerFactory($);
     datepickerJAFactory($);
     $(function () {

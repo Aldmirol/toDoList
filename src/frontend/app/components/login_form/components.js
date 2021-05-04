@@ -44,7 +44,7 @@ export function LoginForm({
 
     userNameInput.setAttribute('type', 'text');
     userNameInput.setAttribute('id', 'user-name');
-    userNameInput.setAttribute('placeholder', 'Enter username');
+    userNameInput.setAttribute('placeholder', 'Enter user name');
     userNameInput.setAttribute('required', '');
     userNameTitle.setAttribute('for', 'user-name');
     passwordInput.setAttribute('type', 'password');
