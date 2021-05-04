@@ -1,9 +1,8 @@
-import moment from 'moment';
 import {
     addEmptyRow,
     debounce
 } from '../../../../base/helpers';
-import { Row } from '../../table/row';
+import styles from './styles.module.scss';
 
 
 export function SearchBarInput() {
@@ -20,47 +19,23 @@ export function SearchBarInput() {
 function search(e) {
     const q = e.target.value;
     const dataId = localStorage.getItem('data-id');
+    const body = document.querySelector('tbody');
 
-    fetch(`http://localhost:3000/tasks?q=${q}`)
-        .then(res => res.json())
-        .then(tasks => {
-            const body = document.querySelector('tbody');
-            const allStatusExeptDoneEl = document.createDocumentFragment();
-            const doneStatusEl = document.createDocumentFragment();
+    console.log(body.childNodes);
 
-            tasks.filter(task => task.userId === dataId)
-                .forEach(task => {
-                    const maxDate = new Date(task.expirationDate);
-                    const deadline = moment(maxDate).format('LL');
-                    if (task.status !== 'done') {
-                        allStatusExeptDoneEl.append(
-                            Row({
-                                title: task.title,
-                                description: task.description,
-                                status: task.status,
-                                id: task._id,
-                                expirationDate: deadline
-                            })
-                        );
-                    } else {
-                        const maxDate = new Date(task.expirationDate);
-                        const deadline = moment(maxDate).format('LL');
-                        doneStatusEl.append(
-                            Row({
-                                title: task.title,
-                                description: task.description,
-                                status: task.status,
-                                id: task._id,
-                                hasDoneStatus: true,
-                                expirationDate: deadline
-                            })
-                        );
-                    }
-                })
-            body.innerHTML = '';
+    body.childNodes.forEach(row => {
+        if (row.dataset.id !== '1') {
+            const title = row.querySelector(`td[class^="title"]`);
+            
+            if (title.textContent.toLowerCase().includes(q.toLowerCase())) {
+                row.classList.add(styles.show);
+                row.classList.remove(styles.hide);
+            } else {
+                row.classList.add(styles.hide);
+                row.classList.remove(styles.show);
+            }
+        }
+    });
 
-            body.append(allStatusExeptDoneEl, doneStatusEl);
-
-            addEmptyRow();
-        });
+    addEmptyRow();
 }
