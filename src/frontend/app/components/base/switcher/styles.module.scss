@@ -1,9 +1,9 @@
 .switcher {
+    width: 75px;
     box-sizing: content-box;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 75px;
 
     .input {
         float: none;
@@ -16,9 +16,9 @@
 
     .icon-dark,
     .icon-light {
-        color: white;
-        display: block;
         box-sizing: content-box;
+        display: block;
+        color: white;
 
         @media screen and (max-width: 600px) {
             margin-top: 2px;
