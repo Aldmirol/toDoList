@@ -31,9 +31,9 @@ export function LoginForm({
     loginForm.classList.add('form', 'login-form');
     userNameContainer.classList.add('m-3', 'mt-1');
     passwordContainer.classList.add('m-3', 'mb-4');
-    userNameInput.classList.add('form-control');
+    userNameInput.classList.add('form-control', styles.shadow);
     userNameTitle.classList.add('form-label');
-    passwordInput.classList.add('form-control');
+    passwordInput.classList.add('form-control', styles.shadow);
     passwordTitle.classList.add('form-label');
     buttonContainer.classList.add('button-container', 'm-3');
     newUserContainer.classList.add('new-user', 'mt-3');

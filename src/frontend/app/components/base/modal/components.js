@@ -136,6 +136,9 @@ function ModalFooter({
 }) {
     const modalFooter = document.createElement('div');
     const theme = localStorage.getItem('theme');
+    const closeButton = ModalCloseFooterButton();
+
+    closeButton.classList.add(styles.closeButton);
 
     if (theme && theme === 'light') {
         modalFooter.classList.add('modal-footer', styles.lightThemeSecond);
@@ -144,10 +147,14 @@ function ModalFooter({
     }
 
     if (hasFooterCloseButton) {
-        modalFooter.append(ModalCloseFooterButton());
+        modalFooter.append(closeButton);
     }
 
-    footerButtons.forEach(btn => modalFooter.append(btn));
+    footerButtons.forEach(btn => {
+        btn.classList.add(styles.closeButton);
+
+        return modalFooter.append(btn)
+    });
 
     return modalFooter;
 }

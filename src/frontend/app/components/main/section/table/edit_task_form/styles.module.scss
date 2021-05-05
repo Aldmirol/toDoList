@@ -4,15 +4,18 @@
     flex-direction: column;
 
     .title,
-    .description {
+    .description,
+    .date {
         width: 100%;
         color: #ffffff;
+        box-shadow: 1px 2px 8px #000000;
     }
 
     .status {
         align-self: center;
         width: 70%;
         margin-bottom: 20px;
+        box-shadow: 1px 2px 8px #000000;
 
         & label[for*="btn"] {
             color: #ffffff;
@@ -28,6 +31,7 @@
         align-self: center;
         width: 70%;
         margin-bottom: 20px;
+        box-shadow: 1px 2px 8px #000000;
 
         & label[for*="btn"] {
             color: #374c61;
@@ -37,6 +41,10 @@
             width: 100%;
             height: 30px;
         }
+    }
+
+    .light-theme {
+        color: #000000;
     }
 
     .title::placeholder,
@@ -49,6 +57,7 @@
     .add-task,
     .close-button {
         width: 130px;
+        box-shadow: 1px 2px 8px #000000;
     }
 
     .buttons-block {
@@ -57,5 +66,7 @@
         justify-content: space-between;
     }
 
-    
+    .shadow {
+        box-shadow: 1px 2px 8px #000000;
+    }
 }

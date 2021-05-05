@@ -4,6 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'production',
+    devServer: {
+        host: 'localhost',
+    },
     performance: {
         hints: false
     },

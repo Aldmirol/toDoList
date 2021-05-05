@@ -8,6 +8,7 @@
     .light-theme,
     .date {
         width: 100%;
+        box-shadow: 1px 2px 8px #000000;
     }
 
     .light-theme {
@@ -24,6 +25,7 @@
         align-self: center;
         width: 70%;
         margin-bottom: 20px;
+        box-shadow: 1px 2px 8px #000000;
 
         & label[for*="btn"] {
             color: #ffffff;
@@ -44,11 +46,19 @@
     .add-task,
     .close-button {
         width: 130px;
+        box-shadow: 1px 2px 8px #000000;
     }
 
     .buttons-block {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+    }
+
+    .light-theme-status {
+
+        & label[for*="btn"] {
+            color: #374c61;
+        }
     }
 }

@@ -10,7 +10,7 @@ export function SearchBarInput() {
     const searchBarInput = document.createElement('input');
     const debounceSearch = debounce(search, 500);
 
-    searchBarInput.classList.add('form-control');
+    searchBarInput.classList.add('form-control', styles.searchBar);
     searchBarInput.addEventListener('keyup', debounceSearch);
     searchBarInput.setAttribute('autocomplete', 'off');
 

@@ -137,7 +137,7 @@ export function editTask(e) {
                 const tbody = document.querySelector('tbody');
                 const row = document.querySelector(`tr[data-id='${taskId}']`);
                 const title = document.querySelector(`td.title-input[data-id='${taskId}']`);
-                const description = document.querySelector(`div[class^='description']`);
+                const description = row.querySelector(`div[class^='description']`);
                 const statusContainer = document.querySelector(`td.status[data-id='${taskId}']`);
                 const status = document.querySelector(`span.status-text[data-id='${taskId}']`);
                 const badge = document.querySelector(`span[data-id='${taskId}']`);

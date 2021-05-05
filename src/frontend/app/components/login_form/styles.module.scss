@@ -6,6 +6,7 @@
 .user-link {
     margin-left: 5px;
     text-decoration: none;
+    color: #0D6EFD;
 }
 
 .button-container {
@@ -16,10 +17,17 @@
 
 .form-button {
     width: 77px;
+    box-shadow: 1px 2px 8px #000000;
 }
 
 .text {
+    text-shadow: 1px 2px 8px #000000;
+
     @media screen and (max-width: 395px) {
         font-size: 0.7rem;
     }
+}
+
+.shadow {
+    box-shadow: 1px 2px 8px #000000;
 }

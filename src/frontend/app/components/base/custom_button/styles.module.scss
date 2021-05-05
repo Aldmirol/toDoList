@@ -8,7 +8,7 @@
     border-top: 1px solid #B3B4B7;
     background-color: #212529;
     color: #B3B4B7;
-    
+    box-shadow: 1px 2px 8px #000000;
 }
 
 .custom-button-hidden {
@@ -17,6 +17,7 @@
     display: flex;
     margin-top: 0;
     border-left: 1px solid #1C1C23;
+    box-shadow: 1px 2px 8px #000000;
 
     @media screen and (max-width: 830px) {
         border-left: 1px solid #1C1C23;
