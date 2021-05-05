@@ -7,7 +7,7 @@ export function Section() {
     section.classList.add(styles.section, 'footer-section');
     text.classList.add(styles.text);
 
-    text.innerText = 'ToDoList BETA';
+    text.innerText = 'IT- Academy Gomel 2021';
 
     section.append(text);
 

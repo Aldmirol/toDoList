@@ -2,7 +2,7 @@
     width: 85%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     background-color: #232323;
 
@@ -12,6 +12,7 @@
 }
 
 .text {
-    font-size: 1.1rem;
+    margin-right: 7vw;
+    font-size: 0.8rem;
     color: #ffffff;
 }
