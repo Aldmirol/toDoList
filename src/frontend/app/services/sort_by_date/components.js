@@ -1,9 +1,9 @@
 import moment from 'moment';
 import {
     Row
-} from '../../../main/section/table/row';
-import '../../../../../styles.scss';
-import { addEmptyRow } from '../../helpers';
+} from '../../components/main/section/table/row';
+import '../../../styles.scss';
+import { addEmptyRow } from '../../components/base/helpers';
 
 export function SortByDate(e) {
     const sortParam = e.target.dataset.id;

@@ -1,8 +1,8 @@
 import {
     addToast,
     changeBadgeToSuccess
-} from "../../helpers";
-import { ButtonSpinner } from "../../spinner/components";
+} from "../../components/base/helpers";
+import { ButtonSpinner } from "../../components/base/spinner/components";
 import styles from './styles.module.scss';
 
 export function changeStatusToDone(e) {

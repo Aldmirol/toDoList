@@ -1,14 +1,14 @@
 import moment from 'moment';
-import { openLoginFormWithAppendToRoot } from '../../../login_form/helpers';
-import { Row } from '../../../main/section/table/row';
+import { openLoginFormWithAppendToRoot } from '../../components/login_form/helpers';
+import { Row } from '../../components/main/section/table/row';
 import {
     changeButtonToSuccess,
     removeModal,
     changeButtonToError,
     addToast,
     addEmptyRow
-} from '../../helpers';
-import { ButtonSpinner } from '../../spinner/components';
+} from '../../components/base/helpers';
+import { ButtonSpinner } from '../../components/base/spinner/components';
 import styles from './styles.module.scss';
 
 export function addNewUser(e) {

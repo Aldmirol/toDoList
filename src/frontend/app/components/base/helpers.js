@@ -1,6 +1,6 @@
 import { Row } from '../main/section/table/row';
 import { Badge } from './badge';
-import { changeStatusToDone } from './CRUD/change_status_to_done';
+import { changeStatusToDone } from '../../services/change_status_to_done';
 import { showToast } from './toast';
 
 export function debounce(func, wait) {

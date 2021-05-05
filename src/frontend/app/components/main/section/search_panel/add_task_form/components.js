@@ -1,5 +1,5 @@
 import { Button } from '../../../../base/button';
-import { addTask } from '../../../../base/CRUD/components';
+import { addTask } from '../../../../../services/components';
 import { RadioButtonsGroup } from '../../../../base/radio_buttons_group';
 import styles from './styles.module.scss';
 import { ModalCloseButton } from '../../table/edit_task_form'

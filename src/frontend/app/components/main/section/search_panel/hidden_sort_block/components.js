@@ -1,4 +1,4 @@
-import { SortByDate } from '../../../../base/CRUD/sort_by_date';
+import { SortByDate } from '../../../../../services/sort_by_date';
 import { CustomButton } from '../../../../base/custom_button';
 import styles from './styles.module.scss';
 

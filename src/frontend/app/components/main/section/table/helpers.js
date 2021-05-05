@@ -1,5 +1,5 @@
 import { Button } from '../../../base/button';
-import { deleteTask } from '../../../base/CRUD/components';
+import { deleteTask } from '../../../../services/components';
 import { checkStatusAddBadges } from '../../../base/helpers';
 import { Modal } from '../../../base/modal';
 import styles from './styles.module.scss';

@@ -1,9 +1,9 @@
-import moment from '../../../../../../node_modules/moment/moment.js';
-import { CreateEditTaskForm } from '../../main/section/table/edit_task_form/components.js';
-import { Row } from '../../main/section/table/row';
-import { addEmptyRow, addToast, changeButtonToSuccess, checkStatusAddBadges, deleteEmptyRow, removeModal } from '../helpers';
-import { openModal } from '../modal';
-import { ButtonSpinner } from '../spinner/components';
+import moment from 'moment';
+import { CreateEditTaskForm } from '../components/main/section/table/edit_task_form/components';
+import { Row } from '../components/main/section/table/row';
+import { addEmptyRow, addToast, changeButtonToSuccess, checkStatusAddBadges, deleteEmptyRow, removeModal } from '../components/base/helpers';
+import { openModal } from '../components/base/modal';
+import { ButtonSpinner } from '../components/base/spinner/components';
 import { changeStatusToDone } from './change_status_to_done';
 import { checkStatus } from './helpers';
 import styles from './styles.module.scss';

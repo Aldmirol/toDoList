@@ -1,5 +1,5 @@
 import { Button } from '../../../../base/button';
-import { editTask } from '../../../../base/CRUD/components';
+import { editTask } from '../../../../../services/components';
 import { closeModal } from '../../../../base/modal';
 import { RadioButtonsGroup } from '../../../../base/radio_buttons_group';
 import styles from './styles.module.scss';

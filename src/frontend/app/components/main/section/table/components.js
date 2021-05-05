@@ -4,7 +4,7 @@ import {
     HeadingRow
 } from './helpers';
 import { Row } from './row';
-import { openTask } from '../../../base/CRUD/components';
+import { openTask } from '../../../../services/components';
 import moment from 'moment';
 
 export function Table() {
