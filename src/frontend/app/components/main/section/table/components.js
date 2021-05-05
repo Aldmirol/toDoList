@@ -14,6 +14,7 @@ export function Table() {
     const allStatusExeptDoneEl = document.createDocumentFragment();
     const doneStatusEl = document.createDocumentFragment();
     const fr = document.createDocumentFragment();
+    const userId = localStorage.getItem('data-id');
 
     table.classList.add('table', 'table-dark', 'table-hover', 'table-sm', styles.table);
 
@@ -31,35 +32,31 @@ export function Table() {
     fetch('http://localhost:3000/tasks')
         .then(res => res.json())
         .then(tasks => {
-            tasks.forEach(task => {
-                const maxDate = new Date(task.expirationDate);
-                const deadline = moment(maxDate).format('LL');
+                tasks.forEach(task => {
+                    const maxDate = new Date(task.expirationDate);
+                    const deadline = moment(maxDate).format('LL');
 
-                if (task.status !== 'done') {
-                    allStatusExeptDoneEl.append(
-                        Row({
+                    if (task.status === 'done' && task.userId === '' + userId) {
+                        doneStatusEl.append(Row({
                             title: task.title,
                             description: task.description,
-                            status: task.status,
-                            id: task._id,
-                            expirationDate: deadline
-                        })
-                    );
-                } else {
-                    doneStatusEl.append(
-                        Row({
-                            title: task.title,
-                            description: task.description,
-                            status: task.status,
-                            id: task._id,
                             expirationDate: deadline,
+                            status: task.status,
+                            id: task._id,
                             hasDoneStatus: true
-                        })
-                    );
-                }
-            });
-
-            body.append(allStatusExeptDoneEl, doneStatusEl);
+                        }));
+                    } else if (task.status !== 'done' && task.userId === '' + userId) {
+                        allStatusExeptDoneEl.append(Row({
+                            title: task.title,
+                            description: task.description,
+                            expirationDate: deadline,
+                            status: task.status,
+                            id: task._id
+                        }));
+                    }
+                });
+                
+                body.append(allStatusExeptDoneEl, doneStatusEl);
         });
 
     table.append(head, body);

@@ -152,6 +152,9 @@ export function login(e) {
                         removeModal();
                     }, 1000);
                 } else {
+                    localStorage.removeItem('data-id');
+                    localStorage.removeItem('name');
+
                     changeButtonToError({
                         button: button,
                         classList: styles.loginButton
