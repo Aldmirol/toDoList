@@ -27,7 +27,7 @@ export function openLoginForm() {
     const user = localStorage.getItem('name');
 
     if (user) {
-        return;
+        return '';
     } else {
         return Modal({
             title: "Log in",
@@ -39,11 +39,13 @@ export function openLoginForm() {
             hasFooterCloseButton: false,
         });
     }
-    
 }
 
 export function openLoginFormWithAppendToRoot() {
     const root = document.querySelector('#root');
+
+    localStorage.removeItem('data-id');
+    localStorage.removeItem('name');
 
     return root.append(Modal({
         title: "Log in",

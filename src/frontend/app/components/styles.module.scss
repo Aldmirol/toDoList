@@ -7,3 +7,88 @@
     "main"
     "footer";
 }
+
+:global(.row-done-task) {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+:global(body) {
+    :global(#root) {
+        :global(.theme-main-light) {
+            background-color: #bbc5ab;
+        }
+
+        :global(.theme-secondary-light) {
+            background-color: #d5e2bf;
+        }
+
+        :global(.bordered-light) {
+            border-right: 1px solid #bbc5ab;
+            background-color: #BBC5AB;
+
+            @media screen and (max-width: 830px) {
+                border: none;
+                background-color: #D5E2BF;
+            }
+        }
+
+        :global(.bordered-dark) {
+            border-right: none;
+        }
+
+        :global(.theme-text-main-light) {
+            color: #374c61;
+        }
+
+        :global(.theme-aside-buttons-light) {
+            background-color: #e6efd6;
+        }
+
+        :global(.active-aside-buttons) {
+            background-color: #434343;
+        }
+
+        :global(.theme-active-aside-buttons-light) {
+            background-color: #acb996;
+        }
+
+        :global(.theme-table-text-light) {
+            background-color: #e6efd6;
+            color: #374c61;
+            border-color: #374c61;
+        }
+
+        :global(.table) {
+            box-shadow: 1px 2px 8px #000000;
+
+            :global(.edit) {
+                width: 2vw;
+            }
+
+            :global(.title-input) {
+
+                width: 10vw;
+            }
+
+            :global(.description-textarea) {
+                width: 35vw;
+            }
+
+            :global(.status) {
+
+                width: 7vw;
+            }
+
+            :global(.expirationDate) {
+
+                width: 6vw;
+            }
+
+            :global(.delete) {
+
+                width: 2vw;
+            }
+        }
+    }
+}

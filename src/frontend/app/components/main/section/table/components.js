@@ -6,6 +6,7 @@ import {
 import { Row } from './row';
 import { openTask } from '../../../../services/components';
 import moment from 'moment';
+import { addEmptyRow } from '../../../base/helpers';
 
 export function Table() {
     const table = document.createElement('table');
@@ -57,6 +58,8 @@ export function Table() {
                 });
                 
                 body.append(allStatusExeptDoneEl, doneStatusEl);
+
+                addEmptyRow();
         });
 
     table.append(head, body);
