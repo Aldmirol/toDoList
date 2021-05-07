@@ -98,7 +98,7 @@ export function addTask(e) {
                     removeModal();
                 }, 1000);
             });
-    }, 1500);
+    }, 300);
 }
 
 export function editTask(e) {
@@ -179,7 +179,7 @@ export function editTask(e) {
                     removeModal();
                 }, 1000);
             })
-    }, 1500);
+    }, 300);
 }
 
 export function deleteTask(e) {
@@ -215,5 +215,5 @@ export function deleteTask(e) {
                     });
                 }, 1000);
         });
-    }, 1500);
+    }, 300);
 }

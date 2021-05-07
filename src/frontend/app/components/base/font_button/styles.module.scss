@@ -1,18 +1,13 @@
 .edit-button {
     color: #137488;
-    font-size: 1.2rem;
-
-    @media screen and (max-width: 830px) {
-        font-size: 1rem;
-    }
-
-    @media screen and (max-width: 600px) {
-        font-size: 0.8rem;
-    }
 }
 
 .delete-button {
     color: #BB2D3B;
+}
+
+.edit-button,
+.delete-button {
     font-size: 1.2rem;
 
     @media screen and (max-width: 830px) {

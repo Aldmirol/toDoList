@@ -24,19 +24,28 @@ export function openNewUserForm(e) {
 }
 
 export function openLoginForm() {
-    return Modal({
-        title: "Log in",
-        body: LoginForm({
-            isNewUserForm: false,
-            submitHandler: login
-        }),
-        isLoginModal: true,
-        hasFooterCloseButton: false,
-    });
+    const user = localStorage.getItem('name');
+
+    if (user) {
+        return '';
+    } else {
+        return Modal({
+            title: "Log in",
+            body: LoginForm({
+                isNewUserForm: false,
+                submitHandler: login
+            }),
+            isLoginModal: true,
+            hasFooterCloseButton: false,
+        });
+    }
 }
 
 export function openLoginFormWithAppendToRoot() {
     const root = document.querySelector('#root');
+
+    localStorage.removeItem('data-id');
+    localStorage.removeItem('name');
 
     return root.append(Modal({
         title: "Log in",

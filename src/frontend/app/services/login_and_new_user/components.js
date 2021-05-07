@@ -53,7 +53,7 @@ export function addNewUser(e) {
                     }, 1000);
 
                 });
-        }, 1500);
+        }, 300);
     } else {
         setTimeout(() => {
             changeButtonToError({
@@ -73,7 +73,7 @@ export function addNewUser(e) {
                 type: 'danger',
                 hideTime: 2000
             });
-        }, 1500);
+        }, 300);
     }
 }
 
@@ -152,6 +152,9 @@ export function login(e) {
                         removeModal();
                     }, 1000);
                 } else {
+                    localStorage.removeItem('data-id');
+                    localStorage.removeItem('name');
+
                     changeButtonToError({
                         button: button,
                         classList: styles.loginButton
@@ -191,6 +194,6 @@ export function login(e) {
                     hideTime: 2000
                 });
             });
-    }, 1500);
+    }, 300);
 
 }
